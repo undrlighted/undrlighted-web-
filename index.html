@@ -211,6 +211,12 @@ section{padding-block:clamp(80px,12vw,160px)}
 .pack{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) clamp(220px,20vw,280px);gap:clamp(20px,4vw,64px);padding-block:clamp(28px,3.4vw,44px);border-bottom:1px solid var(--line);align-items:start;position:relative}
 .pack::before{content:"";position:absolute;left:calc(-1*clamp(14px,2vw,28px));top:0;bottom:0;width:2px;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .pack:hover::before,.pack:focus-within::before{transform:scaleY(1)}
+.pack.feat{border:1px solid var(--amber);border-radius:14px;padding-inline:clamp(20px,3vw,40px);margin-block:14px;background:linear-gradient(135deg,rgba(217,160,91,.10),rgba(104,47,60,.22) 70%);box-shadow:0 24px 60px -30px rgba(217,160,91,.35)}
+.pack.feat::before{display:none}
+.pack.feat .price b{color:#fff6e6}
+.pack.feat li{color:var(--cream)}
+.pack.feat .book{background:var(--amber);border-color:var(--amber);color:var(--night)}
+.pack.feat .book:hover{background:var(--cream);border-color:var(--cream)}
 .pack .head{display:flex;flex-direction:column;gap:10px}
 .pack h3{font-size:clamp(40px,5vw,72px);line-height:.95}
 .pack .line{font-family:var(--display);font-style:italic;font-size:clamp(19px,1.7vw,23px);color:var(--cream);max-width:30ch}
@@ -456,9 +462,9 @@ const T = {
   packs_h:"Packs",packs_p:"Precios orientativos desde. Cada sesión es distinta: cuéntame tu idea y te paso un presupuesto cerrado.",
   from:"desde",
   packs:[
-   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"120",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
-   {name:"Gaua",line:"Más tiempo, más looks y luz a medida, de día o de noche.",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"El más completo",items:["20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
-   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"Hasta 3 h de cobertura",price:"180",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida según duración"]}
+   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"160",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
+   {name:"Gaua",line:"Más tiempo, más looks y luz a medida, de día o de noche.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"El más completo",items:["20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
+   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"Hasta 3 h de cobertura",price:"290",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida según duración"]}
   ],
   extras_h:"Suplementos",extras_note:"Los packs sirven para retrato, moda, deporte, naturaleza y embarazo. Precios con IVA incluido.",
   extras:[["Foto editada adicional","10 €"],["Retoque beauty (piel a detalle), por foto","+8 €"],["Uso comercial: marcas, anuncios o campañas","según uso"],["Desplazamiento hasta 50 km desde Eibar","incluido"],["Desplazamiento a partir de 50 km","0,30 €/km"],["Maquillaje y estilismo profesional","bajo petición"]],
@@ -501,9 +507,9 @@ const T = {
   packs_h:"Pack-ak",packs_p:"Erreferentziazko prezioak. Saio bakoitza ezberdina da: kontatu zure ideia eta aurrekontu itxia bidaliko dizut.",
   from:"-tik aurrera",
   packs:[
-   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"120",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
-   {name:"Gaua",line:"Denbora gehiago, itxura gehiago eta neurriko argia, egunez zein gauez.",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"Osoena",items:["20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
-   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"Gehienez 3 orduko estaldura",price:"180",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Iraupenaren araberako aurrekontua"]}
+   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"160",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
+   {name:"Gaua",line:"Denbora gehiago, itxura gehiago eta neurriko argia, egunez zein gauez.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"Osoena",items:["20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
+   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"Gehienez 3 orduko estaldura",price:"290",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Iraupenaren araberako aurrekontua"]}
   ],
   extras_h:"Osagarriak",extras_note:"Pack-ak erretratu, moda, kirol, natura eta haurdunaldi saioetarako dira. Prezioek BEZa barne dute.",
   extras:[["Argazki editatu gehigarria","10 €"],["Beauty erretokea (azala xehetasunez), argazkiko","+8 €"],["Erabilera komertziala: markak, iragarkiak, kanpainak","erabileraren arabera"],["Joan-etorria Eibartik 50 km arte","barne"],["Joan-etorria 50 km-tik aurrera","0,30 €/km"],["Makillaje eta estilismo profesionala","eskatuz gero"]],
