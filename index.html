@@ -138,20 +138,26 @@ section{padding-block:clamp(80px,12vw,160px)}
 
 /* Trabajos */
 .works{border-top:1px solid var(--line)}
-.work{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) auto;padding-inline:0;gap:24px;align-items:baseline;padding-block:30px;border-bottom:1px solid var(--line);text-decoration:none;position:relative;cursor:pointer;background:none;border-left:0;border-right:0;border-top:0;color:inherit;font:inherit;text-align:left;width:100%}
-.work h3{font-size:clamp(30px,4vw,56px);line-height:1;transform-origin:left center;transition:transform .5s cubic-bezier(.2,.7,.2,1),color .3s}
-.work p{color:var(--cream-dim);font-size:15px}
-.work .go{min-width:190px;justify-content:flex-end;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;position:relative;padding:8px 0;color:var(--amber);transition:color .4s}
+.work{display:grid;grid-template-columns:clamp(150px,16vw,220px) minmax(0,1.15fr) minmax(0,1fr) auto;gap:clamp(20px,3vw,40px);align-items:center;padding-block:22px;border:0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;cursor:pointer;background:none;color:inherit;font:inherit;text-align:left;width:100%}
+.work .th{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--night-2);margin:0}
+.work .th img{width:100%;height:100%;object-fit:cover;filter:grayscale(.85) brightness(.5);transform:scale(1.04);transition:filter .6s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.work .th::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,246,230,.9),rgba(255,246,230,0) 60%);opacity:0;pointer-events:none}
+.work:hover .th img,.work:focus-visible .th img{filter:none;transform:none}
+.work:hover .th::after,.work:focus-visible .th::after{animation:fl .55s ease-out}
+@keyframes fl{0%{opacity:0}15%{opacity:.85}100%{opacity:0}}
+.work .th.empty{display:grid;place-items:center;border:1px dashed var(--line)}
+.work .th.empty span{font-family:var(--display);font-style:italic;font-size:clamp(18px,1.8vw,24px);color:var(--cream-faint)}
+.work h3{font-size:clamp(28px,3.4vw,50px);line-height:1;transform-origin:left center;transition:transform .5s cubic-bezier(.2,.7,.2,1),color .3s}
+.work p{color:var(--cream-dim);font-size:15px;max-width:46ch}
+.work .go{min-width:170px;justify-content:flex-end;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;display:inline-flex;align-items:center;gap:10px;position:relative;padding:8px 0;color:var(--amber);transition:color .4s}
 .work .go i{display:inline-block;width:18px;height:1px;background:var(--amber);position:relative;transition:width .5s cubic-bezier(.2,.7,.2,1)}
 .work .go i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid var(--amber);border-right:1px solid var(--amber);transform:rotate(45deg)}
-.work .go::before{content:"";position:absolute;left:-14px;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;background:#fff6e6;opacity:0;transform:scale(.3);box-shadow:0 0 0 0 rgba(255,246,230,.7)}
 .work:hover .go,.work:focus-visible .go{color:#fff6e6}
 .work:hover .go i,.work:focus-visible .go i{width:46px}
-.work:hover .go::before,.work:focus-visible .go::before{animation:pop .7s ease-out}
-@keyframes pop{0%{opacity:0;transform:scale(.3);box-shadow:0 0 0 0 rgba(255,246,230,.8)}25%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1);box-shadow:0 0 0 18px rgba(255,246,230,0)}}
-.work:hover h3,.work:focus-visible h3{transform:scale(1.08);font-style:italic;color:#fff}
+.work:hover h3,.work:focus-visible h3{transform:translateX(6px);font-style:italic;color:#fff}
 .works:hover .work:not(:hover) h3{color:var(--cream-faint)}
-@media (max-width:860px){.work{grid-template-columns:1fr;gap:10px}.work .go{min-width:0;justify-content:flex-start}}
+@media (max-width:1100px){.work{grid-template-columns:clamp(150px,22vw,220px) minmax(0,1fr) auto}.work p{grid-column:2;grid-row:2}.work h3{grid-column:2}.work .th{grid-row:1/3}.work .go{grid-row:1/3;grid-column:3}}
+@media (max-width:700px){.work{grid-template-columns:1fr;gap:12px;padding-block:28px}.work .th,.work h3,.work p,.work .go{grid-column:1;grid-row:auto}.work .th{aspect-ratio:16/10}.work .th img{filter:grayscale(.2) brightness(.85)}.work .go{min-width:0;justify-content:flex-start}}
 
 /* Galería */
 .back{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px;padding-block:13px;text-decoration:none;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);transition:color .3s}
@@ -198,26 +204,27 @@ section{padding-block:clamp(80px,12vw,160px)}
 @media (max-width:520px){.steps{grid-template-columns:1fr}}
 
 /* Packs */
-.packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.pack{border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:20px;position:relative;transition:border-color .4s,background .4s}
-.pack:hover{border-color:var(--cream-faint);background:var(--night-2)}
-.pack.feat{background:var(--wine-deep);border-color:var(--wine-deep)}
-.pack.feat:hover{background:var(--wine)}
-.pack h3{font-size:clamp(30px,3vw,42px)}
+.packs{border-top:1px solid var(--cream-faint)}
+.pack{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) clamp(220px,20vw,280px);gap:clamp(20px,4vw,64px);padding-block:clamp(28px,3.4vw,44px);border-bottom:1px solid var(--line);align-items:start;position:relative}
+.pack::before{content:"";position:absolute;left:calc(-1*clamp(14px,2vw,28px));top:0;bottom:0;width:2px;background:var(--amber);transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.pack:hover::before,.pack:focus-within::before{transform:scaleY(1)}
+.pack .head{display:flex;flex-direction:column;gap:10px}
+.pack h3{font-size:clamp(40px,5vw,72px);line-height:.95}
+.pack .line{font-family:var(--display);font-style:italic;font-size:clamp(19px,1.7vw,23px);color:var(--cream);max-width:30ch}
 .pack .dur{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--amber)}
-.pack.feat .dur{color:var(--cream)}
-.pack.feat .price small{color:var(--cream)}
-.price small.eu{text-transform:none;letter-spacing:0;margin-left:-8px;font-size:15px}
-.price{display:flex;align-items:baseline;gap:10px}
+.pack .rec{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.pack .rec::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:8px;vertical-align:1px;box-shadow:0 0 0 4px rgba(217,160,91,.15)}
+.price small.eu{text-transform:none;letter-spacing:0;margin-left:-6px;font-size:15px}
+.price{display:flex;align-items:baseline;gap:10px;justify-content:flex-end;white-space:nowrap}
 .price small{font-size:13px;color:var(--cream-dim);text-transform:uppercase;letter-spacing:.12em}
-.price b{font-family:var(--display);font-weight:400;font-size:clamp(52px,6vw,76px);line-height:1;font-variant-numeric:lining-nums}
-.pack ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.price b{font-family:var(--display);font-weight:400;font-size:clamp(48px,5.4vw,72px);line-height:1;font-variant-numeric:lining-nums}
+.pack .side{display:flex;flex-direction:column;align-items:flex-end;gap:20px}
+.pack ul{list-style:none;margin:0;padding:6px 0 0;display:flex;flex-direction:column;gap:10px;font-size:15px}
 .pack li{display:grid;grid-template-columns:18px 1fr;gap:8px;color:var(--cream-dim)}
-.pack.feat li{color:var(--cream)}
-.pack li::before{content:"";width:9px;height:9px;border-radius:50%;border:1px solid currentColor;margin-top:8px}
-.ribbon{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--cream);border-radius:999px;padding:4px 10px}
-@media (max-width:960px){.packs{grid-template-columns:1fr}}
-.extras{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;border-top:1px solid var(--line);padding-top:32px}
+.pack li::before{content:"";width:10px;height:1px;background:currentColor;margin-top:12px}
+@media (max-width:900px){.pack{grid-template-columns:1fr auto}.pack ul{grid-column:1/-1;grid-row:2}.pack .side{grid-row:1;grid-column:2}}
+@media (max-width:560px){.pack{grid-template-columns:1fr}.pack .side{grid-column:1;grid-row:auto;align-items:flex-start}.price{justify-content:flex-start}.pack::before{left:-12px}}
+.extras{margin-top:clamp(48px,6vw,80px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px}
 .extras dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0}
 .extras dt,.extras dd{padding:12px 0;border-bottom:1px solid var(--line);margin:0}
 .extras dt{color:var(--cream-dim)}
@@ -244,7 +251,7 @@ section{padding-block:clamp(80px,12vw,160px)}
 .hint{margin-top:14px;color:var(--cream-dim);font-size:15px;max-width:40ch}
 .band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;margin-top:clamp(56px,7vw,96px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
 .band-h{font-family:var(--display);font-style:italic;font-size:clamp(28px,3.4vw,46px);line-height:1.1}
-.pack .book{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 20px;border:1px solid var(--cream);border-radius:999px;text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:background .3s,color .3s}
+.pack .book{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 20px;border:1px solid var(--cream);border-radius:999px;text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:background .3s,color .3s}
 .pack .book:hover{background:var(--cream);color:var(--night)}
 .pack .book svg{width:12px;height:12px}
 .where{margin-top:28px;color:var(--cream-dim);display:flex;gap:10px;align-items:center}
@@ -254,9 +261,12 @@ section{padding-block:clamp(80px,12vw,160px)}
 footer{border-top:1px solid var(--line);padding-block:28px;font-size:13px;color:var(--cream-faint)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding-block:18px;white-space:nowrap}
-.marquee div{display:inline-flex;gap:48px;animation:mq 40s linear infinite;font-family:var(--display);font-style:italic;font-size:clamp(26px,3vw,40px);color:var(--cream-dim)}
-.marquee span::after{content:"✦";font-style:normal;font-size:.5em;margin-left:48px;color:var(--wine);vertical-align:middle}
+.strip{overflow:hidden;padding-block:14px;border-block:1px solid var(--line);background:#0f141b}
+.strip-track{display:flex;gap:8px;width:max-content;animation:mq 90s linear infinite}
+.strip:hover .strip-track,.strip:focus-within .strip-track{animation-play-state:paused}
+.strip a{display:block;flex:none;height:clamp(150px,17vw,230px);overflow:hidden;background:var(--night-2)}
+.strip img{height:100%;width:auto;display:block;filter:brightness(.72);transition:filter .5s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.strip a:hover img,.strip a:focus-visible img{filter:none;transform:scale(1.03)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 @media (max-width:560px){.hero h1{font-size:clamp(38px,11vw,60px)}.hero h1 .l:nth-child(2){padding-left:0}}
@@ -264,6 +274,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   .flash{display:none}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .rv{transform:none}
+  .strip{overflow-x:auto}
 }
 </style>
 </head>
@@ -306,7 +317,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+  <nav class="strip" aria-label="" id="strip"><div class="strip-track" id="mq"></div></nav>
   <section class="home-about">
     <div class="wrap about">
       <figure class="rv"><img src="img/about-01.jpg" alt="Adur, autorretrato con flash" loading="lazy"></figure>
@@ -426,7 +437,7 @@ const T = {
   hero_l1:"La luz que nace",hero_l2:"de la oscuridad",
   hero_p:"Retratos con flash, en la calle y en estudio. Preparo cada sesión al detalle para que solo tengas que disfrutar de la experiencia.",
   cta:"Reserva tu sesión",cta2:"Ver trabajos",next:"Siguiente",
-  marquee:["Retrato","Moda","Estudio","Deporte","Naturaleza","Embarazo","Eventos","Marcas","Flash"],
+  soon:"Próximamente",strip_l:"Fotos de cada tipo de trabajo",
   about_eyebrow:"Sobre mí",
   about_lead:"Fotografiar es escribir con luz. Yo escribo con la que nace del flash, cuando todo lo demás se apaga.",
   about_p1:"Soy Adur y vengo de Eibar, tierra de armeros y bicicletas, y de la ingeniería, donde nada se deja al azar. Por eso cada sesión empieza mucho antes del primer disparo: busco el lugar, dibujo el esquema de luz, imagino las poses y guardo un plan B por si llueve. Antes de vernos recibirás un dossier con la idea, las referencias y toda la información necesaria.",
@@ -442,9 +453,9 @@ const T = {
   packs_h:"Packs",packs_p:"Precios orientativos desde. Cada sesión es distinta: cuéntame tu idea y te paso un presupuesto cerrado.",
   from:"desde",
   packs:[
-   {name:"Argia",dur:"1 h – 1 h 30 min",price:"120",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
-   {name:"Gaua",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"El más completo",items:["20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
-   {name:"Eventos",dur:"Hasta 3 h de cobertura",price:"180",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida según duración"]}
+   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"120",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
+   {name:"Gaua",line:"Más tiempo, más looks y luz a medida, de día o de noche.",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"El más completo",items:["20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
+   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"Hasta 3 h de cobertura",price:"180",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida según duración"]}
   ],
   extras_h:"Suplementos",extras_note:"Los packs sirven para retrato, moda, deporte, naturaleza y embarazo. Precios con IVA incluido.",
   extras:[["Foto editada adicional","10 €"],["Retoque beauty (piel a detalle), por foto","+8 €"],["Uso comercial: marcas, anuncios o campañas","según uso"],["Desplazamiento hasta 50 km desde Eibar","incluido"],["Desplazamiento a partir de 50 km","0,30 €/km"],["Maquillaje y estilismo profesional","bajo petición"]],
@@ -471,7 +482,7 @@ const T = {
   hero_l1:"Iluntasunetik",hero_l2:"jaiotzen den argia",
   hero_p:"Flash bidezko erretratuak, kalean eta estudioan. Saio bakoitza xehetasunez prestatzen dut, esperientziaz gozatu besterik egin behar ez dezazun.",
   cta:"Erreserbatu zure saioa",cta2:"Lanak ikusi",next:"Hurrengoa",
-  marquee:["Erretratua","Moda","Estudioa","Kirola","Natura","Haurdunaldia","Ekitaldiak","Markak","Flasha"],
+  soon:"Laster",strip_l:"Lan mota bakoitzeko argazkiak",
   about_eyebrow:"Aurkezpena",
   about_lead:"Argazkilaritza argiarekin idaztea da. Nik, flashetik jaiotzen den argiaz idazten dut gainerako guztia itzaltzen denean.",
   about_p1:"Adur naiz, eta Eibartik nator, armagin eta bizikleten herritik, eta ingeniari naizenetik, ezer zoriaren esku uzten ez den mundutik. Horregatik, saio bakoitza lehen argazkia baino askoz lehenago hasten da: lekua bilatzen dut, argi eskemak irudikatzen ditut, jarrerak lantzen ditut eta B plan bat gordetzen dut euria egingo balu. Elkar ikusi aurretik dosier bat jasoko duzu, ideiekin, erreferentziekin eta beharrezko informazio guztiarekin.",
@@ -487,9 +498,9 @@ const T = {
   packs_h:"Pack-ak",packs_p:"Erreferentziazko prezioak. Saio bakoitza ezberdina da: kontatu zure ideia eta aurrekontu itxia bidaliko dizut.",
   from:"-tik aurrera",
   packs:[
-   {name:"Argia",dur:"1 h – 1 h 30 min",price:"120",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
-   {name:"Gaua",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"Osoena",items:["20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
-   {name:"Ekitaldiak",dur:"Gehienez 3 orduko estaldura",price:"180",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Iraupenaren araberako aurrekontua"]}
+   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"120",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
+   {name:"Gaua",line:"Denbora gehiago, itxura gehiago eta neurriko argia, egunez zein gauez.",dur:"2 h – 2 h 30 min",price:"220",feat:true,ribbon:"Osoena",items:["20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
+   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"Gehienez 3 orduko estaldura",price:"180",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Iraupenaren araberako aurrekontua"]}
   ],
   extras_h:"Osagarriak",extras_note:"Pack-ak erretratu, moda, kirol, natura eta haurdunaldi saioetarako dira. Prezioek BEZa barne dute.",
   extras:[["Argazki editatu gehigarria","10 €"],["Beauty erretokea (azala xehetasunez), argazkiko","+8 €"],["Erabilera komertziala: markak, iragarkiak, kanpainak","erabileraren arabera"],["Joan-etorria Eibartik 50 km arte","barne"],["Joan-etorria 50 km-tik aurrera","0,30 €/km"],["Makillaje eta estilismo profesionala","eskatuz gero"]],
@@ -513,6 +524,8 @@ const T = {
 };
 
 const ORDER=["exteriores","estudio","deporte","naturaleza","embarazo","eventos","marcas"];
+const COVER={exteriores:"img/retrato-moda-exteriores-16.jpg",estudio:"img/retrato-moda-estudio-04.jpg",deporte:"img/deporte-01.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-21.jpg"};
+const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-21","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-01","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
 const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-21.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
 
@@ -528,13 +541,13 @@ function applyText(){
   document.querySelectorAll("[data-i18n-html]").forEach(el=>{el.innerHTML=t(el.dataset.i18nHtml)});
   document.querySelectorAll(".navlinks a").forEach(a=>{const x=a.textContent;a.innerHTML=`<span class="rl"><b>${x}</b><b aria-hidden="true">${x}</b></span>`});
   document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
-  const m=t("marquee"); $("#mq").innerHTML=[...m,...m].map(w=>`<span>${w}</span>`).join("");
+  $("#strip").setAttribute("aria-label",t("strip_l"));$("#mq").innerHTML=[...STRIP,...STRIP].map(([f,c],i)=>`<a href="#galeria/${c}"${i>=STRIP.length?' tabindex="-1" aria-hidden="true"':""}><img src="img/${f}.jpg" alt="${t("works")[c][0]}" loading="lazy" decoding="async"></a>`).join("");
   document.querySelectorAll("[data-wa]").forEach(a=>a.href=wa(t("wa_msg")));
   renderWorks(); renderFilters(); renderSteps(); renderPacks();
 }
 
 function renderWorks(){
-  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];return `<button class="work rv in" type="button" data-cat="${k}"><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></button>`}).join("");
+  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];const c=COVER[k];return `<button class="work rv in" type="button" data-cat="${k}"><figure class="th${c?"":" empty"}">${c?`<img src="${c}" alt="" loading="lazy">`:`<span>${t("soon")}</span>`}</figure><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></button>`}).join("");
   document.querySelectorAll(".work").forEach(b=>b.addEventListener("click",e=>{flashAt(e);location.hash=HAS(b.dataset.cat)?"galeria/"+b.dataset.cat:"contacto"}));
 }
 
@@ -561,7 +574,7 @@ function renderSteps(){
 const wa=m=>"https://wa.me/34623828791?text="+encodeURIComponent(m);
 function renderPacks(){
   const from=t("from");
-  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}">${p.ribbon?`<span class="ribbon">${p.ribbon}</span>`:""}<span class="dur">${p.dur}</span><h3>${p.name}</h3><div class="price">${lang==="es"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${t("book")} ${p.name}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></article>`).join("");
+  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}"><div class="head">${p.ribbon?`<span class="rec">${p.ribbon}</span>`:""}<h3>${p.name}</h3><p class="line">${p.line}</p><span class="dur">${p.dur}</span></div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="side"><div class="price">${lang==="es"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${t("book")} ${p.name}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></article>`).join("");
   $("#extrasList").innerHTML=t("extras").map(e=>`<dt>${e[0]}</dt><dd>${e[1]}</dd>`).join("");
 }
 
