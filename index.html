@@ -139,13 +139,16 @@ section{padding-block:clamp(80px,12vw,160px)}
 /* Trabajos */
 .works{border-top:1px solid var(--line)}
 .work{display:grid;grid-template-columns:clamp(150px,16vw,220px) minmax(0,1.15fr) minmax(0,1fr) auto;gap:clamp(20px,3vw,40px);align-items:center;padding-block:22px;border:0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;cursor:pointer;background:none;color:inherit;font:inherit;text-align:left;width:100%}
-.work .th{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--night-2);margin:0}
-.work .th img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.85) brightness(.5);transform:scale(1.04);transition:filter .6s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.work .th{position:relative;aspect-ratio:4/3;overflow:hidden;margin:0;border-radius:18px;-webkit-mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000 38%,transparent 100%);mask-image:radial-gradient(ellipse 58% 60% at 50% 50%,#000 38%,transparent 100%);transition:-webkit-mask-size .8s,mask-size .8s}
+.work .th img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.85) brightness(.55);transform:scale(1.08);animation:drift 14s ease-in-out infinite alternate;transition:filter .6s cubic-bezier(.2,.7,.2,1)}
+.work:nth-child(even) .th img{animation-direction:alternate-reverse;animation-duration:17s}
+@keyframes drift{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.14) translate(2%,1.5%)}}
 .work .th::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,246,230,.9),rgba(255,246,230,0) 60%);opacity:0;pointer-events:none}
-.work:hover .th img,.work:focus-visible .th img{filter:none;transform:none}
+.work:hover .th img,.work:focus-visible .th img{filter:none}
+.work:hover .th,.work:focus-visible .th{-webkit-mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 52%,transparent 100%);mask-image:radial-gradient(ellipse 70% 72% at 50% 50%,#000 52%,transparent 100%)}
 .work:hover .th::after,.work:focus-visible .th::after{animation:fl .55s ease-out}
 @keyframes fl{0%{opacity:0}15%{opacity:.85}100%{opacity:0}}
-.work .th.empty{display:grid;place-items:center;border:1px dashed var(--line)}
+.work .th.empty{display:grid;place-items:center;background:var(--night-2)}
 .work .th.empty span{font-family:var(--display);font-style:italic;font-size:clamp(18px,1.8vw,24px);color:var(--cream-faint)}
 .work h3{font-size:clamp(28px,3.4vw,50px);line-height:1;transform-origin:left center;transition:transform .5s cubic-bezier(.2,.7,.2,1),color .3s}
 .work p{color:var(--cream-dim);font-size:15px;max-width:46ch}
@@ -293,8 +296,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <a href="#contacto" data-i18n="nav_contact"></a>
       </div>
       <div class="lang" role="group" aria-label="Hizkuntza / Idioma">
-        <button type="button" data-lang="eu" aria-pressed="false">EU</button>
-        <button type="button" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang="eu" aria-pressed="true">EU</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
       </div>
       <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" data-i18n="menu"></button>
     </nav>
@@ -529,8 +532,8 @@ const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
 const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-21.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
 
-let lang="es", filter="all", view=[], idx=0, page="";
-try{const s=localStorage.getItem("ul-lang"); if(s==="eu"||s==="es") lang=s;}catch(e){}
+let lang="eu", filter="all", view=[], idx=0, page="";
+try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es") lang=s;}catch(e){}
 
 const $=s=>document.querySelector(s);
 const t=k=>T[lang][k];
@@ -609,7 +612,7 @@ const solid=()=>$("#top").classList.toggle("solid",page!=="inicio"||scrollY>40);
 addEventListener("scroll",solid,{passive:true});
 $("#menuBtn").addEventListener("click",()=>{const n=$("#nav");const o=n.classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o)});
 document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>{$("#nav").classList.remove("open")}));
-document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;try{localStorage.setItem("ul-lang",lang)}catch(e){}applyText();renderGrid();}));
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;try{sessionStorage.setItem("ul-lang",lang)}catch(e){}applyText();renderGrid();}));
 document.addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const done=()=>{b.textContent=t("copied");setTimeout(()=>b.textContent=t("copy"),1600)};
   try{navigator.clipboard.writeText(b.dataset.copy).then(done,()=>{selectV(b)})}catch(err){selectV(b)}});
 function selectV(b){const v=b.closest(".ch").querySelector(".v");const r=document.createRange();r.selectNodeContents(v);const s=getSelection();s.removeAllRanges();s.addRange(r);}
