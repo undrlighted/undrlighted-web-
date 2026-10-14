@@ -189,6 +189,13 @@ section{padding-block:clamp(80px,12vw,160px)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
 .filters button{background:none;border:1px solid var(--line);color:var(--cream-dim);border-radius:999px;padding:9px 16px;min-height:44px;font:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;transition:all .25s}
 .filters button:hover{color:var(--cream);border-color:var(--cream-faint)}
+.topic{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin:-18px 0 34px}
+.topic[hidden]{display:none}
+.topic label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim)}
+.topic select{-webkit-appearance:none;appearance:none;background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23F2EEE7' stroke-width='1.4'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 16px center;border:1px solid var(--line);border-radius:999px;color:var(--cream);font:inherit;font-size:16px;padding:9px 44px 9px 18px;min-height:44px;cursor:pointer;transition:border-color .25s ease}
+.topic select:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.topic select option{background:var(--night);color:var(--cream)}
+@media (hover:hover) and (pointer:fine){.topic select:hover{border-color:var(--cream-faint)}}
 .filters button[aria-pressed="true"]{background:var(--cream);color:var(--night);border-color:var(--cream)}
 .grid{columns:3 300px;column-gap:14px}
 .ph{break-inside:avoid;margin:0 0 14px;position:relative;overflow:hidden;cursor:zoom-in;background:var(--night-2)}
@@ -452,6 +459,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
       <a class="back" href="#trabajos"><i></i><span data-i18n="back_work"></span></a>
       <div class="sec-head"><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></div>
       <div class="filters" id="filters" role="group"></div>
+      <div class="topic" id="topicWrap"><label for="topic" data-i18n="topic_l"></label><select id="topic"></select></div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
@@ -538,7 +546,7 @@ const T = {
   f1b:"Flash",f1s:"en exterior y en estudio",f2b:"Dossier",f2s:"antes de cada sesión",f3b:"Euskal Herria",f3s:"desde Eibar, a cualquier rincón",
   work_h:"Tipos de <em>trabajo</em>",work_p:"Elige uno y te llevo a sus fotos.",
   gal_h:"Galería",gal_p:"<b>¿Te gusta lo que ves?</b> Tú podrías ser el protagonista de estas imágenes.",gal_btn:"Reserva tu sesión",back_work:"Volver a Trabajos",
-  all:"Todo",
+  all:"Todo",topic_l:"Filtrar por tema",topic_all:"Todos los temas",
   proc_h:"Cómo <em>trabajo</em>",proc_p:"Cuatro pasos, siempre los mismos, para que sepas qué esperar.",
   steps:[["Nos conocemos","Me cuentas qué buscas, para qué son las fotos y qué fecha te viene bien."],["Dossier","Te envío la idea, referencias, looks recomendados, localización y toda la información necesaria."],["Sesión","Yo me ocupo de la luz y te ayudo con las poses. No necesitas experiencia."],["Entrega","Recibes tus fotos editadas en una galería online para descargar."]],
   packs_h:"Packs",packs_p:"Precios orientativos desde. Cada sesión es distinta: cuéntame tu idea y te paso un presupuesto cerrado.",
@@ -584,7 +592,7 @@ const T = {
   f1b:"Flasha",f1s:"kalean eta estudioan",f2b:"Dosierra",f2s:"saio bakoitzaren aurretik",f3b:"Euskal Herria",f3s:"Eibartik, edozein txokotara",
   work_h:"Lan <em>motak</em>",work_p:"Aukeratu bat eta bere argazkietara eramango zaitut.",
   gal_h:"Galeria",gal_p:"<b>Ikusten duzuna gogoko duzu?</b> Zu izan zaitezke irudi hauen protagonista.",gal_btn:"Erreserbatu zure saioa",back_work:"Lanetara itzuli",
-  all:"Guztiak",
+  all:"Guztiak",topic_l:"Gaiaren arabera iragazi",topic_all:"Gai guztiak",
   proc_h:"Nola <em>egiten dut lan</em>",proc_p:"Lau urrats, beti berberak, zer espero jakin dezazun.",
   steps:[["Elkar ezagutuko dugu","Zer bilatzen duzun, argazkiak zertarako diren eta zein data datorkizun ondo kontatuko didazu."],["Dosierra","Ideia, erreferentziak, gomendatutako jantziak, lekua eta beharrezko informazio guztia bidaliko dizkizut."],["Saioa","Argiaz ni arduratzen naiz eta jarreretan lagunduko zaitut. Ez duzu esperientziarik behar."],["Entrega","Zure argazki editatuak online galeria batean jasoko dituzu, deskargatzeko."]],
   packs_h:"Pack-ak",packs_p:"Erreferentziazko prezioak. Saio bakoitza ezberdina da: kontatu zure ideia eta aurrekontu itxia bidaliko dizut.",
@@ -620,7 +628,8 @@ const ORDER=["exteriores","estudio","deporte","naturaleza","embarazo","eventos",
 const COVER={exteriores:"img/retrato-moda-exteriores-22.jpg",estudio:"img/retrato-moda-estudio-13.jpg",deporte:"img/deporte-01.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-27.jpg"};
 const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-21","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-01","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
 const IN=(p,k)=>p[1]===k||(p[4]||[]).includes(k);
-const HAS=k=>PHOTOS.some(p=>IN(p,k));
+const HAS=k=>PHOTOS.some(p=>p[1]===k);
+let topic="";
 const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-21.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
 
 let lang="eu", filter="all", view=[], idx=0, page="";
@@ -648,12 +657,14 @@ function renderWorks(){
 function renderFilters(){
   $("#filters").innerHTML=["all",...ORDER.filter(HAS)].map(k=>`<button type="button" data-f="${k}" aria-pressed="${k===filter}">${k==="all"?t("all"):t("works")[k][0]}</button>`).join("");
   document.querySelectorAll("#filters button").forEach(b=>b.addEventListener("click",()=>setFilter(b.dataset.f)));
+  $("#topic").innerHTML=`<option value="">${t("topic_all")}</option>`+ORDER.filter(k=>PHOTOS.some(p=>IN(p,k))).map(k=>`<option value="${k}"${k===topic?" selected":""}>${t("works")[k][0]}</option>`).join("");
 }
 
-function setFilter(f){if(f!==filter&&location.hash.startsWith("#galeria")){try{history.replaceState(null,"","#galeria"+(f==="all"?"":"/"+f))}catch(e){}}filter=f;document.querySelectorAll("#filters button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));renderGrid();}
+function setFilter(f){if(f!==filter&&location.hash.startsWith("#galeria")){try{history.replaceState(null,"","#galeria"+(f==="all"?"":"/"+f))}catch(e){}}filter=f;topic="";$("#topic").value="";document.querySelectorAll("#filters button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));renderGrid();}
 
 function renderGrid(){
-  view=PHOTOS.filter(p=>filter==="all"||IN(p,filter));
+  view=filter==="all"?PHOTOS.filter(p=>!topic||IN(p,topic)):PHOTOS.filter(p=>p[1]===filter);
+  $("#topicWrap").hidden=filter!=="all";
   $("#grid").innerHTML=view.map((p,i)=>`<figure class="ph enter" tabindex="0" data-i="${i}" style="animation-delay:${Math.min(i,12)*40}ms"><img src="${p[0]}" width="${p[2]}" height="${p[3]}" loading="lazy" alt="${t("works")[p[1]][0]}"><figcaption class="tag">${t("works")[p[1]][0]}</figcaption></figure>`).join("");
   document.querySelectorAll(".ph").forEach(el=>{
     const open=()=>openLb(+el.dataset.i);
@@ -702,6 +713,7 @@ if(!reduce) loop();
 /* Cabecera, menú, idioma, copiar */
 const solid=()=>$("#top").classList.toggle("solid",page!=="inicio"||scrollY>40);
 addEventListener("scroll",solid,{passive:true});
+$("#topic").addEventListener("change",e=>{topic=e.target.value;renderGrid()});
 $("#menuBtn").addEventListener("click",()=>{const n=$("#nav");const o=n.classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o)});
 document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>{$("#nav").classList.remove("open")}));
 document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;try{sessionStorage.setItem("ul-lang",lang)}catch(e){}applyText();renderGrid();}));
@@ -733,7 +745,7 @@ document.addEventListener("keydown",e=>{const o=$("#offer");if(o.hidden)return;i
 function route(){
   const [p,sub]=(location.hash.slice(1)||"inicio").split("/");
   const next=PAGES.includes(p)?p:"inicio";
-  if(next==="galeria"){const f=ORDER.includes(sub)&&HAS(sub)?sub:"all";if(f!==filter){filter=f;renderFilters();renderGrid()}}
+  if(next==="galeria"){const f=ORDER.includes(sub)&&HAS(sub)?sub:"all";if(f!==filter){filter=f;topic="";renderFilters();renderGrid()}}
   if(next!==page){
     document.querySelectorAll(".page").forEach(el=>el.classList.toggle("active",el.dataset.page===next));
     page=next;window.scrollTo(0,0);
