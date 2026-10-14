@@ -89,10 +89,11 @@ nav a:hover,nav a[aria-current="page"]{color:var(--cream)}
 /* Hero con foco */
 .hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero-slides{position:absolute;inset:0;z-index:-2}
-.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.8s ease,transform 9s linear}
-.hero-slides img.on{opacity:1;transform:scale(1)}
-.spot{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(circle at var(--x,62%) var(--y,38%),rgba(21,27,36,0) 0,rgba(21,27,36,.05) 9vmax,rgba(21,27,36,.78) 30vmax,rgba(21,27,36,.92) 60vmax)}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.hero-slides img.on{opacity:1}
+.hero-slides img{object-position:50% 30%}
+@media (min-width:900px){.hero-slides{left:auto;width:58%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}.spot{display:none}}
+.spot{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(21,27,36,.72) 0%,rgba(21,27,36,.35) 45%,rgba(21,27,36,0) 75%)}
 .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(to top,var(--night),transparent);z-index:-1}
 .hero-copy{padding-block:120px 64px;width:100%}
 .hero h1{font-size:clamp(54px,10.5vw,168px);line-height:.9;letter-spacing:-.02em}
@@ -632,7 +633,7 @@ const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-
 const IN=(p,k)=>p[1]===k||(p[4]||[]).includes(k);
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
 let topic="";
-const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-22.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
+const HERO=["img/retrato-moda-exteriores-06.jpg","img/retrato-moda-exteriores-10.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-22.jpg","img/eventos-33.jpg"];
 
 let lang="eu", filter="all", view=[], idx=0, page="";
 try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es") lang=s;}catch(e){}
@@ -705,12 +706,7 @@ slides.innerHTML=HERO.map((s,i)=>`<img src="${s}" alt="" ${i===0?'class="on"':'l
 let si=0;const imgs=slides.querySelectorAll("img");
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(!reduce) setInterval(()=>{imgs[si].classList.remove("on");si=(si+1)%imgs.length;imgs[si].classList.add("on");},6000);
-const spot=$("#spot"),hero=$("#hero");
-let tgt={x:62,y:38},cur={x:62,y:38},auto=true,tt=0;
-hero.addEventListener("pointermove",e=>{if(e.pointerType!=="mouse")return;auto=false;const r=hero.getBoundingClientRect();tgt.x=(e.clientX-r.left)/r.width*100;tgt.y=(e.clientY-r.top)/r.height*100;});
-hero.addEventListener("pointerleave",()=>{auto=true});
-function loop(){if(page!=="inicio"){requestAnimationFrame(loop);return;}tt+=.006;if(auto){tgt.x=58+18*Math.sin(tt);tgt.y=36+10*Math.cos(tt*1.3);}cur.x+=(tgt.x-cur.x)*.08;cur.y+=(tgt.y-cur.y)*.08;spot.style.setProperty("--x",cur.x+"%");spot.style.setProperty("--y",cur.y+"%");requestAnimationFrame(loop);}
-if(!reduce) loop();
+
 
 /* Cabecera, menú, idioma, copiar */
 const solid=()=>$("#top").classList.toggle("solid",page!=="inicio"||scrollY>40);
