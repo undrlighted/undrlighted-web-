@@ -341,7 +341,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 
 .strip{overflow:hidden;padding-block:14px;border-block:1px solid var(--line);background:#0f141b}
 .strip-track{display:flex;gap:8px;width:max-content;animation:mq 90s linear infinite}
-.strip:hover .strip-track,.strip:focus-within .strip-track{animation-play-state:paused}
+@media (hover:hover) and (pointer:fine){.strip:hover .strip-track{animation-play-state:paused}}
+.strip:focus-within .strip-track{animation-play-state:paused}
+@media (max-width:700px){.strip-track{animation-duration:38s}}
 .strip a{display:block;flex:none;height:clamp(150px,17vw,230px);overflow:hidden;background:var(--night-2)}
 .strip img{height:100%;width:auto;display:block;filter:brightness(.72);transition:filter .5s,transform .8s cubic-bezier(.2,.7,.2,1)}
 .strip a:hover img,.strip a:focus-visible img{filter:none;transform:scale(1.03)}
