@@ -626,11 +626,11 @@ const T = {
 
 const ORDER=["exteriores","estudio","deporte","naturaleza","embarazo","eventos","marcas"];
 const COVER={exteriores:"img/retrato-moda-exteriores-22.jpg",estudio:"img/retrato-moda-estudio-13.jpg",deporte:"img/deporte-01.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-27.jpg"};
-const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-21","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-01","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
+const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-22","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-01","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
 const IN=(p,k)=>p[1]===k||(p[4]||[]).includes(k);
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
 let topic="";
-const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-21.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
+const HERO=["img/retrato-moda-exteriores-01.jpg","img/retrato-moda-exteriores-10.jpg","img/eventos-22.jpg","img/retrato-moda-estudio-06.jpg","img/retrato-moda-exteriores-06.jpg"];
 
 let lang="eu", filter="all", view=[], idx=0, page="";
 try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es") lang=s;}catch(e){}
