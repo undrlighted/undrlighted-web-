@@ -465,7 +465,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
   <section>
     <div class="wrap">
       <a class="back" href="#trabajos"><i></i><span data-i18n="back_work"></span></a>
-      <div class="sec-head"><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></div>
+      <div class="sec-head"><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p id="galP" data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span id="galB" data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></div>
       <div class="filters" id="filters" role="group"></div>
       <div class="topic" id="topicWrap"><label for="topic" data-i18n="topic_l"></label><select id="topic"></select></div>
       <div class="grid" id="grid"></div>
@@ -553,7 +553,7 @@ const T = {
   about_close:"Todos tenemos una luz propia. Mi trabajo es encontrarla.",
   f1b:"Flash",f1s:"en exterior y en estudio",f2b:"Dossier",f2s:"antes de cada sesión",f3b:"Euskal Herria",f3s:"desde Eibar, a cualquier rincón",
   work_h:"Tipos de <em>trabajo</em>",work_p:"Elige uno y te llevo a sus fotos.",
-  gal_h:"Galería",gal_p:"<b>¿Te gusta lo que ves?</b> Tú podrías ser el protagonista de estas imágenes.",gal_btn:"Reserva tu sesión",back_work:"Volver a Trabajos",
+  gal_h:"Galería",gal_p:"<b>¿Te gusta lo que ves?</b> Tú podrías ser el protagonista de estas imágenes.",gal_btn:"Reserva tu sesión",gal_btn_q:"Pide tu presupuesto",gal_p_eventos:"<b>¿Tienes un evento?</b> Cuéntame qué es y te preparo un presupuesto a medida.",gal_p_marcas:"<b>¿Tienes una marca?</b> Cuéntame tu idea y te preparo un presupuesto a medida.",back_work:"Volver a Trabajos",
   all:"Todo",topic_l:"Filtrar por tema",topic_all:"Todos los temas",
   proc_h:"Cómo <em>trabajo</em>",proc_p:"Cuatro pasos, siempre los mismos, para que sepas qué esperar.",
   steps:[["Nos conocemos","Me cuentas qué buscas, para qué son las fotos y qué fecha te viene bien."],["Dossier","Te envío la idea, referencias, looks recomendados, localización y toda la información necesaria."],["Sesión","Yo me ocupo de la luz y te ayudo con las poses. No necesitas experiencia."],["Entrega","Recibes tus fotos editadas en una galería online para descargar."]],
@@ -600,7 +600,7 @@ const T = {
   about_close:"Guztiok dugu geure argia. Nire lana aurkitzea da.",
   f1b:"Flasha",f1s:"kalean eta estudioan",f2b:"Dosierra",f2s:"saio bakoitzaren aurretik",f3b:"Euskal Herria",f3s:"Eibartik, edozein txokotara",
   work_h:"Lan <em>motak</em>",work_p:"Aukeratu bat eta bere argazkietara eramango zaitut.",
-  gal_h:"Galeria",gal_p:"<b>Ikusten duzuna gogoko duzu?</b> Zu izan zaitezke irudi hauen protagonista.",gal_btn:"Erreserbatu zure saioa",back_work:"Lanetara itzuli",
+  gal_h:"Galeria",gal_p:"<b>Ikusten duzuna gogoko duzu?</b> Zu izan zaitezke irudi hauen protagonista.",gal_btn:"Erreserbatu zure saioa",gal_btn_q:"Eskatu zure aurrekontua",gal_p_eventos:"<b>Ekitaldi bat duzu?</b> Kontatu zer den eta zuretzako aurrekontua prestatuko dizut.",gal_p_marcas:"<b>Marka bat duzu?</b> Kontatu zure ideia eta zuretzako aurrekontua prestatuko dizut.",back_work:"Lanetara itzuli",
   all:"Guztiak",topic_l:"Gaiaren arabera iragazi",topic_all:"Gai guztiak",
   proc_h:"Nola <em>egiten dut lan</em>",proc_p:"Lau urrats, beti berberak, zer espero jakin dezazun.",
   steps:[["Elkar ezagutuko dugu","Zer bilatzen duzun, argazkiak zertarako diren eta zein data datorkizun ondo kontatuko didazu."],["Dosierra","Ideia, erreferentziak, gomendatutako jantziak, lekua eta beharrezko informazio guztia bidaliko dizkizut."],["Saioa","Argiaz ni arduratzen naiz eta jarreretan lagunduko zaitut. Ez duzu esperientziarik behar."],["Entrega","Zure argazki editatuak online galeria batean jasoko dituzu, deskargatzeko."]],
@@ -673,6 +673,7 @@ function renderFilters(){
 function setFilter(f){if(f!==filter&&location.hash.startsWith("#galeria")){try{history.replaceState(null,"","#galeria"+(f==="all"?"":"/"+f))}catch(e){}}filter=f;topic="";$("#topic").value="";document.querySelectorAll("#filters button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));renderGrid();}
 
 function renderGrid(){
+  {const q=filter==="eventos"||filter==="marcas",gp=$("#galP"),gb=$("#galB");gp.dataset.i18nHtml=q?"gal_p_"+filter:"gal_p";gb.dataset.i18n=q?"gal_btn_q":"gal_btn";gp.innerHTML=t(gp.dataset.i18nHtml);gb.textContent=t(gb.dataset.i18n);}
   view=filter==="all"?PHOTOS.filter(p=>!topic||IN(p,topic)):PHOTOS.filter(p=>p[1]===filter);
   $("#topicWrap").hidden=filter!=="all";
   $("#grid").innerHTML=view.map((p,i)=>`<figure class="ph enter" tabindex="0" data-i="${i}" style="animation-delay:${Math.min(i,12)*40}ms"><img src="${p[0]}" width="${p[2]}" height="${p[3]}" loading="lazy" alt="${t("works")[p[1]][0]}"><figcaption class="tag">${t("works")[p[1]][0]}</figcaption></figure>`).join("");
