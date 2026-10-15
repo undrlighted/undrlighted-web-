@@ -434,6 +434,7 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
       <div class="lang" role="group" aria-label="Hizkuntza / Idioma">
         <button type="button" data-lang="eu" aria-pressed="true">EU</button>
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
       <button class="menu-btn" type="button" id="menuBtn" aria-expanded="false" data-i18n="menu"></button>
     </nav>
@@ -584,6 +585,53 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
 const PHOTOS = [["img/retrato-moda-exteriores-18.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-01.jpg", "exteriores", 1400, 1050], ["img/retrato-moda-exteriores-19.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-21.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-06.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-07.jpg", "exteriores", 1400, 1120], ["img/retrato-moda-exteriores-22.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-10.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-23.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-11.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-12.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-24.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-13.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-15.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-16.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-17.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-estudio-01.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-02.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-03.jpg", "estudio", 1400, 1050], ["img/retrato-moda-estudio-04.jpg", "estudio", 1400, 1050], ["img/retrato-moda-estudio-05.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-06.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-07.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-08.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-09.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-10.jpg", "estudio", 1121, 1400], ["img/retrato-moda-estudio-11.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-12.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-13.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-14.jpg", "estudio", 1080, 1350], ["img/retrato-moda-estudio-15.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-16.jpg", "estudio", 1400, 788], ["img/deporte-11.jpg", "deporte", 1080, 1350], ["img/deporte-12.jpg", "deporte", 1080, 1350], ["img/deporte-13.jpg", "deporte", 1080, 1350], ["img/deporte-14.jpg", "deporte", 1080, 1350], ["img/deporte-15.jpg", "deporte", 1080, 1350], ["img/deporte-16.jpg", "deporte", 1080, 1350], ["img/deporte-17.jpg", "deporte", 1080, 1350], ["img/deporte-18.jpg", "deporte", 1080, 1350], ["img/deporte-08.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-07.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-01.jpg", "deporte", 1080, 810], ["img/deporte-02.jpg", "deporte", 1000, 1400], ["img/deporte-03.jpg", "deporte", 1050, 1400], ["img/deporte-04.jpg", "deporte", 1050, 1400], ["img/deporte-05.jpg", "deporte", 1050, 1400], ["img/deporte-06.jpg", "deporte", 1080, 810], ["img/deporte-09.jpg", "deporte", 1050, 1400], ["img/deporte-10.jpg", "deporte", 1050, 1400], ["img/naturaleza-01.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-02.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-03.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-04.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-05.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-07.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-08.jpg", "naturaleza", 1013, 1350], ["img/naturaleza-09.jpg", "naturaleza", 1050, 1400, ["deporte"]], ["img/embarazo-02.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-03.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-04.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-05.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/embarazo-06.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-07.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-08.jpg", "embarazo", 1012, 1350, ["naturaleza"]], ["img/embarazo-09.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/eventos-01.jpg", "eventos", 1080, 810], ["img/eventos-02.jpg", "eventos", 1080, 810], ["img/eventos-24.jpg", "eventos", 1050, 1400], ["img/eventos-03.jpg", "eventos", 1080, 810], ["img/eventos-06.jpg", "eventos", 1050, 1400], ["img/eventos-25.jpg", "eventos", 1050, 1400], ["img/eventos-07.jpg", "eventos", 1050, 1400], ["img/eventos-08.jpg", "eventos", 1080, 810], ["img/eventos-09.jpg", "eventos", 1050, 1400], ["img/eventos-10.jpg", "eventos", 1050, 1400], ["img/eventos-26.jpg", "eventos", 1050, 1400], ["img/eventos-37.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-12.jpg", "eventos", 1080, 810], ["img/eventos-14.jpg", "eventos", 1080, 810], ["img/eventos-27.jpg", "eventos", 1050, 1400], ["img/eventos-17.jpg", "eventos", 600, 800], ["img/eventos-22.jpg", "eventos", 600, 800], ["img/eventos-23.jpg", "eventos", 600, 800], ["img/eventos-28.jpg", "eventos", 1050, 1400], ["img/eventos-29.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-30.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-31.jpg", "eventos", 1050, 1400], ["img/eventos-32.jpg", "eventos", 1050, 1400], ["img/eventos-33.jpg", "eventos", 1120, 1400], ["img/eventos-34.jpg", "eventos", 1050, 1400], ["img/eventos-35.jpg", "eventos", 1120, 1400], ["img/eventos-36.jpg", "eventos", 1400, 1050], ["img/marcas-01.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-02.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-03.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-04.jpg", "marcas", 1050, 1400, ["deporte"]], ["img/marcas-05.jpg", "marcas", 1080, 1350, ["deporte"]]];
 
 const T = {
+ en:{
+  nav_about:"About",nav_work:"Work",nav_gallery:"Gallery",nav_packs:"Packages",nav_contact:"Contact",menu:"Menu",
+  hero_eyebrow:"Portrait, fashion and sports photography · Basque Country",
+  hero_l1:"The light born",hero_l2:"from the dark",
+  hero_p:"Flash portraits, on the street and in the studio. I plan every session in detail so all you have to do is enjoy it.",
+  cta:"Book your session",cta2:"See my work",next:"Next",
+  soon:"Coming soon",strip_l:"Photos from each type of work",
+  about_eyebrow:"About",
+  about_lead:"Photography is writing with light. I write with the light of the flash, when everything else goes dark.",
+  about_p1:"I'm Adur, from Eibar, a town of gunsmiths and bicycles, and I come from engineering, where nothing is left to chance. That's why every session starts long before the first shot: I scout the place, sketch the lighting, plan the poses and keep a plan B in case it rains. Before we meet you'll get a dossier with the idea, references and everything you need to know.",
+  about_p2:"Sport has been part of my life since I was a kid. I know when the jump is coming, when the effort shows, when a dancer is about to hang in the air. That closeness lets me see events from the inside: not just what happens, but what it feels like.",
+  about_p3:"For years I ran after-sales service teams and learned that the job isn't done at delivery, but when you recognise yourself in your photos.",
+  about_close:"We all have a light of our own. My job is to find it.",
+  f1b:"Flash",f1s:"outdoors and in the studio",f2b:"Dossier",f2s:"before every session",f3b:"Euskal Herria",f3s:"from Eibar, anywhere in the Basque Country",
+  work_h:"Types of <em>work</em>",work_p:"Pick one and I'll take you to its photos.",
+  gal_h:"Gallery",gal_p:"<b>Like what you see?</b> You could be the one in these pictures.",gal_btn:"Book your session",gal_btn_q:"Ask for a quote",gal_p_eventos:"<b>Have an event coming up?</b> Tell me about it and I'll put together a tailored quote.",gal_p_marcas:"<b>Have a brand?</b> Tell me your idea and I'll put together a tailored quote.",back_work:"Back to Work",
+  all:"All",topic_l:"Filter by theme",topic_all:"All themes",
+  proc_h:"How I <em>work</em>",proc_p:"Four steps, always the same, so you know what to expect.",
+  steps:[["We meet","You tell me what you're looking for, what the photos are for and which date suits you."],["Dossier","I send you the idea, references, suggested looks, location and everything you need to know."],["Session","I take care of the light and help you with posing. No experience needed."],["Delivery","You get your edited photos in an online gallery, ready to download."]],
+  packs_h:"Packages",packs_p:"Starting prices. Every session is different: tell me your idea and I'll send you a fixed quote.",
+  from:"from",
+  packs:[
+   {name:"Argia",line:"A short, focused session: one idea, one place.",dur:"1 h – 1 h 30 min",price:"180",items:["At least 10 edited photos","1 location or studio backdrop","Dossier beforehand with idea and references","Online gallery delivery within 10 days"]},
+   {name:"Gaua",line:"More time, more looks and tailored light, by day or by night.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"Most complete",items:["At least 20 edited photos","Up to 2 locations or 2 looks","Dossier and tailored lighting plan","Online gallery delivery within 14 days"]},
+   {name:"Events",line:"Your event, told from start to finish.",dur:"",price:"",items:["Races, dance, competitions and festivals","A wide selection of edited photos","Delivery in 7–10 days","Tailored quote: every event is different"]}
+  ],
+  extras_h:"Extras",extras_note:"Packages cover portrait, fashion, sport, nature and pregnancy. Prices include VAT.",
+  extras:[["Beauty retouching (detailed skin), per photo","+8 €"],["Commercial use: brands, ads or campaigns","depends on use"],["Travel up to 50 km from Eibar","included"],["Travel beyond 50 km","0.30 €/km"],["Professional make-up and styling","on request"]],
+  contact_eyebrow:"Contact",contact_h:"Let's talk about <em>your session</em>",
+  where:"Based in Eibar, I travel anywhere in the Basque Country.",
+  open:"Open",copy:"Copy",copied:"Copied",mail:"Email",close:"Close",
+  foot:"Flash photography · portrait · fashion · sport",
+  works:{
+   exteriores:["Outdoor portrait and fashion","The city at night, a river full of reflections or a concrete bridge. I take the flash outside so you stand out from everything else."],
+   estudio:["Studio portrait and fashion","Backdrop, light and you. I control every shadow for a clean portrait with character: modelling book, professional headshot or fashion."],
+   deporte:["Sport","Your discipline shot like an ad. Flash, low angles and movement frozen in mid-air."],
+   naturaleza:["Nature","Forest, mountain or cliff. Sessions in the calm of nature, where the landscape becomes part of you."],
+   embarazo:["Pregnancy","A stage that goes by fast. In the studio, low-key, or in the calm of nature with your partner.<br>Ideally between weeks 28 and 34."],
+   eventos:["Events","Races, dance and competitions. I capture what happens and also what it feels like."],
+   bodas:["Weddings","Your day told calmly and without forced poses: the nerves, the ceremony and the party. Natural photos, with light as the protagonist."],
+   marcas:["Brands","Photography + website. Your brand deserves its own image: lookbook, product with model and photos ready for your online shop and social media."]
+  },
+  see:"See photos",ask:"Ask for a quote",price_ask:"Tailored",
+  book:"Book",wa_main:"Message me on WhatsApp",wa_hint:"Tell me the date, the type of session and your idea.",call:"Call",write:"Write",phone:"Phone",band_h:"Shall we talk about your session?",
+  see_short:"View",off_k:"Launch · 2026",off_h:"on your session <em>throughout 2026</em>",off_p:"Undrlighted has just started and I want to launch it with you. Book any package in 2026 and get 30 % off. Dates are limited: the sooner we talk, the easier it is to pick the day and the light.",off_cta:"I want my session",off_later:"See packages",off_s:"Valid for sessions held in 2026. Cannot be combined with other offers.",off_wa:"Hi Adur! I'd like to book a session with the 30 % launch discount.",disc:"−30 % in 2026 · {n} €",
+  wa_msg:"Hi Adur! I'd like to talk about a session.",wa_pack:"Hi Adur! I'm interested in the {p} package."
+ },
  es:{
   nav_about:"Sobre mí",nav_work:"Trabajos",nav_gallery:"Galería",nav_packs:"Packs",nav_contact:"Contacto",menu:"Menú",
   hero_eyebrow:"Fotografía de retrato, moda y deporte · Euskal Herria",
@@ -689,7 +737,7 @@ let topic="";
 const HERO=["img/retrato-moda-exteriores-06.jpg","img/deporte-17.jpg","img/retrato-moda-exteriores-10.jpg","img/retrato-moda-estudio-06.jpg","img/deporte-14.jpg","img/retrato-moda-exteriores-22.jpg","img/eventos-33.jpg"];
 
 let lang="eu", filter="all", view=[], idx=0, page="";
-try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es") lang=s;}catch(e){}
+try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es"||s==="en") lang=s;}catch(e){}
 
 const $=s=>document.querySelector(s);
 const t=k=>T[lang][k];
@@ -739,7 +787,7 @@ function renderSteps(){
 const wa=m=>"https://wa.me/34623828791?text="+encodeURIComponent(m);
 function renderPacks(){
   const from=t("from");
-  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}"><div class="head">${p.ribbon?`<span class="rec">${p.ribbon}</span>`:""}<h3>${p.name}</h3><p class="line">${p.line}</p>${p.dur?`<span class="dur">${p.dur}</span>`:""}</div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="side"><div class="price-wrap">${p.price?`<div class="price">${lang==="es"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><span class="disc">${t("disc").replace("{n}",Math.round(p.price*0.7))}</span>`:`<div class="price"><b class="ask">${t("price_ask")}</b></div>`}</div><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${p.price?`${t("book")} ${p.name}`:t("ask")}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></article>`).join("");
+  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}"><div class="head">${p.ribbon?`<span class="rec">${p.ribbon}</span>`:""}<h3>${p.name}</h3><p class="line">${p.line}</p>${p.dur?`<span class="dur">${p.dur}</span>`:""}</div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="side"><div class="price-wrap">${p.price?`<div class="price">${lang!=="eu"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><span class="disc">${t("disc").replace("{n}",Math.round(p.price*0.7))}</span>`:`<div class="price"><b class="ask">${t("price_ask")}</b></div>`}</div><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${p.price?`${t("book")} ${p.name}`:t("ask")}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></article>`).join("");
   if(offerSeen())$("#packsList").classList.add("show-disc");
   $("#extrasList").innerHTML=t("extras").map(e=>`<dt>${e[0]}</dt><dd>${e[1]}</dd>`).join("");
 }
