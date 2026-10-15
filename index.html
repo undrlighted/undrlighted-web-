@@ -11,7 +11,7 @@
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://undrlighted.es/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Undrlighted","description":"Fotografía de retrato, moda, deporte, embarazo, eventos y marcas en Eibar y Euskal Herria.","url":"https://undrlighted.es/","image":"https://undrlighted.es/img/retrato-moda-exteriores-01.jpg","logo":"https://undrlighted.es/img/icon-180.png","telephone":"+34623828791","email":"undrlighted@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Eibar","addressRegion":"Gipuzkoa","addressCountry":"ES"},"areaServed":["Eibar","Gipuzkoa","Bizkaia","Araba","Nafarroa","Euskal Herria"],"founder":{"@type":"Person","name":"Adur"},"sameAs":["https://www.instagram.com/undrlighted/"],"priceRange":"160 €–290 €"}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Undrlighted","description":"Fotografía de retrato, moda, deporte, embarazo, eventos y marcas en Eibar y Euskal Herria.","url":"https://undrlighted.es/","image":"https://undrlighted.es/img/retrato-moda-exteriores-01.jpg","logo":"https://undrlighted.es/img/icon-180.png","telephone":"+34623828791","email":"undrlighted@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Eibar","addressRegion":"Gipuzkoa","addressCountry":"ES"},"areaServed":["Eibar","Gipuzkoa","Bizkaia","Araba","Nafarroa","Euskal Herria"],"founder":{"@type":"Person","name":"Adur"},"sameAs":["https://www.instagram.com/undrlighted/"],"priceRange":"180 €–260 €"}
 </script>
 
 <meta name="theme-color" content="#151B24">
@@ -158,6 +158,8 @@ section{padding-block:clamp(80px,12vw,160px)}
 .work{display:grid;grid-template-columns:clamp(150px,16vw,220px) minmax(0,1.15fr) minmax(0,1fr) auto;gap:clamp(20px,3vw,40px);align-items:center;padding-block:22px;border:0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;cursor:pointer;background:none;color:inherit;font:inherit;text-align:left;width:100%}
 .work .th{position:relative;aspect-ratio:4/3;overflow:hidden;margin:0;border-radius:14px;-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
 .work .th img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.85) brightness(.55);transform:scale(1.08);animation:drift 14s ease-in-out infinite alternate;transition:filter .6s cubic-bezier(.2,.7,.2,1)}
+.work[data-cat="deporte"] .th img{object-position:50% 22%}
+.work[data-cat="marcas"] .th img{object-position:50% 92%}
 .work:nth-child(even) .th img{animation-direction:alternate-reverse;animation-duration:17s}
 @keyframes drift{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.14) translate(2%,1.5%)}}
 .work .th::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,246,230,.9),rgba(255,246,230,0) 60%);opacity:0;pointer-events:none}
@@ -263,6 +265,7 @@ section{padding-block:clamp(80px,12vw,160px)}
 .price small.eu{text-transform:none;letter-spacing:0;margin-left:-6px;font-size:15px}
 .price{display:flex;align-items:baseline;gap:10px;justify-content:flex-end;white-space:nowrap}
 .price small{font-size:13px;color:var(--cream-dim);text-transform:uppercase;letter-spacing:.12em}
+.price b.ask{font-style:italic;font-size:clamp(34px,3.6vw,48px)}
 .price b{font-family:var(--display);font-weight:400;font-size:clamp(48px,5.4vw,72px);line-height:1;font-variant-numeric:lining-nums}
 .pack .side{display:flex;flex-direction:column;align-items:flex-end;gap:20px}
 .pack ul{list-style:none;margin:0;padding:6px 0 0;display:flex;flex-direction:column;gap:10px;font-size:15px}
@@ -560,9 +563,9 @@ const T = {
   packs_h:"Packs",packs_p:"Precios orientativos desde. Cada sesión es distinta: cuéntame tu idea y te paso un presupuesto cerrado.",
   from:"desde",
   packs:[
-   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"160",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
+   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"180",items:["10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
    {name:"Gaua",line:"Más tiempo, más looks y luz a medida, de día o de noche.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"El más completo",items:["20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
-   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"Hasta 3 h de cobertura",price:"290",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida según duración"]}
+   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"",price:"",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida: cada evento es distinto"]}
   ],
   extras_h:"Suplementos",extras_note:"Los packs sirven para retrato, moda, deporte, naturaleza y embarazo. Precios con IVA incluido.",
   extras:[["Foto editada adicional","10 €"],["Retoque beauty (piel a detalle), por foto","+8 €"],["Uso comercial: marcas, anuncios o campañas","según uso"],["Desplazamiento hasta 50 km desde Eibar","incluido"],["Desplazamiento a partir de 50 km","0,30 €/km"],["Maquillaje y estilismo profesional","bajo petición"]],
@@ -580,7 +583,7 @@ const T = {
    bodas:["Bodas","Vuestro día contado con calma y sin poses forzadas: los nervios, la ceremonia y la fiesta. Fotos naturales, con la luz como protagonista."],
    marcas:["Marcas","Fotografía + web. Tu marca merece una imagen propia: lookbook, producto con modelo y fotos listas para tu tienda online y tus redes."]
   },
-  see:"Ver fotos",ask:"Pide presupuesto",
+  see:"Ver fotos",ask:"Pide presupuesto",price_ask:"A medida",
   book:"Reservar",wa_main:"Escríbeme por WhatsApp",wa_hint:"Cuéntame la fecha, el tipo de sesión y tu idea.",call:"Llamar",write:"Escribir",phone:"Teléfono",band_h:"¿Hablamos de tu sesión?",
   see_short:"Ver",off_k:"Lanzamiento · 2026",off_h:"en tu sesión <em>durante todo 2026</em>",off_p:"Undrlighted acaba de empezar y quiero estrenarlo contigo. Reserva cualquier pack en 2026 y te aplico un 30 % de descuento. Las fechas son limitadas: cuanto antes hablemos, más fácil elegir día y luz.",off_cta:"Quiero mi sesión",off_later:"Ver los packs",off_s:"Válido para sesiones realizadas en 2026. No acumulable con otras ofertas.",off_wa:"¡Hola Adur! Quiero reservar una sesión con el 30 % de lanzamiento.",disc:"−30 % en 2026 · {n} €",
   wa_msg:"¡Hola Adur! Me gustaría hablar de una sesión.",wa_pack:"¡Hola Adur! Me interesa el pack {p}."
@@ -607,9 +610,9 @@ const T = {
   packs_h:"Pack-ak",packs_p:"Erreferentziazko prezioak. Saio bakoitza ezberdina da: kontatu zure ideia eta aurrekontu itxia bidaliko dizut.",
   from:"-tik aurrera",
   packs:[
-   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"160",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
+   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"180",items:["10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
    {name:"Gaua",line:"Denbora gehiago, itxura gehiago eta neurriko argia, egunez zein gauez.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"Osoena",items:["20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
-   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"Gehienez 3 orduko estaldura",price:"290",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Iraupenaren araberako aurrekontua"]}
+   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"",price:"",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Neurrira egindako aurrekontua: ekitaldi bakoitza ezberdina da"]}
   ],
   extras_h:"Osagarriak",extras_note:"Pack-ak erretratu, moda, kirol, natura eta haurdunaldi saioetarako dira. Prezioek BEZa barne dute.",
   extras:[["Argazki editatu gehigarria","10 €"],["Beauty erretokea (azala xehetasunez), argazkiko","+8 €"],["Erabilera komertziala: markak, iragarkiak, kanpainak","erabileraren arabera"],["Joan-etorria Eibartik 50 km arte","barne"],["Joan-etorria 50 km-tik aurrera","0,30 €/km"],["Makillaje eta estilismo profesionala","eskatuz gero"]],
@@ -627,7 +630,7 @@ const T = {
    bodas:["Ezkontzak","Zuen eguna lasai kontatua, jarrera behartuik gabe: urduritasuna, zeremonia eta festa. Argazki naturalak, argia protagonista dela."],
    marcas:["Markak","Argazkilaritza + web-a. Zure markak irudi propioa merezi du: lookbooka, produktua modeloarekin eta zure online dendarako eta sareetarako prest dauden argazkiak."]
   },
-  see:"Argazkiak ikusi",ask:"Eskatu aurrekontua",
+  see:"Argazkiak ikusi",ask:"Eskatu aurrekontua",price_ask:"Neurrira",
   book:"Erreserbatu",wa_main:"Idatzi WhatsAppez",wa_hint:"Kontatu data, saio mota eta zure ideia.",call:"Deitu",write:"Idatzi",phone:"Telefonoa",band_h:"Zure saioaz hitz egingo dugu?",
   see_short:"Ikusi",off_k:"Estreinaldia · 2026",off_h:"zure saioan <em>2026 osoan</em>",off_p:"Undrlighted abian jarri berri da eta zurekin estreinatu nahi dut. Erreserbatu edozein pack 2026an eta %30eko deskontua egingo dizut. Data mugatuak dira: zenbat eta lehenago hitz egin, orduan eta errazago eguna eta argia aukeratzea.",off_cta:"Nire saioa nahi dut",off_later:"Pack-ak ikusi",off_s:"2026an egindako saioetarako. Ez da beste eskaintzekin metagarria.",off_wa:"Kaixo Adur! Saio bat erreserbatu nahi dut, %30eko estreinaldiko deskontuarekin.",disc:"2026an −%30 · {n} €",
   wa_msg:"Kaixo Adur! Saio bati buruz hitz egin nahiko nuke.",wa_pack:"Kaixo Adur! {p} pack-a interesatzen zait."
@@ -635,7 +638,7 @@ const T = {
 };
 
 const ORDER=["exteriores","estudio","deporte","naturaleza","embarazo","eventos","marcas"];
-const COVER={exteriores:"img/retrato-moda-exteriores-22.jpg",estudio:"img/retrato-moda-estudio-13.jpg",deporte:"img/deporte-11.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-27.jpg",bodas:"img/bodas-01.jpg",marcas:"img/marcas-01.jpg"};
+const COVER={exteriores:"img/retrato-moda-exteriores-22.jpg",estudio:"img/retrato-moda-estudio-13.jpg",deporte:"img/deporte-12.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-27.jpg",bodas:"img/bodas-01.jpg",marcas:"img/marcas-01.jpg"};
 const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-22","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-11","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
 const IN=(p,k)=>p[1]===k||(p[4]||[]).includes(k);
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
@@ -690,7 +693,7 @@ function renderSteps(){
 const wa=m=>"https://wa.me/34623828791?text="+encodeURIComponent(m);
 function renderPacks(){
   const from=t("from");
-  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}"><div class="head">${p.ribbon?`<span class="rec">${p.ribbon}</span>`:""}<h3>${p.name}</h3><p class="line">${p.line}</p><span class="dur">${p.dur}</span></div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="side"><div class="price-wrap"><div class="price">${lang==="es"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><span class="disc">${t("disc").replace("{n}",Math.round(p.price*0.7))}</span></div><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${t("book")} ${p.name}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></article>`).join("");
+  $("#packsList").innerHTML=t("packs").map(p=>`<article class="pack${p.feat?" feat":""}"><div class="head">${p.ribbon?`<span class="rec">${p.ribbon}</span>`:""}<h3>${p.name}</h3><p class="line">${p.line}</p>${p.dur?`<span class="dur">${p.dur}</span>`:""}</div><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><div class="side"><div class="price-wrap">${p.price?`<div class="price">${lang==="es"?`<small>${from}</small><b>${p.price} €</b>`:`<b>${p.price} €</b><small class="eu">${from}</small>`}</div><span class="disc">${t("disc").replace("{n}",Math.round(p.price*0.7))}</span>`:`<div class="price"><b class="ask">${t("price_ask")}</b></div>`}</div><a class="book" href="${wa(t("wa_pack").replace("{p}",p.name))}" target="_blank" rel="noopener">${p.price?`${t("book")} ${p.name}`:t("ask")}<svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></article>`).join("");
   if(offerSeen())$("#packsList").classList.add("show-disc");
   $("#extrasList").innerHTML=t("extras").map(e=>`<dt>${e[0]}</dt><dd>${e[1]}</dd>`).join("");
 }
