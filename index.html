@@ -862,16 +862,7 @@ document.body.dataset.rv="color";
 
 /* Inclinación: ratón en escritorio, scroll en móvil */
 const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
-function tiltInit(){
-  if(reduce)return;
-  document.querySelectorAll(".work .th:not(.empty)").forEach(th=>{
-    if(!fine)return;
-    const w=th.closest(".work");
-    w.addEventListener("pointermove",e=>{const r=th.getBoundingClientRect();const x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
-      th.classList.add("live");th.style.transform=`rotateX(${(.5-y)*5}deg) rotateY(${(x-.5)*7}deg) scale(1.015)`;th.style.setProperty("--gx",x*100+"%");th.style.setProperty("--gy",y*100+"%")});
-    w.addEventListener("pointerleave",()=>{th.classList.remove("live");th.style.transform=""});
-  });
-}
+function tiltInit(){}
 /* Profundidad al hacer scroll */
 let fxTick=false;
 function fxScroll(){fxTick=false;const y=scrollY,vh=innerHeight;
