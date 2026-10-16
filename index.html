@@ -11,7 +11,7 @@
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://undrlighted.es/">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Undrlighted","description":"Fotografía de retrato, moda, deporte, embarazo, eventos y marcas en Eibar y Euskal Herria.","url":"https://undrlighted.es/","image":"https://undrlighted.es/img/retrato-moda-exteriores-01.jpg","logo":"https://undrlighted.es/img/icon-180.png","telephone":"+34623828791","email":"undrlighted@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Eibar","addressRegion":"Gipuzkoa","addressCountry":"ES"},"areaServed":["Eibar","Gipuzkoa","Bizkaia","Araba","Nafarroa","Euskal Herria"],"founder":{"@type":"Person","name":"Adur"},"sameAs":["https://www.instagram.com/undrlighted/"],"priceRange":"180 €–260 €"}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Undrlighted","description":"Fotografía de retrato, moda, deporte, embarazo, eventos y marcas en Eibar y Euskal Herria.","url":"https://undrlighted.es/","image":"https://undrlighted.es/img/retrato-moda-exteriores-01.jpg","logo":"https://undrlighted.es/img/icon-180.png","telephone":"+34623828791","email":"undrlighted@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Eibar","addressRegion":"Gipuzkoa","addressCountry":"ES"},"areaServed":["Eibar","Gipuzkoa","Bizkaia","Araba","Nafarroa","Euskal Herria"],"founder":{"@type":"Person","name":"Adur"},"sameAs":["https://www.instagram.com/undrlighted/"]}
 </script>
 
 <meta name="theme-color" content="#151B24">
@@ -415,6 +415,28 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
 ::view-transition-group(cover){animation-duration:.6s;animation-timing-function:cubic-bezier(.77,0,.175,1)}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.35s}
 @media (prefers-reduced-motion:reduce){.ph.fx{clip-path:none}.ph.fx img{transform:none}.work .th{transform:none!important}}
+
+#galEye{display:none}
+.gal-top.port{row-gap:clamp(28px,3.5vw,56px);align-items:stretch;grid-template-columns:minmax(0,1fr) auto;justify-content:stretch;max-width:none;margin-inline:0}
+.gal-top.port .sec-head{display:contents}
+.gal-top.port .sec-head h2{display:none}
+.gal-top.port #galEye{display:block;grid-column:1;grid-row:1;align-self:start;justify-self:start;font-family:var(--display);font-weight:400;font-size:clamp(48px,5vw,80px);line-height:.95;letter-spacing:-.03em;color:var(--cream);text-wrap:balance;max-width:15ch;margin:0}
+.gal-top.port .gal-cta{grid-column:1;grid-row:2;align-self:start;justify-self:start;margin-left:clamp(0px,14vw,240px);margin-top:clamp(16px,3vw,48px)}.gal-top.port{grid-template-rows:auto 1fr}
+.gal-top.port .gal-hero{grid-column:2;grid-row:1/3}
+.gal-cta p:has(.q1){display:block;max-width:none}
+.gal-cta .q1,.gal-cta .q2{display:block;font-family:var(--display);font-weight:400;font-size:clamp(26px,2.5vw,36px);line-height:1.15;letter-spacing:-.01em;color:var(--cream);white-space:nowrap}
+.gal-cta .q2{padding-left:clamp(32px,4vw,64px)}
+.gal-cta .bd{display:block;font-family:var(--body);font-size:clamp(16px,1.2vw,18px);line-height:1.6;color:var(--cream);max-width:30ch;margin:clamp(18px,2vw,28px) 0 0 clamp(64px,8vw,128px)}
+.gal-cta:has(.q1) .cta{margin-left:clamp(64px,8vw,128px);margin-top:8px}
+.gal-top:not(.port) .gal-cta .q2{padding-left:clamp(24px,3vw,48px)}
+.gal-top:not(.port) .gal-cta .bd,.gal-top:not(.port) .gal-cta:has(.q1) .cta{margin-left:clamp(48px,6vw,96px)}
+@media (max-width:760px){.gal-top.port{grid-template-columns:1fr;grid-template-rows:auto}.gal-top.port .gal-cta{justify-self:start;margin-left:0;margin-top:0}.gal-top.port #galEye{font-size:clamp(40px,12vw,60px)}.gal-top.port .gal-hero{grid-column:1;grid-row:2/3}.gal-top.port .gal-cta{grid-column:1;grid-row:3}.gal-cta .q1,.gal-cta .q2{white-space:normal;font-size:clamp(24px,7vw,30px)}.gal-cta .q2{padding-left:24px}.gal-cta .bd,.gal-cta:has(.q1) .cta,.gal-top:not(.port) .gal-cta .bd,.gal-top:not(.port) .gal-cta:has(.q1) .cta{margin-left:48px}}
+
+.gal-cta .q1,.gal-cta .q2{display:inline}.gal-cta .q1::after{content:" "}.gal-cta .q2,.gal-top:not(.port) .gal-cta .q2{padding-left:0}.gal-cta .bd,.gal-cta:has(.q1) .cta,.gal-top:not(.port) .gal-cta .bd,.gal-top:not(.port) .gal-cta:has(.q1) .cta{margin-left:clamp(32px,4vw,64px)}
+@media (max-width:760px){.gal-cta .q1,.gal-cta .q2{white-space:normal}.gal-cta .bd,.gal-cta:has(.q1) .cta,.gal-top:not(.port) .gal-cta .bd,.gal-top:not(.port) .gal-cta:has(.q1) .cta{margin-left:24px}}
+
+/* Precios ocultos mientras Adur no esté de alta (16-oct). Para mostrarlos: SHOW_PRICES=true */
+html:not(.prices) .price-only{display:none!important}
 </style>
 </head>
 <body>
@@ -428,7 +450,7 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
         <a href="#sobre" data-i18n="nav_about"></a>
         <a href="#trabajos" data-i18n="nav_work"></a>
         <a href="#galeria" data-i18n="nav_gallery"></a>
-        <a href="#packs" data-i18n="nav_packs"></a>
+        <a href="#packs" data-i18n="nav_packs" class="price-only"></a>
         <a href="#contacto" data-i18n="nav_contact"></a>
       </div>
       <div class="lang" role="group" aria-label="Hizkuntza / Idioma">
@@ -512,7 +534,7 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
     <div class="wrap">
       <a class="back" href="#trabajos"><i></i><span data-i18n="back_work"></span></a>
       <div class="gal-top" id="galTop"><figure class="gal-hero" id="galHero" hidden><img alt=""></figure>
-      <div class="sec-head"><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p id="galP" data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span id="galB" data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></div></div>
+      <div class="sec-head"><p id="galEye" role="heading" aria-level="2"></p><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p id="galP" data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span id="galB" data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a></div></div></div>
       <div class="filters" id="filters" role="group"></div>
       <div class="topic" id="topicWrap"><label for="topic" data-i18n="topic_l"></label><select id="topic"></select></div>
       <div class="grid" id="grid"></div>
@@ -520,7 +542,7 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
   </section>
   </div>
 
-  <div class="page" data-page="packs">
+  <div class="page price-only" data-page="packs">
   <section>
     <div class="wrap">
       <div class="sec-head"><h2 data-i18n-html="proc_h"></h2><p data-i18n="proc_p"></p></div>
@@ -560,12 +582,12 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
   </div>
 </main>
 <div class="flash" id="flash" aria-hidden="true"></div>
-<div class="offer" id="offer" hidden>
+<div class="offer price-only" id="offer" hidden>
   <div class="offer-bg" data-close></div>
   <div class="offer-card" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="offerH">
     <button type="button" class="offer-x" data-close><span class="sr" data-i18n="close"></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
     <p class="offer-k" data-i18n="off_k"></p>
-    <h2 id="offerH"><span class="offer-n">−30%</span><span class="offer-t" data-i18n-html="off_h"></span></h2>
+    <h2 id="offerH"><span class="offer-n"></span><span class="offer-t" data-i18n-html="off_h"></span></h2>
     <p class="offer-p" data-i18n="off_p"></p>
     <div class="offer-acts"><a class="cta solid" id="offerGo" target="_blank" rel="noopener"><span data-i18n="off_cta"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a><button type="button" class="offer-later" data-close data-i18n="off_later"></button></div>
     <p class="offer-s" data-i18n="off_s"></p>
@@ -582,7 +604,7 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
 </div>
 
 <script>
-const PHOTOS = [["img/retrato-moda-exteriores-18.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-01.jpg", "exteriores", 1400, 1050], ["img/retrato-moda-exteriores-19.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-21.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-06.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-07.jpg", "exteriores", 1400, 1120], ["img/retrato-moda-exteriores-22.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-10.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-23.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-11.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-12.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-24.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-13.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-15.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-16.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-17.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-estudio-01.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-02.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-03.jpg", "estudio", 1400, 1050], ["img/retrato-moda-estudio-04.jpg", "estudio", 1400, 1050], ["img/retrato-moda-estudio-05.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-06.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-07.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-08.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-09.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-10.jpg", "estudio", 1121, 1400], ["img/retrato-moda-estudio-11.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-12.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-13.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-14.jpg", "estudio", 1080, 1350], ["img/retrato-moda-estudio-15.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-16.jpg", "estudio", 1400, 788], ["img/deporte-11.jpg", "deporte", 1080, 1350], ["img/deporte-12.jpg", "deporte", 1080, 1350], ["img/deporte-13.jpg", "deporte", 1080, 1350], ["img/deporte-14.jpg", "deporte", 1080, 1350], ["img/deporte-15.jpg", "deporte", 1080, 1350], ["img/deporte-16.jpg", "deporte", 1080, 1350], ["img/deporte-17.jpg", "deporte", 1080, 1350], ["img/deporte-18.jpg", "deporte", 1080, 1350], ["img/deporte-08.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-07.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-01.jpg", "deporte", 1080, 810], ["img/deporte-02.jpg", "deporte", 1000, 1400], ["img/deporte-03.jpg", "deporte", 1050, 1400], ["img/deporte-04.jpg", "deporte", 1050, 1400], ["img/deporte-05.jpg", "deporte", 1050, 1400], ["img/deporte-06.jpg", "deporte", 1080, 810], ["img/deporte-09.jpg", "deporte", 1050, 1400], ["img/deporte-10.jpg", "deporte", 1050, 1400], ["img/naturaleza-01.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-02.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-03.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-04.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-05.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-07.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-08.jpg", "naturaleza", 1013, 1350], ["img/naturaleza-09.jpg", "naturaleza", 1050, 1400, ["deporte"]], ["img/embarazo-02.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-03.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-04.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-05.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/embarazo-06.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-07.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-08.jpg", "embarazo", 1012, 1350, ["naturaleza"]], ["img/embarazo-09.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/eventos-01.jpg", "eventos", 1080, 810], ["img/eventos-02.jpg", "eventos", 1080, 810], ["img/eventos-24.jpg", "eventos", 1050, 1400], ["img/eventos-03.jpg", "eventos", 1080, 810], ["img/eventos-06.jpg", "eventos", 1050, 1400], ["img/eventos-25.jpg", "eventos", 1050, 1400], ["img/eventos-07.jpg", "eventos", 1050, 1400], ["img/eventos-08.jpg", "eventos", 1080, 810], ["img/eventos-09.jpg", "eventos", 1050, 1400], ["img/eventos-10.jpg", "eventos", 1050, 1400], ["img/eventos-26.jpg", "eventos", 1050, 1400], ["img/eventos-37.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-12.jpg", "eventos", 1080, 810], ["img/eventos-14.jpg", "eventos", 1080, 810], ["img/eventos-27.jpg", "eventos", 1050, 1400], ["img/eventos-17.jpg", "eventos", 600, 800], ["img/eventos-22.jpg", "eventos", 600, 800], ["img/eventos-23.jpg", "eventos", 600, 800], ["img/eventos-28.jpg", "eventos", 1050, 1400], ["img/eventos-29.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-30.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-31.jpg", "eventos", 1050, 1400], ["img/eventos-32.jpg", "eventos", 1050, 1400], ["img/eventos-33.jpg", "eventos", 1120, 1400], ["img/eventos-34.jpg", "eventos", 1050, 1400], ["img/eventos-35.jpg", "eventos", 1120, 1400], ["img/eventos-36.jpg", "eventos", 1400, 1050], ["img/marcas-01.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-02.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-03.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-04.jpg", "marcas", 1050, 1400, ["deporte"]], ["img/marcas-05.jpg", "marcas", 1080, 1350, ["deporte"]]];
+const PHOTOS = [["img/retrato-moda-exteriores-18.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-01.jpg", "exteriores", 1400, 1050], ["img/retrato-moda-exteriores-19.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-21.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-06.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-07.jpg", "exteriores", 1400, 1120], ["img/retrato-moda-exteriores-22.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-10.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-23.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-11.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-12.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-24.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-13.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-exteriores-15.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-16.jpg", "exteriores", 1120, 1400], ["img/retrato-moda-exteriores-17.jpg", "exteriores", 1050, 1400], ["img/retrato-moda-estudio-06.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-07.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-08.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-09.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-10.jpg", "estudio", 1121, 1400], ["img/retrato-moda-estudio-11.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-12.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-13.jpg", "estudio", 1120, 1400], ["img/retrato-moda-estudio-14.jpg", "estudio", 1080, 1350], ["img/retrato-moda-estudio-15.jpg", "estudio", 1050, 1400], ["img/retrato-moda-estudio-16.jpg", "estudio", 1400, 788], ["img/deporte-11.jpg", "deporte", 1080, 1350], ["img/deporte-12.jpg", "deporte", 1080, 1350], ["img/deporte-13.jpg", "deporte", 1080, 1350], ["img/deporte-14.jpg", "deporte", 1080, 1350], ["img/deporte-15.jpg", "deporte", 1080, 1350], ["img/deporte-16.jpg", "deporte", 1080, 1350], ["img/deporte-17.jpg", "deporte", 1080, 1350], ["img/deporte-18.jpg", "deporte", 1080, 1350], ["img/deporte-08.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-07.jpg", "deporte", 1050, 1400, ["naturaleza"]], ["img/deporte-01.jpg", "deporte", 1080, 810], ["img/deporte-02.jpg", "deporte", 1000, 1400], ["img/deporte-03.jpg", "deporte", 1050, 1400], ["img/deporte-04.jpg", "deporte", 1050, 1400], ["img/deporte-05.jpg", "deporte", 1050, 1400], ["img/deporte-06.jpg", "deporte", 1080, 810], ["img/deporte-09.jpg", "deporte", 1050, 1400], ["img/deporte-10.jpg", "deporte", 1050, 1400], ["img/naturaleza-01.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-02.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-03.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-04.jpg", "naturaleza", 1050, 1400, ["eventos"]], ["img/naturaleza-05.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-07.jpg", "naturaleza", 1350, 1012, ["embarazo"]], ["img/naturaleza-08.jpg", "naturaleza", 1013, 1350], ["img/naturaleza-09.jpg", "naturaleza", 1050, 1400, ["deporte"]], ["img/embarazo-02.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-03.jpg", "embarazo", 1080, 1350, ["estudio"]], ["img/embarazo-04.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-05.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/embarazo-06.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-07.jpg", "embarazo", 1350, 1012, ["naturaleza"]], ["img/embarazo-08.jpg", "embarazo", 1012, 1350, ["naturaleza"]], ["img/embarazo-09.jpg", "embarazo", 1013, 1350, ["naturaleza"]], ["img/eventos-27.jpg", "eventos", 1050, 1400], ["img/eventos-34.jpg", "eventos", 1050, 1400], ["img/eventos-24.jpg", "eventos", 1050, 1400], ["img/eventos-30.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-22.jpg", "eventos", 600, 800], ["img/eventos-29.jpg", "eventos", 1050, 1400, ["deporte"]], ["img/eventos-03.jpg", "eventos", 1080, 810], ["img/eventos-28.jpg", "eventos", 1050, 1400], ["img/eventos-09.jpg", "eventos", 1050, 1400], ["img/eventos-32.jpg", "eventos", 1050, 1400], ["img/eventos-25.jpg", "eventos", 1050, 1400], ["img/marcas-01.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-02.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-03.jpg", "marcas", 1080, 1350, ["deporte"]], ["img/marcas-04.jpg", "marcas", 1050, 1400, ["deporte"]], ["img/marcas-05.jpg", "marcas", 1080, 1350, ["deporte"]]];
 
 const T = {
  en:{
@@ -590,7 +612,7 @@ const T = {
   hero_eyebrow:"Portrait, fashion and sports photography · Basque Country",
   hero_l1:"The light born",hero_l2:"from the dark",
   hero_p:"Flash portraits, on the street and in the studio. I plan every session in detail so all you have to do is enjoy it.",
-  cta:"Book your session",cta2:"See my work",next:"Next",
+  cta:"Get in touch",cta2:"See my work",next:"Next",
   soon:"Coming soon",strip_l:"Photos from each type of work",
   about_eyebrow:"About",
   about_lead:"Photography is writing with light. I write with the light of the flash, when everything else goes dark.",
@@ -600,19 +622,15 @@ const T = {
   about_close:"We all have a light of our own. My job is to find it.",
   f1b:"Flash",f1s:"outdoors and in the studio",f2b:"Dossier",f2s:"before every session",f3b:"Euskal Herria",f3s:"from Eibar, anywhere in the Basque Country",
   work_h:"Types of <em>work</em>",work_p:"Pick one and I'll take you to its photos.",
-  gal_h:"Gallery",gal_p:"<b>Like what you see?</b> You could be the one in these pictures.",gal_btn:"Book your session",gal_btn_q:"Ask for a quote",gal_p_eventos:"<b>Have an event coming up?</b> Tell me about it and I'll put together a tailored quote.",gal_p_marcas:"<b>Have a brand?</b> Tell me your idea and I'll put together a tailored quote.",back_work:"Back to Work",
+  gal_h:"Gallery",gal_p:"<span class='q1'>Like</span><span class='q2'>what you see?</span><span class='bd'>You could be the one in these pictures.</span>",gal_btn:"Get in touch",gal_btn_q:"Get in touch",gal_p_eventos:"<span class='q1'>Have an event</span><span class='q2'>coming up?</span><span class='bd'>Tell me about it and let's talk.</span>",gal_p_marcas:"<span class='q1'>Have</span><span class='q2'>a brand?</span><span class='bd'>Tell me your idea and let's talk.</span>",back_work:"Back to Work",
   all:"All",topic_l:"Filter by theme",topic_all:"All themes",
   proc_h:"How I <em>work</em>",proc_p:"Four steps, always the same, so you know what to expect.",
   steps:[["We meet","You tell me what you're looking for, what the photos are for and which date suits you."],["Dossier","I send you the idea, references, suggested looks, location and everything you need to know."],["Session","I take care of the light and help you with posing. No experience needed."],["Delivery","You get your edited photos in an online gallery, ready to download."]],
-  packs_h:"Packages",packs_p:"Starting prices. Every session is different: tell me your idea and I'll send you a fixed quote.",
+  packs_h:"Packages",packs_p:"",
   from:"from",
-  packs:[
-   {name:"Argia",line:"A short, focused session: one idea, one place.",dur:"1 h – 1 h 30 min",price:"180",items:["At least 10 edited photos","1 location or studio backdrop","Dossier beforehand with idea and references","Online gallery delivery within 10 days"]},
-   {name:"Gaua",line:"More time, more looks and tailored light, by day or by night.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"Most complete",items:["At least 20 edited photos","Up to 2 locations or 2 looks","Dossier and tailored lighting plan","Online gallery delivery within 14 days"]},
-   {name:"Events",line:"Your event, told from start to finish.",dur:"",price:"",items:["Races, dance, competitions and festivals","A wide selection of edited photos","Delivery in 7–10 days","Tailored quote: every event is different"]}
-  ],
-  extras_h:"Extras",extras_note:"Packages cover portrait, fashion, sport, nature and pregnancy. Prices include VAT.",
-  extras:[["Beauty retouching (detailed skin), per photo","+8 €"],["Commercial use: brands, ads or campaigns","depends on use"],["Travel up to 50 km from Eibar","included"],["Travel beyond 50 km","0.30 €/km"],["Professional make-up and styling","on request"]],
+  packs:[],
+  extras_h:"Extras",extras_note:"",
+  extras:[],
   contact_eyebrow:"Contact",contact_h:"Let's talk about <em>your session</em>",
   where:"Based in Eibar, I travel anywhere in the Basque Country.",
   open:"Open",copy:"Copy",copied:"Copied",mail:"Email",close:"Close",
@@ -627,17 +645,17 @@ const T = {
    bodas:["Weddings","Your day told calmly and without forced poses: the nerves, the ceremony and the party. Natural photos, with light as the protagonist."],
    marcas:["Brands","Photography + website. Your brand deserves its own image: lookbook, product with model and photos ready for your online shop and social media."]
   },
-  see:"See photos",ask:"Ask for a quote",price_ask:"Tailored",
+  see:"See photos",ask:"Get in touch",price_ask:"Tailored",
   book:"Book",wa_main:"Message me on WhatsApp",wa_hint:"Tell me the date, the type of session and your idea.",call:"Call",write:"Write",phone:"Phone",band_h:"Shall we talk about your session?",
-  see_short:"View",off_k:"Launch · 2026",off_h:"on your session <em>throughout 2026</em>",off_p:"Undrlighted has just started and I want to launch it with you. Book any package in 2026 and get 30 % off. Dates are limited: the sooner we talk, the easier it is to pick the day and the light.",off_cta:"I want my session",off_later:"See packages",off_s:"Valid for sessions held in 2026. Cannot be combined with other offers.",off_wa:"Hi Adur! I'd like to book a session with the 30 % launch discount.",disc:"−30 % in 2026 · {n} €",
-  wa_msg:"Hi Adur! I'd like to talk about a session.",wa_pack:"Hi Adur! I'm interested in the {p} package."
+  see_short:"View",off_k:"",off_h:"",off_p:"",off_cta:"",off_later:"",off_s:"",off_wa:"",disc:"",
+  wa_msg:"Hi Adur! I'd like to talk about a session.",wa_pack:""
  },
  es:{
   nav_about:"Sobre mí",nav_work:"Trabajos",nav_gallery:"Galería",nav_packs:"Packs",nav_contact:"Contacto",menu:"Menú",
   hero_eyebrow:"Fotografía de retrato, moda y deporte · Euskal Herria",
   hero_l1:"La luz que nace",hero_l2:"de la oscuridad",
   hero_p:"Retratos con flash, en la calle y en estudio. Preparo cada sesión al detalle para que solo tengas que disfrutar de la experiencia.",
-  cta:"Reserva tu sesión",cta2:"Ver trabajos",next:"Siguiente",
+  cta:"Contacta conmigo",cta2:"Ver trabajos",next:"Siguiente",
   soon:"Próximamente",strip_l:"Fotos de cada tipo de trabajo",
   about_eyebrow:"Sobre mí",
   about_lead:"Fotografiar es escribir con luz. Yo escribo con la que nace del flash, cuando todo lo demás se apaga.",
@@ -647,19 +665,15 @@ const T = {
   about_close:"Todos tenemos una luz propia. Mi trabajo es encontrarla.",
   f1b:"Flash",f1s:"en exterior y en estudio",f2b:"Dossier",f2s:"antes de cada sesión",f3b:"Euskal Herria",f3s:"desde Eibar, a cualquier rincón",
   work_h:"Tipos de <em>trabajo</em>",work_p:"Elige uno y te llevo a sus fotos.",
-  gal_h:"Galería",gal_p:"<b>¿Te gusta lo que ves?</b> Tú podrías ser el protagonista de estas imágenes.",gal_btn:"Reserva tu sesión",gal_btn_q:"Pide tu presupuesto",gal_p_eventos:"<b>¿Tienes un evento?</b> Cuéntame qué es y te preparo un presupuesto a medida.",gal_p_marcas:"<b>¿Tienes una marca?</b> Cuéntame tu idea y te preparo un presupuesto a medida.",back_work:"Volver a Trabajos",
+  gal_h:"Galería",gal_p:"<span class='q1'>¿Te gusta</span><span class='q2'>lo que ves?</span><span class='bd'>Tú podrías ser el protagonista de estas imágenes.</span>",gal_btn:"Contacta conmigo",gal_btn_q:"Contacta conmigo",gal_p_eventos:"<span class='q1'>¿Tienes</span><span class='q2'>un evento?</span><span class='bd'>Cuéntame qué es y hablamos.</span>",gal_p_marcas:"<span class='q1'>¿Tienes</span><span class='q2'>una marca?</span><span class='bd'>Cuéntame tu idea y hablamos.</span>",back_work:"Volver a Trabajos",
   all:"Todo",topic_l:"Filtrar por tema",topic_all:"Todos los temas",
   proc_h:"Cómo <em>trabajo</em>",proc_p:"Cuatro pasos, siempre los mismos, para que sepas qué esperar.",
   steps:[["Nos conocemos","Me cuentas qué buscas, para qué son las fotos y qué fecha te viene bien."],["Dossier","Te envío la idea, referencias, looks recomendados, localización y toda la información necesaria."],["Sesión","Yo me ocupo de la luz y te ayudo con las poses. No necesitas experiencia."],["Entrega","Recibes tus fotos editadas en una galería online para descargar."]],
-  packs_h:"Packs",packs_p:"Precios orientativos desde. Cada sesión es distinta: cuéntame tu idea y te paso un presupuesto cerrado.",
+  packs_h:"Packs",packs_p:"",
   from:"desde",
-  packs:[
-   {name:"Argia",line:"Una sesión corta y concentrada: una idea, un lugar.",dur:"1 h – 1 h 30 min",price:"180",items:["Mínimo 10 fotos editadas","1 localización o fondo de estudio","Dossier previo con idea y referencias","Entrega en galería online en 10 días"]},
-   {name:"Gaua",line:"Más tiempo, más looks y luz a medida, de día o de noche.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"El más completo",items:["Mínimo 20 fotos editadas","Hasta 2 localizaciones o 2 looks","Dossier y esquema de luz a medida","Entrega en galería online en 14 días"]},
-   {name:"Eventos",line:"Tu evento contado de principio a fin.",dur:"",price:"",items:["Carreras, danza, competiciones y festivales","Selección amplia de fotos editadas","Entrega en 7–10 días","Presupuesto a medida: cada evento es distinto"]}
-  ],
-  extras_h:"Suplementos",extras_note:"Los packs sirven para retrato, moda, deporte, naturaleza y embarazo. Precios con IVA incluido.",
-  extras:[["Retoque beauty (piel a detalle), por foto","+8 €"],["Uso comercial: marcas, anuncios o campañas","según uso"],["Desplazamiento hasta 50 km desde Eibar","incluido"],["Desplazamiento a partir de 50 km","0,30 €/km"],["Maquillaje y estilismo profesional","bajo petición"]],
+  packs:[],
+  extras_h:"Suplementos",extras_note:"",
+  extras:[],
   contact_eyebrow:"Contacto",contact_h:"Hablemos de <em>tu sesión</em>",
   where:"Desde Eibar, me acerco a cualquier rincón de Euskal Herria.",
   open:"Abrir",copy:"Copiar",copied:"Copiado",mail:"Correo",close:"Cerrar",
@@ -674,17 +688,17 @@ const T = {
    bodas:["Bodas","Vuestro día contado con calma y sin poses forzadas: los nervios, la ceremonia y la fiesta. Fotos naturales, con la luz como protagonista."],
    marcas:["Marcas","Fotografía + web. Tu marca merece una imagen propia: lookbook, producto con modelo y fotos listas para tu tienda online y tus redes."]
   },
-  see:"Ver fotos",ask:"Pide presupuesto",price_ask:"A medida",
+  see:"Ver fotos",ask:"Contacta",price_ask:"A medida",
   book:"Reservar",wa_main:"Escríbeme por WhatsApp",wa_hint:"Cuéntame la fecha, el tipo de sesión y tu idea.",call:"Llamar",write:"Escribir",phone:"Teléfono",band_h:"¿Hablamos de tu sesión?",
-  see_short:"Ver",off_k:"Lanzamiento · 2026",off_h:"en tu sesión <em>durante todo 2026</em>",off_p:"Undrlighted acaba de empezar y quiero estrenarlo contigo. Reserva cualquier pack en 2026 y te aplico un 30 % de descuento. Las fechas son limitadas: cuanto antes hablemos, más fácil elegir día y luz.",off_cta:"Quiero mi sesión",off_later:"Ver los packs",off_s:"Válido para sesiones realizadas en 2026. No acumulable con otras ofertas.",off_wa:"¡Hola Adur! Quiero reservar una sesión con el 30 % de lanzamiento.",disc:"−30 % en 2026 · {n} €",
-  wa_msg:"¡Hola Adur! Me gustaría hablar de una sesión.",wa_pack:"¡Hola Adur! Me interesa el pack {p}."
+  see_short:"Ver",off_k:"",off_h:"",off_p:"",off_cta:"",off_later:"",off_s:"",off_wa:"",disc:"",
+  wa_msg:"¡Hola Adur! Me gustaría hablar de una sesión.",wa_pack:""
  },
  eu:{
   nav_about:"Aurkezpena",nav_work:"Lanak",nav_gallery:"Galeria",nav_packs:"Pack-ak",nav_contact:"Kontaktua",menu:"Menua",
   hero_eyebrow:"Erretratu, moda eta kirol argazkilaritza · Euskal Herria",
   hero_l1:"Iluntasunetik",hero_l2:"jaiotzen den argia",
   hero_p:"Flash bidezko erretratuak, kalean eta estudioan. Saio bakoitza xehetasunez prestatzen dut, esperientziaz gozatu besterik egin behar ez dezazun.",
-  cta:"Erreserbatu zure saioa",cta2:"Lanak ikusi",next:"Hurrengoa",
+  cta:"Jarri nirekin harremanetan",cta2:"Lanak ikusi",next:"Hurrengoa",
   soon:"Laster",strip_l:"Lan mota bakoitzeko argazkiak",
   about_eyebrow:"Aurkezpena",
   about_lead:"Argazkilaritza argiarekin idaztea da. Nik, flashetik jaiotzen den argiaz idazten dut gainerako guztia itzaltzen denean.",
@@ -694,19 +708,15 @@ const T = {
   about_close:"Guztiok dugu geure argia. Nire lana aurkitzea da.",
   f1b:"Flasha",f1s:"kalean eta estudioan",f2b:"Dosierra",f2s:"saio bakoitzaren aurretik",f3b:"Euskal Herria",f3s:"Eibartik, edozein txokotara",
   work_h:"Lan <em>motak</em>",work_p:"Aukeratu bat eta bere argazkietara eramango zaitut.",
-  gal_h:"Galeria",gal_p:"<b>Ikusten duzuna gogoko duzu?</b> Zu izan zaitezke irudi hauen protagonista.",gal_btn:"Erreserbatu zure saioa",gal_btn_q:"Eskatu zure aurrekontua",gal_p_eventos:"<b>Ekitaldi bat duzu?</b> Kontatu zer den eta zuretzako aurrekontua prestatuko dizut.",gal_p_marcas:"<b>Marka bat duzu?</b> Kontatu zure ideia eta zuretzako aurrekontua prestatuko dizut.",back_work:"Lanetara itzuli",
+  gal_h:"Galeria",gal_p:"<span class='q1'>Ikusten duzuna</span><span class='q2'>gogoko duzu?</span><span class='bd'>Zu izan zaitezke irudi hauen protagonista.</span>",gal_btn:"Jarri nirekin harremanetan",gal_btn_q:"Jarri nirekin harremanetan",gal_p_eventos:"<span class='q1'>Ekitaldi</span><span class='q2'>bat duzu?</span><span class='bd'>Kontatu zer den eta hitz egingo dugu.</span>",gal_p_marcas:"<span class='q1'>Marka</span><span class='q2'>bat duzu?</span><span class='bd'>Kontatu zure ideia eta hitz egingo dugu.</span>",back_work:"Lanetara itzuli",
   all:"Guztiak",topic_l:"Gaiaren arabera iragazi",topic_all:"Gai guztiak",
   proc_h:"Nola <em>egiten dut lan</em>",proc_p:"Lau urrats, beti berberak, zer espero jakin dezazun.",
   steps:[["Elkar ezagutuko dugu","Zer bilatzen duzun, argazkiak zertarako diren eta zein data datorkizun ondo kontatuko didazu."],["Dosierra","Ideia, erreferentziak, gomendatutako jantziak, lekua eta beharrezko informazio guztia bidaliko dizkizut."],["Saioa","Argiaz ni arduratzen naiz eta jarreretan lagunduko zaitut. Ez duzu esperientziarik behar."],["Entrega","Zure argazki editatuak online galeria batean jasoko dituzu, deskargatzeko."]],
-  packs_h:"Pack-ak",packs_p:"Erreferentziazko prezioak. Saio bakoitza ezberdina da: kontatu zure ideia eta aurrekontu itxia bidaliko dizut.",
+  packs_h:"Pack-ak",packs_p:"",
   from:"-tik aurrera",
-  packs:[
-   {name:"Argia",line:"Saio labur eta bildua: ideia bat, leku bat.",dur:"1 h – 1 h 30 min",price:"180",items:["Gutxienez 10 argazki editatu","Leku bat edo estudioko hondo bat","Aurretiko dosierra, ideia eta erreferentziekin","Online galerian entrega, 10 egunetan"]},
-   {name:"Gaua",line:"Denbora gehiago, itxura gehiago eta neurriko argia, egunez zein gauez.",dur:"2 h – 2 h 30 min",price:"260",feat:true,ribbon:"Osoena",items:["Gutxienez 20 argazki editatu","Gehienez 2 leku edo 2 itxura","Dosierra eta neurrira egindako argi eskema","Online galerian entrega, 14 egunetan"]},
-   {name:"Ekitaldiak",line:"Zure ekitaldia, hasieratik amaierara kontatua.",dur:"",price:"",items:["Lasterketak, dantza, lehiaketak eta jaialdiak","Argazki editatuen hautaketa zabala","Entrega 7–10 egunetan","Neurrira egindako aurrekontua: ekitaldi bakoitza ezberdina da"]}
-  ],
-  extras_h:"Osagarriak",extras_note:"Pack-ak erretratu, moda, kirol, natura eta haurdunaldi saioetarako dira. Prezioek BEZa barne dute.",
-  extras:[["Beauty erretokea (azala xehetasunez), argazkiko","+8 €"],["Erabilera komertziala: markak, iragarkiak, kanpainak","erabileraren arabera"],["Joan-etorria Eibartik 50 km arte","barne"],["Joan-etorria 50 km-tik aurrera","0,30 €/km"],["Makillaje eta estilismo profesionala","eskatuz gero"]],
+  packs:[],
+  extras_h:"Osagarriak",extras_note:"",
+  extras:[],
   contact_eyebrow:"Kontaktua",contact_h:"Hitz egin dezagun <em>zure saioaz</em>",
   where:"Eibartik, Euskal Herriko edozein txokotara gerturatzen naiz.",
   open:"Ireki",copy:"Kopiatu",copied:"Kopiatuta",mail:"Posta",close:"Itxi",
@@ -721,20 +731,20 @@ const T = {
    bodas:["Ezkontzak","Zuen eguna lasai kontatua, jarrera behartuik gabe: urduritasuna, zeremonia eta festa. Argazki naturalak, argia protagonista dela."],
    marcas:["Markak","Argazkilaritza + web-a. Zure markak irudi propioa merezi du: lookbooka, produktua modeloarekin eta zure online dendarako eta sareetarako prest dauden argazkiak."]
   },
-  see:"Argazkiak ikusi",ask:"Eskatu aurrekontua",price_ask:"Neurrira",
+  see:"Argazkiak ikusi",ask:"Jarri harremanetan",price_ask:"Neurrira",
   book:"Erreserbatu",wa_main:"Idatzi WhatsAppez",wa_hint:"Kontatu data, saio mota eta zure ideia.",call:"Deitu",write:"Idatzi",phone:"Telefonoa",band_h:"Zure saioaz hitz egingo dugu?",
-  see_short:"Ikusi",off_k:"Estreinaldia · 2026",off_h:"zure saioan <em>2026 osoan</em>",off_p:"Undrlighted abian jarri berri da eta zurekin estreinatu nahi dut. Erreserbatu edozein pack 2026an eta %30eko deskontua egingo dizut. Data mugatuak dira: zenbat eta lehenago hitz egin, orduan eta errazago eguna eta argia aukeratzea.",off_cta:"Nire saioa nahi dut",off_later:"Pack-ak ikusi",off_s:"2026an egindako saioetarako. Ez da beste eskaintzekin metagarria.",off_wa:"Kaixo Adur! Saio bat erreserbatu nahi dut, %30eko estreinaldiko deskontuarekin.",disc:"2026an −%30 · {n} €",
-  wa_msg:"Kaixo Adur! Saio bati buruz hitz egin nahiko nuke.",wa_pack:"Kaixo Adur! {p} pack-a interesatzen zait."
+  see_short:"Ikusi",off_k:"",off_h:"",off_p:"",off_cta:"",off_later:"",off_s:"",off_wa:"",disc:"",
+  wa_msg:"Kaixo Adur! Saio bati buruz hitz egin nahiko nuke.",wa_pack:""
  }
 };
 
 const ORDER=["exteriores","estudio","deporte","naturaleza","embarazo","eventos","marcas"];
 const COVER={exteriores:"img/retrato-moda-exteriores-22.jpg",estudio:"img/retrato-moda-estudio-13.jpg",deporte:"img/deporte-12.jpg",naturaleza:"img/naturaleza-07.jpg",embarazo:"img/embarazo-03.jpg",eventos:"img/eventos-27.jpg",bodas:"img/bodas-01.jpg",marcas:"img/marcas-01.jpg"};
-const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-04","estudio"],["eventos-22","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-11","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-17","eventos"],["retrato-moda-estudio-09","estudio"]];
+const STRIP=[["retrato-moda-exteriores-18","exteriores"],["retrato-moda-estudio-11","estudio"],["eventos-22","eventos"],["retrato-moda-exteriores-07","exteriores"],["deporte-11","deporte"],["embarazo-03","embarazo"],["retrato-moda-estudio-07","estudio"],["naturaleza-02","naturaleza"],["retrato-moda-exteriores-10","exteriores"],["eventos-25","eventos"],["retrato-moda-estudio-12","estudio"],["deporte-03","deporte"],["retrato-moda-exteriores-17","exteriores"],["naturaleza-07","naturaleza"],["eventos-03","eventos"],["retrato-moda-estudio-09","estudio"]];
 const IN=(p,k)=>p[1]===k||(p[4]||[]).includes(k);
 const HAS=k=>PHOTOS.some(p=>p[1]===k);
 let topic="";
-const HERO=["img/retrato-moda-exteriores-06.jpg","img/deporte-17.jpg","img/retrato-moda-exteriores-10.jpg","img/retrato-moda-estudio-06.jpg","img/deporte-14.jpg","img/retrato-moda-exteriores-22.jpg","img/eventos-33.jpg"];
+const HERO=["img/retrato-moda-exteriores-06.jpg","img/deporte-17.jpg","img/retrato-moda-exteriores-10.jpg","img/retrato-moda-estudio-06.jpg","img/deporte-14.jpg","img/retrato-moda-exteriores-22.jpg","img/eventos-34.jpg"];
 
 let lang="eu", filter="all", view=[], idx=0, page="";
 try{const s=sessionStorage.getItem("ul-lang"); if(s==="eu"||s==="es"||s==="en") lang=s;}catch(e){}
@@ -768,7 +778,7 @@ function renderFilters(){
 function setFilter(f){if(f!==filter&&location.hash.startsWith("#galeria")){try{history.replaceState(null,"","#galeria"+(f==="all"?"":"/"+f))}catch(e){}}filter=f;topic="";$("#topic").value="";document.querySelectorAll("#filters button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));renderGrid();}
 
 function renderGrid(){
-  {const q=filter==="eventos"||filter==="marcas",gp=$("#galP"),gb=$("#galB");gp.dataset.i18nHtml=q?"gal_p_"+filter:"gal_p";gb.dataset.i18n=q?"gal_btn_q":"gal_btn";gp.innerHTML=t(gp.dataset.i18nHtml);gb.textContent=t(gb.dataset.i18n);}
+  {const q=filter==="eventos"||filter==="marcas",gp=$("#galP"),gb=$("#galB");gp.dataset.i18nHtml=q?"gal_p_"+filter:"gal_p";gb.dataset.i18n=q?"gal_btn_q":"gal_btn";gp.innerHTML=t(gp.dataset.i18nHtml);const ey=$("#galEye");if(ey)ey.textContent=filter==="all"?"":t("works")[filter][0];gb.textContent=t(gb.dataset.i18n);}
   view=filter==="all"?PHOTOS.filter(p=>!topic||IN(p,topic)):PHOTOS.filter(p=>p[1]===filter);
   $("#topicWrap").hidden=filter!=="all";
   $("#grid").innerHTML=view.map((p,i)=>`<figure class="ph${reduce?"":" fx"}" tabindex="0" data-i="${i}" style="transition-delay:${(i%3)*90}ms"><img src="${p[0]}" width="${p[2]}" height="${p[3]}" loading="lazy" alt="${t("works")[p[1]][0]}"><figcaption class="tag">${t("works")[p[1]][0]}</figcaption></figure>`).join("");
@@ -829,7 +839,8 @@ const io="IntersectionObserver" in window?new IntersectionObserver(es=>es.forEac
 document.querySelectorAll(".rv:not(.in)").forEach(el=>io?io.observe(el):el.classList.add("in"));
 
 /* Rutas: una página por sección */
-const PAGES=["inicio","sobre","trabajos","galeria","packs","contacto"];
+const SHOW_PRICES=false;if(SHOW_PRICES)document.documentElement.classList.add("prices");
+const PAGES=SHOW_PRICES?["inicio","sobre","trabajos","galeria","packs","contacto"]:["inicio","sobre","trabajos","galeria","contacto"];
 
 const flashEl=$("#flash");
 function flashAt(e){if(reduce)return;if(e&&e.clientX!=null){flashEl.style.setProperty("--fx",e.clientX+"px");flashEl.style.setProperty("--fy",e.clientY+"px")}else{flashEl.style.setProperty("--fx","50%");flashEl.style.setProperty("--fy","40%")}flashEl.classList.remove("go");void flashEl.offsetWidth;flashEl.classList.add("go")}
@@ -838,7 +849,7 @@ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');i
 const OFF="ul-offer-2026";
 function offerSeen(){try{return sessionStorage.getItem(OFF)==="1"}catch(e){return offerClosed}}
 let offerClosed=false,offerFrom=null,offerTimer=0;
-function openOffer(){const o=$("#offer");if(!o.hidden||offerSeen())return;offerFrom=document.activeElement;o.hidden=false;document.body.style.overflow="hidden";$("#offerGo").href=wa(t("off_wa"));requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.add("open")));setTimeout(()=>o.querySelector(".offer-card").focus({preventScroll:true}),30)}
+function openOffer(){if(!SHOW_PRICES)return;const o=$("#offer");if(!o.hidden||offerSeen())return;offerFrom=document.activeElement;o.hidden=false;document.body.style.overflow="hidden";$("#offerGo").href=wa(t("off_wa"));requestAnimationFrame(()=>requestAnimationFrame(()=>o.classList.add("open")));setTimeout(()=>o.querySelector(".offer-card").focus({preventScroll:true}),30)}
 function closeOffer(){const o=$("#offer");if(o.hidden)return;offerClosed=true;try{sessionStorage.setItem(OFF,"1")}catch(e){}o.classList.add("closing");o.classList.remove("open");document.body.style.overflow="";setTimeout(()=>{o.hidden=true;o.classList.remove("closing");$("#packsList").classList.add("show-disc")},reduce?0:170);if(offerFrom&&offerFrom.focus)offerFrom.focus({preventScroll:true})}
 document.querySelectorAll("#offer [data-close]").forEach(b=>b.addEventListener("click",closeOffer));
 $("#offerGo").addEventListener("click",()=>setTimeout(closeOffer,50));
@@ -873,7 +884,7 @@ function fxScroll(){fxTick=false;const y=scrollY,vh=innerHeight;
 if(!reduce){addEventListener("scroll",()=>{if(!fxTick){fxTick=true;requestAnimationFrame(fxScroll)}},{passive:true});addEventListener("resize",fxScroll);addEventListener("hashchange",()=>requestAnimationFrame(fxScroll))}
 function route(){
   const [p,sub]=(location.hash.slice(1)||"inicio").split("/");
-  const next=PAGES.includes(p)?p:"inicio";
+  const next=PAGES.includes(p)?p:(p==="packs"?"contacto":"inicio");
   if(next==="galeria"){const f=ORDER.includes(sub)&&HAS(sub)?sub:"all";if(f!==filter){filter=f;topic="";renderFilters();renderGrid()}}
   if(next!==page){
     document.querySelectorAll(".page").forEach(el=>el.classList.toggle("active",el.dataset.page===next));
