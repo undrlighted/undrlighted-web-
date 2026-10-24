@@ -61,21 +61,21 @@ header.solid{background:rgba(21,27,36,.88);backdrop-filter:blur(10px);-webkit-ba
 nav{display:flex;gap:clamp(14px,2.4vw,34px);align-items:center}
 nav a{text-decoration:none;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);transition:color .25s}
 nav a:hover,nav a[aria-current="page"]{color:var(--cream)}
-.navlinks a{position:relative;display:inline-block;transition:color .25s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.navlinks a{position:relative;display:inline-block;white-space:nowrap;transition:color .25s,transform .45s cubic-bezier(.2,.7,.2,1)}
 .navlinks a .rl{display:inline-block;position:relative;clip-path:inset(-2px -60px);line-height:1.4}
 .navlinks a .rl b{display:block;font-weight:inherit;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .4s}
 .navlinks a .rl b + b{position:absolute;left:50%;top:0;white-space:nowrap;transform:translate(-50%,105%);opacity:0;font-family:var(--display);font-style:italic;text-transform:none;letter-spacing:.01em;font-size:1.45em;line-height:1;margin-top:-.08em;color:#fff}
 .navlinks a:hover .rl b:first-child{transform:translateY(-105%);opacity:0}
 .navlinks a:hover .rl b + b{transform:translate(-50%,0);opacity:1}
 .navlinks a:hover{transform:translateY(-1px)}
-@media (max-width:860px){.navlinks a .rl b + b{display:none}.navlinks a:hover .rl b:first-child{transform:none;opacity:1}}
+@media (max-width:1060px){.navlinks a .rl b + b{display:none}.navlinks a:hover .rl b:first-child{transform:none;opacity:1}}
 .navlinks a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 .navlinks a:hover::after,.navlinks a[aria-current="page"]::after{transform:scaleX(1)}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
 .lang button{background:none;border:0;color:var(--cream-dim);font:inherit;font-family:var(--mono);font-size:11px;letter-spacing:.1em;padding:6px 12px;min-height:44px;min-width:44px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--cream);color:var(--night)}
 .menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--cream);border-radius:999px;padding:7px 16px;min-height:44px;font:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-@media (max-width:860px){
+@media (max-width:1060px){
   nav .navlinks{display:none}
   .menu-btn{display:block}
   nav.open .navlinks{animation:menuIn .22s var(--ease-out) both;display:flex;position:fixed;inset:76px 0 auto 0;flex-direction:column;gap:4px;box-shadow:0 30px 60px rgba(0,0,0,.45);padding:28px var(--gutter);background:var(--night);border-bottom:1px solid var(--line)}
@@ -455,6 +455,7 @@ html:not(.prices) .price-only{display:none!important}
         <a href="#trabajos" data-i18n="nav_work"></a>
         <a href="#galeria" data-i18n="nav_gallery"></a>
         <a href="#packs" data-i18n="nav_packs" class="price-only"></a>
+        <a href="#bezeroak" data-i18n="nav_client"></a>
         <a href="#contacto" data-i18n="nav_contact"></a>
       </div>
       <div class="lang" role="group" aria-label="Hizkuntza / Idioma">
