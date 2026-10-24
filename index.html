@@ -437,6 +437,10 @@ body[data-rv] .ph.fx.in:hover img{transform:scale(1.07);filter:brightness(1.03)}
 
 /* Precios ocultos mientras Adur no esté de alta (16-oct). Para mostrarlos: SHOW_PRICES=true */
 html:not(.prices) .price-only{display:none!important}
+.client{max-width:760px}.client h2{margin-bottom:24px}.cl-p{color:var(--cream-dim);font-size:18px;max-width:56ch;margin-bottom:40px}
+.cl-form label{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:12px}
+.cl-row{display:flex;gap:16px;flex-wrap:wrap;align-items:stretch}.cl-row input{flex:1 1 260px;min-height:52px;background:transparent;border:1px solid var(--line);border-radius:999px;color:var(--cream);font:inherit;font-size:17px;padding:0 24px;outline:none;transition:border-color .2s}.cl-row input:focus{border-color:var(--amber)}
+.cl-form .hint{margin-top:16px}
 </style>
 </head>
 <body>
@@ -581,6 +585,19 @@ html:not(.prices) .price-only{display:none!important}
     </div>
   </section>
   </div>
+  <div class="page" data-page="bezeroak">
+  <section>
+    <div class="wrap client">
+      <h2 data-i18n-html="cl_h"></h2>
+      <p class="cl-p" data-i18n="cl_p"></p>
+      <form class="cl-form" id="clForm" autocomplete="off">
+        <label for="clCode" data-i18n="cl_l"></label>
+        <div class="cl-row"><input id="clCode" name="code" type="text" inputmode="text" autocapitalize="none" autocorrect="off" spellcheck="false" required><button class="cta solid" type="submit"><span data-i18n="cl_go"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></button></div>
+        <p class="hint" data-i18n="cl_hint"></p>
+      </form>
+    </div>
+  </section>
+  </div>
 </main>
 <div class="flash" id="flash" aria-hidden="true"></div>
 <div class="offer price-only" id="offer" hidden>
@@ -595,7 +612,7 @@ html:not(.prices) .price-only{display:none!important}
   </div>
 </div>
 
-<footer><div class="wrap"><span>© 2026 Undrlighted · Adur · Eibar</span><span class="foot-links"><a href="https://www.instagram.com/undrlighted/" target="_blank" rel="noopener">Instagram</a><a data-wa target="_blank" rel="noopener">WhatsApp</a><a href="mailto:undrlighted@gmail.com">Email</a></span><span data-i18n="foot"></span></div></footer>
+<footer><div class="wrap"><span>© 2026 Undrlighted · Adur · Eibar</span><span class="foot-links"><a href="https://www.instagram.com/undrlighted/" target="_blank" rel="noopener">Instagram</a><a data-wa target="_blank" rel="noopener">WhatsApp</a><a href="mailto:undrlighted@gmail.com">Email</a><a href="#bezeroak" data-i18n="nav_client"></a></span><span data-i18n="foot"></span></div></footer>
 <div class="pcur" id="pcur" aria-hidden="true"></div>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Galería">
@@ -609,7 +626,7 @@ const PHOTOS = [["img/retrato-moda-exteriores-18.jpg", "exteriores", 1120, 1400]
 
 const T = {
  en:{
-  nav_about:"About",nav_work:"Work",nav_gallery:"Gallery",nav_packs:"Packages",nav_contact:"Contact",menu:"Menu",
+  nav_about:"About",nav_work:"Work",nav_gallery:"Gallery",nav_packs:"Packages",nav_contact:"Contact",nav_client:"Client area",cl_h:"Client <em>area</em>",cl_p:"After your session I'll send you a gallery name and a password. Type the name here to see and download your photos.",cl_l:"Gallery name",cl_go:"Open gallery",cl_hint:"The gallery will ask for your password. If you have lost it, message me.",menu:"Menu",
   hero_eyebrow:"Portrait, fashion and sports photography · Basque Country",
   hero_l1:"The light born",hero_l2:"from the dark",
   hero_p:"Flash portraits, on the street and in the studio. I plan every session in detail so all you have to do is enjoy it.",
@@ -652,7 +669,7 @@ const T = {
   wa_msg:"Hi Adur! I'd like to talk about a session.",wa_pack:""
  },
  es:{
-  nav_about:"Sobre mí",nav_work:"Trabajos",nav_gallery:"Galería",nav_packs:"Packs",nav_contact:"Contacto",menu:"Menú",
+  nav_about:"Sobre mí",nav_work:"Trabajos",nav_gallery:"Galería",nav_packs:"Packs",nav_contact:"Contacto",nav_client:"Área de clientes",cl_h:"Área de <em>clientes</em>",cl_p:"Después de la sesión te envío el nombre de tu galería y una contraseña. Escribe aquí el nombre para ver y descargar tus fotos.",cl_l:"Nombre de la galería",cl_go:"Abrir galería",cl_hint:"La galería te pedirá la contraseña. Si la has perdido, escríbeme.",menu:"Menú",
   hero_eyebrow:"Fotografía de retrato, moda y deporte · Euskal Herria",
   hero_l1:"La luz que nace",hero_l2:"de la oscuridad",
   hero_p:"Retratos con flash, en la calle y en estudio. Preparo cada sesión al detalle para que solo tengas que disfrutar de la experiencia.",
@@ -695,7 +712,7 @@ const T = {
   wa_msg:"¡Hola Adur! Me gustaría hablar de una sesión.",wa_pack:""
  },
  eu:{
-  nav_about:"Aurkezpena",nav_work:"Lanak",nav_gallery:"Galeria",nav_packs:"Pack-ak",nav_contact:"Kontaktua",menu:"Menua",
+  nav_about:"Aurkezpena",nav_work:"Lanak",nav_gallery:"Galeria",nav_packs:"Pack-ak",nav_contact:"Kontaktua",nav_client:"Bezeroen gunea",cl_h:"Bezeroen <em>gunea</em>",cl_p:"Saioaren ondoren zure galeriaren izena eta pasahitz bat bidaliko dizkizut. Idatzi hemen izena zure argazkiak ikusi eta deskarga ditzazun.",cl_l:"Galeriaren izena",cl_go:"Ireki galeria",cl_hint:"Galeriak pasahitza eskatuko dizu. Galdu baduzu, idatzi iezadazu.",menu:"Menua",
   hero_eyebrow:"Erretratu, moda eta kirol argazkilaritza · Euskal Herria",
   hero_l1:"Iluntasunetik",hero_l2:"jaiotzen den argia",
   hero_p:"Flash bidezko erretratuak, kalean eta estudioan. Saio bakoitza xehetasunez prestatzen dut, esperientziaz gozatu besterik egin behar ez dezazun.",
@@ -841,7 +858,7 @@ document.querySelectorAll(".rv:not(.in)").forEach(el=>io?io.observe(el):el.class
 
 /* Rutas: una página por sección */
 const SHOW_PRICES=false;if(SHOW_PRICES)document.documentElement.classList.add("prices");
-const PAGES=SHOW_PRICES?["inicio","sobre","trabajos","galeria","packs","contacto"]:["inicio","sobre","trabajos","galeria","contacto"];
+const PAGES=SHOW_PRICES?["inicio","sobre","trabajos","galeria","packs","contacto","bezeroak"]:["inicio","sobre","trabajos","galeria","contacto","bezeroak"];
 
 const flashEl=$("#flash");
 function flashAt(e){if(reduce)return;if(e&&e.clientX!=null){flashEl.style.setProperty("--fx",e.clientX+"px");flashEl.style.setProperty("--fy",e.clientY+"px")}else{flashEl.style.setProperty("--fx","50%");flashEl.style.setProperty("--fy","40%")}flashEl.classList.remove("go");void flashEl.offsetWidth;flashEl.classList.add("go")}
@@ -898,6 +915,7 @@ function route(){
   galHeroSet();solid();
 }
 addEventListener("hashchange",route);
+$("#clForm").addEventListener("submit",e=>{e.preventDefault();const c=$("#clCode").value.trim().toLowerCase().replace(/\s+/g,"").replace(/[^a-z0-9-]/g,"");if(c)window.open("https://undrlighted.pixieset.com/"+c+"/","_blank","noopener")});
 
 applyText(); renderGrid(); route(); if(!reduce)fxScroll();
 </script>
