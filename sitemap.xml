@@ -1,4 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://undrlighted.es/</loc><lastmod>2026-10-14</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://undrlighted.es/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://undrlighted.es/en/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://undrlighted.es/en/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/en/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://undrlighted.es/en/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/erretratua/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/erretratua/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/book-retrato/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/book-retrato/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/erretratua/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/book-retrato/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/bikoteak/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/bikoteak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/parejas/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/parejas/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/bikoteak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/parejas/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/haurdunaldia/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/haurdunaldia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/embarazo/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/embarazo/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/haurdunaldia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/embarazo/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/kirola/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/kirola/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/deporte/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/deporte/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/kirola/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/deporte/"/>
+  </url>
 </urlset>
