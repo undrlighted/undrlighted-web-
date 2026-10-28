@@ -80,7 +80,7 @@ BUSINESS = {
     "description": "Fotografía de retrato, moda, parejas, embarazo y deporte con flash, desde Eibar a toda Euskal Herria.",
     "url": SITE + "/",
     "image": SITE + "/img/retrato-moda-exteriores-01.jpg",
-    "logo": SITE + "/img/icon-180.png",
+    "logo": SITE + "/img/favicon-512.png",
     "telephone": "+34623828791",
     "email": "undrlighted@gmail.com",
     "address": {"@type": "PostalAddress", "addressLocality": "Eibar", "addressRegion": "Gipuzkoa", "addressCountry": "ES"},
@@ -157,6 +157,7 @@ def head(group, L, url, texts):
               f'<meta property="og:url" content="{SITE}{url}">',
               f'<meta property="og:image" content="{img}">',
               '<meta name="twitter:card" content="summary_large_image">',
+              '<meta name="robots" content="max-image-preview:large">',
               '<meta name="color-scheme" content="dark">']
     if GSC_TOKEN and group == "home" and L == "eu":
         lines.append(f'<meta name="google-site-verification" content="{e(GSC_TOKEN)}">')
