@@ -791,6 +791,8 @@ const T = {
  }
 };
 
+/* Orden de «Todo»: lo más reciente arriba, tipos repartidos, el perro al final (Adur, 29-oct). */
+const ALL=["naturaleza-12", "retrato-moda-exteriores-25", "deporte-11", "naturaleza-11", "retrato-moda-exteriores-28", "marcas-01", "naturaleza-10", "retrato-moda-exteriores-18", "deporte-12", "retrato-moda-exteriores-27", "naturaleza-16", "retrato-moda-estudio-13", "deporte-13", "retrato-moda-exteriores-19", "naturaleza-17", "retrato-moda-exteriores-29", "marcas-02", "naturaleza-15", "retrato-moda-estudio-10", "deporte-14", "naturaleza-13", "retrato-moda-exteriores-22", "retrato-moda-exteriores-26", "deporte-15", "naturaleza-14", "retrato-moda-estudio-11", "marcas-03", "retrato-moda-exteriores-30", "deporte-16", "retrato-moda-exteriores-21", "retrato-moda-estudio-12", "deporte-17", "marcas-04", "deporte-18", "retrato-moda-estudio-14", "marcas-05", "retrato-moda-estudio-15", "eventos-27", "retrato-moda-exteriores-01", "deporte-08", "eventos-34", "retrato-moda-estudio-06", "retrato-moda-exteriores-06", "deporte-07", "eventos-24", "naturaleza-05", "retrato-moda-estudio-07", "eventos-30", "retrato-moda-exteriores-07", "deporte-01", "eventos-22", "retrato-moda-estudio-08", "retrato-moda-exteriores-10", "naturaleza-01", "eventos-29", "deporte-02", "retrato-moda-exteriores-11", "retrato-moda-estudio-09", "naturaleza-02", "eventos-03", "retrato-moda-exteriores-15", "deporte-03", "embarazo-02", "eventos-28", "naturaleza-07", "retrato-moda-estudio-16", "deporte-04", "retrato-moda-exteriores-16", "embarazo-03", "naturaleza-03", "eventos-09", "retrato-moda-exteriores-17", "embarazo-04", "deporte-05", "eventos-32", "naturaleza-09", "embarazo-05", "deporte-06", "eventos-25", "embarazo-06", "deporte-09", "naturaleza-04", "embarazo-07", "deporte-10", "embarazo-08", "embarazo-09", "naturaleza-08"];
 const ORDER=["exteriores","estudio","parejas","deporte","naturaleza","embarazo","eventos","marcas"];
 /* Textos alternativos por foto: [eu, es, en] */
 const ALT={};
@@ -867,17 +869,27 @@ function renderFilters(){
 
 function setFilter(f){if(f!==filter&&location.hash.startsWith("#galeria")){try{history.replaceState(null,"","#galeria"+(f==="all"?"":"/"+f))}catch(e){}}filter=f;topic="";$("#topic").value="";document.querySelectorAll("#filters button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f));renderGrid();}
 
+/* Galería en columnas, pero leída por filas: cada foto va a la columna más corta, así las primeras quedan arriba. */
+const RANK=new Map(ALL.map((n,i)=>[n,i])),pname=p=>p[0].split("/").pop().replace(/\.jpg$/,"");
+const sortAll=a=>a.slice().sort((x,y)=>(RANK.has(pname(x))?RANK.get(pname(x)):1e3)-(RANK.has(pname(y))?RANK.get(pname(y)):1e3));
+function gridCols(g){const w=g.clientWidth||innerWidth-32;return Math.max(1,Math.min(3,Math.floor((w+14)/314)))}
+function layGrid(){const g=$("#grid");if(!g._m)return;const n=gridCols(g),H=Array(n).fill(0),C=Array.from({length:n},()=>[]),show=new Set(view),out=[];
+  view.forEach(p=>{const c=H.indexOf(Math.min(...H));C[c].push(p);H[c]+=p[3]/p[2]});
+  C.forEach((col,c)=>col.forEach((p,j)=>{const el=g._m.get(p),b=c&&!j?"column":"";el.hidden=false;el.style.breakBefore=b;el.style.webkitColumnBreakBefore=b?"always":"";out.push(el)}));
+  PHOTOS.forEach(p=>{if(!show.has(p)){const el=g._m.get(p);el.hidden=true;el.style.breakBefore="";el.style.webkitColumnBreakBefore="";delete el.dataset.i;out.push(el)}});
+  g.append(...out);g._n=n}
+addEventListener("resize",()=>{const g=$("#grid");if(g&&g._m&&gridCols(g)!==g._n)layGrid()});
 function renderGrid(){
   {const q=filter==="eventos"||filter==="marcas",gp=$("#galP"),gb=$("#galB");gp.dataset.i18nHtml=q?"gal_p_"+filter:"gal_p";gb.dataset.i18n=q?"gal_btn_q":"gal_btn";gp.innerHTML=t(gp.dataset.i18nHtml);const ey=$("#galEye");if(ey)ey.textContent=filter==="all"?"":t("works")[filter][0];gb.textContent=t(gb.dataset.i18n);}
-  view=filter==="all"?PHOTOS.filter(p=>!topic||IN(p,topic)):PHOTOS.filter(p=>INCAT(p,filter));
+  view=filter==="all"?sortAll(PHOTOS.filter(p=>!topic||IN(p,topic))):PHOTOS.filter(p=>INCAT(p,filter));
   $("#topicWrap").hidden=filter!=="all";
   const g=$("#grid");
   if(phLang!==lang||!g.children.length){phLang=lang;g.innerHTML=PHOTOS.map(p=>`<figure class="ph${reduce?"":" fx"}" tabindex="0" hidden><img src="${p[0]}" srcset="${M(p[0])} 800w, ${p[0]} ${p[2]}w" sizes="(max-width:700px) 100vw, (max-width:1100px) 50vw, 33vw" width="${p[2]}" height="${p[3]}" loading="lazy" decoding="async" alt="${alt(p[0],p[1])}"><figcaption class="tag">${t("works")[p[1]][0]}</figcaption></figure>`).join("");
-    g.querySelectorAll(".ph").forEach(el=>{const open=()=>openLb(+el.dataset.i);el.addEventListener("click",open);el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}})});phFirst=true}
-  const figs=[...g.children],show=new Set(view);
+    g.querySelectorAll(".ph").forEach(el=>{const open=()=>openLb(+el.dataset.i);el.addEventListener("click",open);el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open()}})});g._m=new Map(PHOTOS.map((p,k)=>[p,g.children[k]]));phFirst=true}
+  const figs=[...g.children];
   const anim=!phFirst&&!reduce&&window.Flip&&page==="galeria";
   const st=anim?Flip.getState(figs):null;
-  let n=0;PHOTOS.forEach((p,k)=>{const el=figs[k],on=show.has(p);el.hidden=!on;if(on){el.dataset.i=n;el.style.transitionDelay=(n%3)*90+"ms";n++;if(el.classList.contains("fx")&&!el.classList.contains("in"))(fxio?fxio.observe(el):el.classList.add("in"))}else delete el.dataset.i});
+  layGrid();view.forEach((p,n)=>{const el=g._m.get(p);el.dataset.i=n;el.style.transitionDelay=(n%3)*90+"ms";if(el.classList.contains("fx")&&!el.classList.contains("in"))(fxio?fxio.observe(el):el.classList.add("in"))});
   phFirst=false;
   if(st)Flip.from(st,{duration:.55,ease:"power3.inOut",absolute:true,onEnter:e=>gsap.fromTo(e,{opacity:0,scale:.96},{opacity:1,scale:1,duration:.4,delay:.2,ease:"power2.out"}),onLeave:e=>gsap.to(e,{opacity:0,scale:.96,duration:.25,ease:"power2.out"})});
   galHeroSet();galMoreSet();
