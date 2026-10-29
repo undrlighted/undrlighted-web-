@@ -164,7 +164,7 @@ section{padding-block:clamp(80px,12vw,160px)}
 /* Trabajos */
 .works{border-top:1px solid var(--line)}
 .work{display:grid;grid-template-columns:clamp(240px,25vw,380px) minmax(0,1.15fr) minmax(0,1fr) auto;gap:clamp(20px,3vw,40px);align-items:center;padding-block:22px;border:0;border-bottom:1px solid var(--line);text-decoration:none;position:relative;cursor:pointer;background:none;color:inherit;font:inherit;text-align:left;width:100%}
-.work .th{position:relative;aspect-ratio:4/3;overflow:hidden;margin:0;border-radius:14px;-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent),linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-composite:intersect}
+.work .th{position:relative;aspect-ratio:4/3;overflow:hidden;margin:0;border-radius:14px}
 .work .th img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(.15) brightness(.85);transform:scale(1.08);animation:drift 14s ease-in-out infinite alternate;transition:filter .6s cubic-bezier(.2,.7,.2,1)}
 .work[data-cat="deporte"] .th img{object-position:50% 22%}
 .work[data-cat="marcas"] .th img{object-position:50% 92%}
@@ -172,7 +172,6 @@ section{padding-block:clamp(80px,12vw,160px)}
 @keyframes drift{from{transform:scale(1.08) translate(-2%,-1%)}to{transform:scale(1.14) translate(2%,1.5%)}}
 .work .th::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,246,230,.9),rgba(255,246,230,0) 60%);opacity:0;pointer-events:none}
 .work:hover .th img,.work:focus-visible .th img{filter:none}
-.work:hover .th,.work:focus-visible .th{-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent),linear-gradient(to bottom,transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
 .work:hover .th::after,.work:focus-visible .th::after{animation:fl .55s ease-out}
 @keyframes fl{0%{opacity:0}15%{opacity:.85}100%{opacity:0}}
 .work .th.empty{display:grid;place-items:center;background:var(--night-2)}
