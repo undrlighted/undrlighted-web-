@@ -58,6 +58,18 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/embarazo/"/>
   </url>
   <url>
+    <loc>https://undrlighted.es/familia/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/familia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/familia/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/familia/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/familia/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/familia/"/>
+  </url>
+  <url>
     <loc>https://undrlighted.es/kirola/</loc>
     <lastmod>2026-11-03</lastmod>
     <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/kirola/"/>

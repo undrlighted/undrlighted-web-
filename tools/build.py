@@ -43,6 +43,8 @@ SVC = {
                        "embarazo-09", "embarazo-05", "naturaleza-07"]},
     "embarazo": {"cat": "embarazo", "url": {"eu": "/haurdunaldia/", "es": "/es/embarazo/"},
                  "ph": ["embarazo-02", "embarazo-03", "embarazo-09", "embarazo-06", "embarazo-08", "embarazo-05"]},
+    "familia": {"cat": "familia", "url": {"eu": "/familia/", "es": "/es/familia/"},
+                "ph": ["familia-01", "familia-03", "familia-05", "familia-02", "familia-06", "familia-04"]},
     "deporte": {"cat": "deporte", "url": {"eu": "/kirola/", "es": "/es/deporte/"},
                 "ph": ["deporte-11", "deporte-12", "deporte-14", "deporte-17", "deporte-15", "deporte-07"]},
     # Página local (palabra clave «sesión de fotos en Gipuzkoa»): sin categoría propia, cada foto enlaza a su tipo
@@ -78,6 +80,12 @@ META = {
         "es": ("Sesión de fotos de embarazo en Euskal Herria · Undrlighted",
                "Fotos de embarazo en estudio o en la naturaleza, en clave baja y con atmósfera. Lo ideal, entre las semanas 28 y 34. Desde Eibar a toda Euskal Herria."),
     },
+    "familia": {
+        "eu": ("Familia argazki saioa Euskal Herrian · Undrlighted",
+               "Familia argazkiak argi naturalarekin eta jolasean, jarrerarik gabe. Dagoeneko korrika eta jolasten duten haurrekin. Eibartik Euskal Herri osora."),
+        "es": ("Sesión de fotos en familia en Euskal Herria · Undrlighted",
+               "Fotos de familia con luz natural y juego, dinámicas y sin poses. Con niños que ya corren y juegan. Desde Eibar a toda Euskal Herria."),
+    },
     "gipuzkoa": {
         "eu": ("Argazki saioa Gipuzkoan: familia, bikotea eta erretratua",
                "Zure argazki saioa Gipuzkoan prestatzeko gida: lekuak, ordurik onenak, zer jantzi eta nolakoa den familia, bikote edo erretratu saio bat Eibartik."),
@@ -94,7 +102,7 @@ META = {
 
 # Nombres de servicio para el JSON-LD (castellano en todas las versiones: es el dato, no el texto visible)
 SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Sesión de familia", "Fotografía deportiva", "Moda y editorial", "Eventos"]
-SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "deporte": "Fotografía deportiva",
+SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "familia": "Sesión de familia", "deporte": "Fotografía deportiva",
                "gipuzkoa": "Sesión de fotos en Gipuzkoa"}
 
 BUSINESS = {
