@@ -24,6 +24,12 @@ CF_BEACON = "b2dbe46112e94b80b2de7ece2a2044a9"
 # Se añade a sameAs del JSON-LD para unir la web con la ficha del mapa.
 GBP_URL = ""
 
+# Titular de portada. En las páginas de servicio el <h1> real es el del servicio, así que
+# aquí el titular deja de ser encabezado: si no, cada página tendría dos <h1> (el de portada
+# sigue en el HTML aunque el CSS lo oculte). Los estilos van por la clase, no por la etiqueta.
+HERO_H1 = '<h1 class="hero-t"><span class="l" data-i18n="hero_l1"></span><span class="l" data-i18n="hero_l2"></span></h1>'
+HERO_P = HERO_H1.replace("<h1 ", "<p ").replace("</h1>", "</p>")
+
 LOCALE = {"eu": "eu_ES", "es": "es_ES", "en": "en_GB"}
 HOME = {"eu": "/", "es": "/es/", "en": "/en/"}
 
@@ -215,6 +221,9 @@ def main():
                             f'<html lang="{L}" data-lang="{L}" data-route="{route}">', 1)
         page = page.replace("<!--LANGLINKS-->", lang_links(group, L), 1)
         page = page.replace('<a class="logo" href="#inicio"', f'<a class="logo" href="{HOME[L]}"', 1)
+        if group != "home":
+            assert HERO_H1 in page, "no encuentro el titular de portada"
+            page = page.replace(HERO_H1, HERO_P, 1)
         dest = ROOT / url.strip("/") / "index.html" if url != "/" else ROOT / "index.html"
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(page, encoding="utf-8")
