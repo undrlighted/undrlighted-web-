@@ -13,7 +13,7 @@ import html, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://undrlighted.es"
-LASTMOD = "2026-10-27"
+LASTMOD = "2026-11-03"
 # Código de verificación de Google Search Console (método «Etiqueta HTML»): solo el valor de content="…"
 GSC_TOKEN = ""
 
@@ -32,6 +32,10 @@ SVC = {
                  "ph": ["embarazo-02", "embarazo-03", "embarazo-09", "embarazo-06", "embarazo-08", "embarazo-05"]},
     "deporte": {"cat": "deporte", "url": {"eu": "/kirola/", "es": "/es/deporte/"},
                 "ph": ["deporte-11", "deporte-12", "deporte-14", "deporte-17", "deporte-15", "deporte-07"]},
+    # Página local (palabra clave «sesión de fotos en Gipuzkoa»): sin categoría propia, cada foto enlaza a su tipo
+    "gipuzkoa": {"cat": "", "url": {"eu": "/argazki-saioa-gipuzkoa/", "es": "/es/sesion-de-fotos-gipuzkoa/"},
+                 "ph": ["naturaleza-07", "retrato-moda-exteriores-22", "naturaleza-12",
+                        "embarazo-03", "retrato-moda-estudio-13", "naturaleza-11"]},
 }
 
 META = {
@@ -61,6 +65,12 @@ META = {
         "es": ("Sesión de fotos de embarazo en Euskal Herria · Undrlighted",
                "Fotos de embarazo en estudio o en la naturaleza, en clave baja y con atmósfera. Lo ideal, entre las semanas 28 y 34. Desde Eibar a toda Euskal Herria."),
     },
+    "gipuzkoa": {
+        "eu": ("Argazki saioa Gipuzkoan: familia, bikotea eta erretratua",
+               "Zure argazki saioa Gipuzkoan prestatzeko gida: lekuak, ordurik onenak, zer jantzi eta nolakoa den familia, bikote edo erretratu saio bat Eibartik."),
+        "es": ("Sesión de fotos en Gipuzkoa: familia, pareja y retrato",
+               "Guía para preparar tu sesión de fotos en Gipuzkoa: lugares, mejor hora, qué ropa llevar y cómo es una sesión de familia, pareja o retrato desde Eibar."),
+    },
     "deporte": {
         "eu": ("Kirol argazkilaritza Euskal Herrian · Undrlighted",
                "Runninga, traila, BTTa, motocrossa edo skatea flasharekin eta iragarki estiloan. Kirol argazkilaria Eibartik Euskal Herri osora."),
@@ -71,7 +81,8 @@ META = {
 
 # Nombres de servicio para el JSON-LD (castellano en todas las versiones: es el dato, no el texto visible)
 SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Fotografía deportiva", "Moda y editorial", "Eventos"]
-SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "deporte": "Fotografía deportiva"}
+SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "deporte": "Fotografía deportiva",
+               "gipuzkoa": "Sesión de fotos en Gipuzkoa"}
 
 BUSINESS = {
     "@type": "ProfessionalService",
@@ -115,7 +126,7 @@ def lang_target(group, L):
     alt = alternates(group)
     if L in alt:
         return alt[L]
-    return HOME[L] + "#galeria/" + SVC[group]["cat"]
+    return HOME[L] + ("#galeria/" + SVC[group]["cat"] if SVC[group]["cat"] else "")
 
 
 def jsonld(group, L, url, texts):
@@ -129,12 +140,12 @@ def jsonld(group, L, url, texts):
     if group != "home":
         graph.append({"@type": "Service", "name": SVC_LD_NAME[group], "serviceType": SVC_LD_NAME[group],
                       "url": SITE + url, "provider": {"@id": SITE + "/#negocio"},
-                      "areaServed": "Euskal Herria", "description": desc})
+                      "areaServed": "Gipuzkoa" if group == "gipuzkoa" else "Euskal Herria", "description": desc})
         graph.append({"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Undrlighted", "item": SITE + HOME[L]},
             {"@type": "ListItem", "position": 2, "name": texts[L]["svc"][group]["nav"], "item": SITE + url}]})
         graph.append({"@type": "FAQPage", "inLanguage": L, "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in texts[L]["faq"]]})
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in texts[L]["svc"][group].get("faq") or texts[L]["faq"]]})
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 
