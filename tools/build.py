@@ -35,7 +35,7 @@ SVC = {
     # Página local (palabra clave «sesión de fotos en Gipuzkoa»): sin categoría propia, cada foto enlaza a su tipo
     "gipuzkoa": {"cat": "", "url": {"eu": "/argazki-saioa-gipuzkoa/", "es": "/es/sesion-de-fotos-gipuzkoa/"},
                  "ph": ["naturaleza-07", "retrato-moda-exteriores-22", "naturaleza-12",
-                        "embarazo-03", "retrato-moda-estudio-13", "naturaleza-11"]},
+                        "embarazo-03", "retrato-moda-estudio-13", "familia-01"]},
 }
 
 META = {
@@ -80,7 +80,7 @@ META = {
 }
 
 # Nombres de servicio para el JSON-LD (castellano en todas las versiones: es el dato, no el texto visible)
-SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Fotografía deportiva", "Moda y editorial", "Eventos"]
+SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Sesión de familia", "Fotografía deportiva", "Moda y editorial", "Eventos"]
 SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "deporte": "Fotografía deportiva",
                "gipuzkoa": "Sesión de fotos en Gipuzkoa"}
 
