@@ -15,7 +15,14 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://undrlighted.es"
 LASTMOD = "2026-11-03"
 # Código de verificación de Google Search Console (método «Etiqueta HTML»): solo el valor de content="…"
+# No hace falta si verificas el dominio por DNS (propiedad de dominio).
 GSC_TOKEN = ""
+# Token de Cloudflare Web Analytics: solo el valor de "token" (32 caracteres hexadecimales).
+# Sin cookies y sin banner de consentimiento. Vacío = no se añade nada.
+CF_BEACON = "b2dbe46112e94b80b2de7ece2a2044a9"
+# Ficha del Perfil de Empresa de Google: enlace corto (https://g.page/…) o maps.app.goo.gl/…
+# Se añade a sameAs del JSON-LD para unir la web con la ficha del mapa.
+GBP_URL = ""
 
 LOCALE = {"eu": "eu_ES", "es": "es_ES", "en": "en_GB"}
 HOME = {"eu": "/", "es": "/es/", "en": "/en/"}
@@ -98,7 +105,7 @@ BUSINESS = {
     "areaServed": ["Eibar", "Gipuzkoa", "Bizkaia", "Araba", "Nafarroa", "Euskal Herria"],
     "knowsLanguage": ["eu", "es", "en"],
     "founder": {"@type": "Person", "name": "Adur", "jobTitle": "Fotógrafo"},
-    "sameAs": ["https://www.instagram.com/undrlighted/"],
+    "sameAs": ["https://www.instagram.com/undrlighted/"] + ([GBP_URL] if GBP_URL else []),
     "hasOfferCatalog": {
         "@type": "OfferCatalog", "name": "Sesiones de fotos",
         "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": n}} for n in SERVICES_LD],
@@ -172,6 +179,9 @@ def head(group, L, url, texts):
               '<meta name="color-scheme" content="dark">']
     if GSC_TOKEN and group == "home" and L == "eu":
         lines.append(f'<meta name="google-site-verification" content="{e(GSC_TOKEN)}">')
+    if CF_BEACON:
+        lines.append('<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" '
+                     f'data-cf-beacon=\'{{"token": "{e(CF_BEACON)}"}}\'></script>')
     lines.append('<script type="application/ld+json">\n' + jsonld(group, L, url, texts) + '\n</script>')
     return "\n".join(lines)
 
