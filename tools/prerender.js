@@ -40,6 +40,17 @@ const server = http.createServer((req, res) => {
       H.classList.remove("pre");
       if (!H.getAttribute("class")) H.removeAttribute("class");
       document.querySelector("#top").classList.remove("solid");
+      // Las secciones que no se ven al abrir esta URL salen vacías en el HTML: Google lee
+      // solo el contenido propio de la página. Al cargar, el script vuelve a rellenarlas.
+      // Se mantienen Contacto, las tarjetas de Lanak (enlazan a las páginas de servicio) y,
+      // en la portada, Lanak entero (cómo trabajo y preguntas frecuentes generales).
+      const home = document.documentElement.dataset.route === "inicio";
+      document.querySelectorAll(".page:not(.active)").forEach(pg => {
+        if (pg.dataset.page === "contacto" || (home && pg.dataset.page === "trabajos")) return;
+        const keep = el => el.closest("#works");
+        pg.querySelectorAll("[data-i18n],[data-i18n-html]").forEach(el => { if (!keep(el)) el.textContent = ""; });
+        pg.querySelectorAll("#slides,#mq,#steps,#testi,#grid,#filters,#topic,.faq-list").forEach(el => { el.innerHTML = ""; });
+      });
       return "<!doctype html>\n" + H.outerHTML + "\n";
     });
     const file = url === "/" ? path.join(ROOT, "index.html") : path.join(ROOT, url, "index.html");
