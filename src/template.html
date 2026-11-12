@@ -202,7 +202,9 @@ section{padding-block:clamp(80px,12vw,160px)}
 .ph:hover img{transform:scale(1.035);filter:brightness(1.04)}
 .ph .tag{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .ph:hover .tag,.ph:focus-visible .tag{opacity:1;transform:none}
-html.pre .hero .hero-t .l,html.pre .hero .hero-t .k,html.pre .hero-meta{opacity:0}
+/* Entrada de portada (12-nov): solo CSS y sin ocultar el texto, para que se pinte desde el primer momento (LCP). */
+@media (prefers-reduced-motion:no-preference){.hero .hero-t .k,.hero .hero-t .l,.hero-meta{animation:heroIn 1.1s cubic-bezier(.215,.61,.355,1) both}.hero .hero-t .l{animation-delay:.14s}.hero .hero-t .l+.l{animation-delay:.28s}.hero-meta{animation-duration:.9s;animation-delay:.35s}}
+@keyframes heroIn{from{opacity:.4;transform:translateY(24px)}to{opacity:1;transform:none}}
 .ph.enter{animation:enter .7s cubic-bezier(.2,.7,.2,1) both}
 @keyframes enter{from{transform:translateY(22px) scale(.985)}to{transform:none}}
 .permiso{margin-top:18px;font-size:13px;color:var(--cream-faint)}
@@ -867,7 +869,7 @@ function renderSvc(){
   /* Una página sin categoría propia (Gipuzkoa) enlaza cada foto a su tipo y lleva su texto largo en body y sus propias preguntas. */
   const pc=f=>c.cat||((PHOTOS.find(p=>p[0].endsWith("/"+f+".jpg"))||[,"exteriores"])[1]),gal=c.cat?"#galeria/"+c.cat:"#galeria";
   box.innerHTML=`<p class="eyebrow">${s.eye}</p><h1>${s.h1}</h1><div class="svc-text">${s.p.map(x=>`<p>${x}</p>`).join("")}</div>`+
-    `<div class="svc-ph">${c.ph.map(f=>`<a href="#galeria/${pc(f)}"><img src="/img/m/${f}.jpg" alt="${alt(f,pc(f))}" loading="lazy" decoding="async" width="800" height="1000"></a>`).join("")}</div>`+
+    `<div class="svc-ph">${c.ph.map((f,i)=>`<a href="#galeria/${pc(f)}"><img src="/img/m/${f}.jpg" alt="${alt(f,pc(f))}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async" width="800" height="1000"></a>`).join("")}</div>`+
     (s.body?`<div class="svc-text svc-body">${s.body}</div>`:"")+
     `<div class="hero-ctas"><a class="cta" href="#contacto"><span>${t("cta")}</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a><a class="cta ghost" href="${gal}">${t("svc_all")}</a></div>`+
     `<div class="faq"><h2>${t("faq_h")}</h2><div class="faq-list">${(s.faq||t("faq")).map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div></div>`;
@@ -878,7 +880,7 @@ function galMoreSet(){
 }
 
 function renderWorks(){
-  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];const c=COVER[k];const v=HAS(k)&&svcByCat(k);return `<a class="work rv in" href="${workHref(k)}" data-cat="${k}"${v?' data-svc="1"':""}><figure class="th${c?"":" empty"}">${c?`<img src="${M(c)}" alt="" loading="lazy"><span class="glare"></span>`:`<span>${t("soon")}</span>`}</figure><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></a>`}).join("");
+  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];const c=COVER[k];const v=HAS(k)&&svcByCat(k);return `<a class="work rv in" href="${workHref(k)}" data-cat="${k}"${v?' data-svc="1"':""}><figure class="th${c?"":" empty"}">${c?`<img src="${M(c)}" alt="${w[0]}" loading="lazy"><span class="glare"></span>`:`<span>${t("soon")}</span>`}</figure><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></a>`}).join("");
   document.querySelectorAll(".work").forEach(b=>b.addEventListener("click",e=>{const k=b.dataset.cat;
     if(!HAS(k)){e.preventDefault();flashAt(e);location.hash="contacto";return}
     if(b.dataset.svc)return;                      /* página propia: navegación normal del enlace */
@@ -946,7 +948,8 @@ $("#lb").addEventListener("touchend",e=>{if(tx===null)return;const d=e.changedTo
 
 /* Hero: diapositivas + foco de flash */
 const slides=$("#slides");
-slides.innerHTML=HERO.map((s,i)=>`<img src="${s}" alt="" ${i===0?'class="on"':'loading="lazy"'}>`).join("");
+const catOf=s=>(PHOTOS.find(p=>p[0]===s)||[,"exteriores"])[1];
+slides.innerHTML=HERO.map((s,i)=>`<img src="${s}" alt="${alt(s,catOf(s))}" ${i===0?'class="on" fetchpriority="high"':'loading="lazy"'}>`).join("");
 let si=0;const imgs=slides.querySelectorAll("img");
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(!reduce) setInterval(()=>{imgs[si].classList.remove("on");si=(si+1)%imgs.length;imgs[si].classList.add("on");},6000);
@@ -1033,9 +1036,7 @@ $("#clForm").addEventListener("submit",e=>{e.preventDefault();const c=$("#clCode
 
 /* La galería (más de 150 fotos) se monta solo al abrirla: así cada página de servicio lleva solo su texto y sus fotos. */
 applyText(); route(); if(!reduce)fxScroll();
-const H=document.documentElement;if(!reduce&&page==="inicio"){H.classList.add("pre");setTimeout(()=>H.classList.remove("pre"),2500)}
-addEventListener("DOMContentLoaded",()=>{const pre=H.classList.contains("pre");H.classList.remove("pre");if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
-  if(pre){gsap.from(".hero .hero-t .k, .hero .hero-t .l",{yPercent:45,opacity:0,duration:1.1,stagger:.14,ease:"power3.out"});gsap.from(".hero-meta",{y:20,opacity:0,duration:.9,delay:.35,ease:"power3.out"})}
+addEventListener("DOMContentLoaded",()=>{if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
   if(!("IntersectionObserver" in window))return;
   const sio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;sio.unobserve(e.target);gsap.to(e.target.querySelectorAll(e.target.dataset.stg),{opacity:1,y:0,duration:.8,stagger:.08,ease:"power3.out",clearProps:"opacity,transform"})}),{rootMargin:"0px 0px -12% 0px"});
   [["#works",".work"],[".about .text",":scope > *"],["#steps",".step"]].forEach(([s,c])=>document.querySelectorAll(s).forEach(el=>{const k=el.querySelectorAll(c);if(!k.length)return;el.dataset.stg=c;gsap.set(k,{opacity:0,y:24});sio.observe(el)}));
