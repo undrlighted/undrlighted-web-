@@ -47,7 +47,8 @@ const server = http.createServer((req, res) => {
       const home = document.documentElement.dataset.route === "inicio";
       document.querySelectorAll(".page:not(.active)").forEach(pg => {
         if (pg.dataset.page === "contacto" || (home && pg.dataset.page === "trabajos")) return;
-        const keep = el => el.closest("#works");
+        // Los textos de enlaces y botones se mantienen: un enlace vacío no dice a dónde lleva.
+        const keep = el => el.closest("#works,a,button");
         pg.querySelectorAll("[data-i18n],[data-i18n-html]").forEach(el => { if (!keep(el)) el.textContent = ""; });
         pg.querySelectorAll("#slides,#mq,#steps,#testi,#grid,#filters,#topic,.faq-list").forEach(el => { el.innerHTML = ""; });
       });

@@ -223,7 +223,9 @@ section{padding-block:clamp(80px,12vw,160px)}
 .ph:hover img{transform:scale(1.035);filter:brightness(1.04)}
 .ph .tag{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .ph:hover .tag,.ph:focus-visible .tag{opacity:1;transform:none}
-html.pre .hero .hero-t .l,html.pre .hero .hero-t .k,html.pre .hero-meta{opacity:0}
+/* Entrada de portada (12-nov): solo CSS y sin ocultar el texto, para que se pinte desde el primer momento (LCP). */
+@media (prefers-reduced-motion:no-preference){.hero .hero-t .k,.hero .hero-t .l,.hero-meta{animation:heroIn 1.1s cubic-bezier(.215,.61,.355,1) both}.hero .hero-t .l{animation-delay:.14s}.hero .hero-t .l+.l{animation-delay:.28s}.hero-meta{animation-duration:.9s;animation-delay:.35s}}
+@keyframes heroIn{from{opacity:.4;transform:translateY(24px)}to{opacity:1;transform:none}}
 .ph.enter{animation:enter .7s cubic-bezier(.2,.7,.2,1) both}
 @keyframes enter{from{transform:translateY(22px) scale(.985)}to{transform:none}}
 .permiso{margin-top:18px;font-size:13px;color:var(--cream-faint)}
@@ -518,7 +520,7 @@ html:not(.prices) .price-only{display:none!important}
 <main>
   <div class="page home active" data-page="inicio">
   <section class="hero" id="hero" style="padding:0">
-    <div class="hero-slides" id="slides"><img src="/img/retrato-moda-exteriores-06.jpg" alt="" class="on"><img src="/img/deporte-17.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-exteriores-10.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-estudio-06.jpg" alt="" loading="lazy"><img src="/img/deporte-14.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-exteriores-22.jpg" alt="" loading="lazy"><img src="/img/eventos-34.jpg" alt="" loading="lazy"></div>
+    <div class="hero-slides" id="slides"><img src="/img/retrato-moda-exteriores-06.jpg" alt="Outdoor portrait and fashion" class="on" fetchpriority="high"><img src="/img/deporte-17.jpg" alt="Sport" loading="lazy"><img src="/img/retrato-moda-exteriores-10.jpg" alt="Outdoor portrait and fashion" loading="lazy"><img src="/img/retrato-moda-estudio-06.jpg" alt="Studio portrait and fashion" loading="lazy"><img src="/img/deporte-14.jpg" alt="Sport" loading="lazy"><img src="/img/retrato-moda-exteriores-22.jpg" alt="Outdoor portrait and fashion" loading="lazy"><img src="/img/eventos-34.jpg" alt="Events" loading="lazy"></div>
     <div class="spot" id="spot"></div>
     <div class="wrap hero-copy">
       <h1 class="hero-t"><span class="k" data-i18n="hero_k">Photographer in Eibar, Gipuzkoa and Bizkaia</span><span class="l" data-i18n="hero_l1">The light born</span><span class="l" data-i18n="hero_l2">from the dark</span></h1>
@@ -579,7 +581,7 @@ html:not(.prices) .price-only{display:none!important}
   <section>
     <div class="wrap">
       <div class="sec-head"><h2 data-i18n-html="work_h">Types of <em>work</em></h2><p data-i18n="work_p">Pick one and I'll take you to its photos.</p></div>
-      <div class="works" id="works"><a class="work rv in" href="#galeria/exteriores" data-cat="exteriores"><figure class="th"><img src="/img/m/retrato-moda-exteriores-22.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Outdoor portrait and fashion</h3><p>The city at night, a river full of reflections or a concrete bridge. I take the flash outside so you stand out from everything else.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/estudio" data-cat="estudio"><figure class="th"><img src="/img/m/retrato-moda-estudio-13.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Studio portrait and fashion</h3><p>Backdrop, light and you. I control every shadow for a clean portrait with character: modelling book, professional headshot or fashion.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/parejas" data-cat="parejas"><figure class="th"><img src="/img/m/retrato-moda-exteriores-19.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Couples</h3><p>The way you are together, at night in the city or in the calm of the coast. No catalogue poses: I take care of the light and guide you.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/familia" data-cat="familia"><figure class="th"><img src="/img/m/familia-01.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Family</h3><p>Natural light and fun: playing, exploring and letting something real happen. With the little ones, the whole family or just your child.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/deporte" data-cat="deporte"><figure class="th"><img src="/img/m/deporte-12.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Sport</h3><p>Your discipline shot like an ad. Flash, low angles and movement frozen in mid-air.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/naturaleza" data-cat="naturaleza"><figure class="th"><img src="/img/m/naturaleza-12.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Nature</h3><p>Forest, mountain or cliff. Natural-light sessions in the calm of nature, where the landscape becomes part of you.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/embarazo" data-cat="embarazo"><figure class="th"><img src="/img/m/embarazo-03.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Pregnancy</h3><p>A stage that goes by fast. In the studio, low-key, or in the calm of nature with your partner.<br>Ideally between weeks 28 and 34.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/eventos" data-cat="eventos"><figure class="th"><img src="/img/m/eventos-27.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Events</h3><p>Races, dance and competitions. I capture what happens and also what it feels like.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/marcas" data-cat="marcas"><figure class="th"><img src="/img/m/marcas-01.jpg" alt="" loading="lazy"><span class="glare"></span></figure><h3>Brands</h3><p>Photography + website. Your brand deserves its own image: lookbook, product with model and photos ready for your online shop and social media.</p><span class="go">See photos<i></i></span></a></div>
+      <div class="works" id="works"><a class="work rv in" href="#galeria/exteriores" data-cat="exteriores"><figure class="th"><img src="/img/m/retrato-moda-exteriores-22.jpg" alt="Outdoor portrait and fashion" loading="lazy"><span class="glare"></span></figure><h3>Outdoor portrait and fashion</h3><p>The city at night, a river full of reflections or a concrete bridge. I take the flash outside so you stand out from everything else.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/estudio" data-cat="estudio"><figure class="th"><img src="/img/m/retrato-moda-estudio-13.jpg" alt="Studio portrait and fashion" loading="lazy"><span class="glare"></span></figure><h3>Studio portrait and fashion</h3><p>Backdrop, light and you. I control every shadow for a clean portrait with character: modelling book, professional headshot or fashion.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/parejas" data-cat="parejas"><figure class="th"><img src="/img/m/retrato-moda-exteriores-19.jpg" alt="Couples" loading="lazy"><span class="glare"></span></figure><h3>Couples</h3><p>The way you are together, at night in the city or in the calm of the coast. No catalogue poses: I take care of the light and guide you.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/familia" data-cat="familia"><figure class="th"><img src="/img/m/familia-01.jpg" alt="Family" loading="lazy"><span class="glare"></span></figure><h3>Family</h3><p>Natural light and fun: playing, exploring and letting something real happen. With the little ones, the whole family or just your child.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/deporte" data-cat="deporte"><figure class="th"><img src="/img/m/deporte-12.jpg" alt="Sport" loading="lazy"><span class="glare"></span></figure><h3>Sport</h3><p>Your discipline shot like an ad. Flash, low angles and movement frozen in mid-air.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/naturaleza" data-cat="naturaleza"><figure class="th"><img src="/img/m/naturaleza-12.jpg" alt="Nature" loading="lazy"><span class="glare"></span></figure><h3>Nature</h3><p>Forest, mountain or cliff. Natural-light sessions in the calm of nature, where the landscape becomes part of you.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/embarazo" data-cat="embarazo"><figure class="th"><img src="/img/m/embarazo-03.jpg" alt="Pregnancy" loading="lazy"><span class="glare"></span></figure><h3>Pregnancy</h3><p>A stage that goes by fast. In the studio, low-key, or in the calm of nature with your partner.<br>Ideally between weeks 28 and 34.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/eventos" data-cat="eventos"><figure class="th"><img src="/img/m/eventos-27.jpg" alt="Events" loading="lazy"><span class="glare"></span></figure><h3>Events</h3><p>Races, dance and competitions. I capture what happens and also what it feels like.</p><span class="go">See photos<i></i></span></a><a class="work rv in" href="#galeria/marcas" data-cat="marcas"><figure class="th"><img src="/img/m/marcas-01.jpg" alt="Brands" loading="lazy"><span class="glare"></span></figure><h3>Brands</h3><p>Photography + website. Your brand deserves its own image: lookbook, product with model and photos ready for your online shop and social media.</p><span class="go">See photos<i></i></span></a></div>
     </div>
   </section>
 
@@ -596,9 +598,9 @@ html:not(.prices) .price-only{display:none!important}
   <div class="page" data-page="galeria">
   <section>
     <div class="wrap">
-      <a class="back" href="#trabajos"><i></i><span data-i18n="back_work"></span></a>
+      <a class="back" href="#trabajos"><i></i><span data-i18n="back_work">Back to Work</span></a>
       <div class="gal-top" id="galTop"><figure class="gal-hero" id="galHero" hidden=""><img alt=""></figure>
-      <div class="sec-head"><p id="galEye" role="heading" aria-level="2"></p><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p id="galP" data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span id="galB" data-i18n="gal_btn"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a><a class="gal-more" id="galMore" hidden=""></a></div></div></div>
+      <div class="sec-head"><p id="galEye" role="heading" aria-level="2"></p><h2 data-i18n-html="gal_h"></h2><div class="gal-cta"><p id="galP" data-i18n-html="gal_p"></p><a class="cta" href="#contacto"><span id="galB" data-i18n="gal_btn">Get in touch</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a><a class="gal-more" id="galMore" hidden=""></a></div></div></div>
       <div class="filters" id="filters" role="group"></div>
       <div class="topic" id="topicWrap"><label for="topic" data-i18n="topic_l"></label><select id="topic"></select></div>
       <div class="grid" id="grid"></div>
@@ -615,7 +617,7 @@ html:not(.prices) .price-only{display:none!important}
         <div><h3 class="extras-h" data-i18n="extras_h"></h3><p class="note" data-i18n="extras_note"></p></div>
         <dl id="extrasList"></dl>
       </div>
-      <div class="band"><p class="band-h" data-i18n="band_h"></p><a class="cta solid" data-wa="" target="_blank" rel="noopener" href="https://wa.me/34623828791?text=Hi%20Adur!%20I'd%20like%20to%20talk%20about%20a%20session."><span data-i18n="wa_main"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a></div>
+      <div class="band"><p class="band-h" data-i18n="band_h"></p><a class="cta solid" data-wa="" target="_blank" rel="noopener" href="https://wa.me/34623828791?text=Hi%20Adur!%20I'd%20like%20to%20talk%20about%20a%20session."><span data-i18n="wa_main">Message me on WhatsApp</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a></div>
     </div>
   </section>
   </div>
@@ -650,7 +652,7 @@ html:not(.prices) .price-only{display:none!important}
       <p class="cl-p" data-i18n="cl_p"></p>
       <form class="cl-form" id="clForm" autocomplete="off">
         <label for="clCode" data-i18n="cl_l"></label>
-        <div class="cl-row"><input id="clCode" name="code" type="text" inputmode="text" autocapitalize="none" autocorrect="off" spellcheck="false" required=""><button class="cta solid" type="submit"><span data-i18n="cl_go"></span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></button></div>
+        <div class="cl-row"><input id="clCode" name="code" type="text" inputmode="text" autocapitalize="none" autocorrect="off" spellcheck="false" required=""><button class="cta solid" type="submit"><span data-i18n="cl_go">Open gallery</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></button></div>
         <p class="hint" data-i18n="cl_hint"></p>
       </form>
     </div>
@@ -890,7 +892,7 @@ function renderSvc(){
   /* Una página sin categoría propia (Gipuzkoa) enlaza cada foto a su tipo y lleva su texto largo en body y sus propias preguntas. */
   const pc=f=>c.cat||((PHOTOS.find(p=>p[0].endsWith("/"+f+".jpg"))||[,"exteriores"])[1]),gal=c.cat?"#galeria/"+c.cat:"#galeria";
   box.innerHTML=`<p class="eyebrow">${s.eye}</p><h1>${s.h1}</h1><div class="svc-text">${s.p.map(x=>`<p>${x}</p>`).join("")}</div>`+
-    `<div class="svc-ph">${c.ph.map(f=>`<a href="#galeria/${pc(f)}"><img src="/img/m/${f}.jpg" alt="${alt(f,pc(f))}" loading="lazy" decoding="async" width="800" height="1000"></a>`).join("")}</div>`+
+    `<div class="svc-ph">${c.ph.map((f,i)=>`<a href="#galeria/${pc(f)}"><img src="/img/m/${f}.jpg" alt="${alt(f,pc(f))}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async" width="800" height="1000"></a>`).join("")}</div>`+
     (s.body?`<div class="svc-text svc-body">${s.body}</div>`:"")+
     `<div class="hero-ctas"><a class="cta" href="#contacto"><span>${t("cta")}</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"/></svg></a><a class="cta ghost" href="${gal}">${t("svc_all")}</a></div>`+
     `<div class="faq"><h2>${t("faq_h")}</h2><div class="faq-list">${(s.faq||t("faq")).map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div></div>`;
@@ -901,7 +903,7 @@ function galMoreSet(){
 }
 
 function renderWorks(){
-  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];const c=COVER[k];const v=HAS(k)&&svcByCat(k);return `<a class="work rv in" href="${workHref(k)}" data-cat="${k}"${v?' data-svc="1"':""}><figure class="th${c?"":" empty"}">${c?`<img src="${M(c)}" alt="" loading="lazy"><span class="glare"></span>`:`<span>${t("soon")}</span>`}</figure><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></a>`}).join("");
+  $("#works").innerHTML=ORDER.map((k,i)=>{const w=t("works")[k];const c=COVER[k];const v=HAS(k)&&svcByCat(k);return `<a class="work rv in" href="${workHref(k)}" data-cat="${k}"${v?' data-svc="1"':""}><figure class="th${c?"":" empty"}">${c?`<img src="${M(c)}" alt="${w[0]}" loading="lazy"><span class="glare"></span>`:`<span>${t("soon")}</span>`}</figure><h3>${w[0]}</h3><p>${w[1]}</p><span class="go">${HAS(k)?t("see"):t("ask")}<i></i></span></a>`}).join("");
   document.querySelectorAll(".work").forEach(b=>b.addEventListener("click",e=>{const k=b.dataset.cat;
     if(!HAS(k)){e.preventDefault();flashAt(e);location.hash="contacto";return}
     if(b.dataset.svc)return;                      /* página propia: navegación normal del enlace */
@@ -969,7 +971,8 @@ $("#lb").addEventListener("touchend",e=>{if(tx===null)return;const d=e.changedTo
 
 /* Hero: diapositivas + foco de flash */
 const slides=$("#slides");
-slides.innerHTML=HERO.map((s,i)=>`<img src="${s}" alt="" ${i===0?'class="on"':'loading="lazy"'}>`).join("");
+const catOf=s=>(PHOTOS.find(p=>p[0]===s)||[,"exteriores"])[1];
+slides.innerHTML=HERO.map((s,i)=>`<img src="${s}" alt="${alt(s,catOf(s))}" ${i===0?'class="on" fetchpriority="high"':'loading="lazy"'}>`).join("");
 let si=0;const imgs=slides.querySelectorAll("img");
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 if(!reduce) setInterval(()=>{imgs[si].classList.remove("on");si=(si+1)%imgs.length;imgs[si].classList.add("on");},6000);
@@ -1056,9 +1059,7 @@ $("#clForm").addEventListener("submit",e=>{e.preventDefault();const c=$("#clCode
 
 /* La galería (más de 150 fotos) se monta solo al abrirla: así cada página de servicio lleva solo su texto y sus fotos. */
 applyText(); route(); if(!reduce)fxScroll();
-const H=document.documentElement;if(!reduce&&page==="inicio"){H.classList.add("pre");setTimeout(()=>H.classList.remove("pre"),2500)}
-addEventListener("DOMContentLoaded",()=>{const pre=H.classList.contains("pre");H.classList.remove("pre");if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
-  if(pre){gsap.from(".hero .hero-t .k, .hero .hero-t .l",{yPercent:45,opacity:0,duration:1.1,stagger:.14,ease:"power3.out"});gsap.from(".hero-meta",{y:20,opacity:0,duration:.9,delay:.35,ease:"power3.out"})}
+addEventListener("DOMContentLoaded",()=>{if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
   if(!("IntersectionObserver" in window))return;
   const sio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;sio.unobserve(e.target);gsap.to(e.target.querySelectorAll(e.target.dataset.stg),{opacity:1,y:0,duration:.8,stagger:.08,ease:"power3.out",clearProps:"opacity,transform"})}),{rootMargin:"0px 0px -12% 0px"});
   [["#works",".work"],[".about .text",":scope > *"],["#steps",".step"]].forEach(([s,c])=>document.querySelectorAll(s).forEach(el=>{const k=el.querySelectorAll(c);if(!k.length)return;el.dataset.stg=c;gsap.set(k,{opacity:0,y:24});sio.observe(el)}));
