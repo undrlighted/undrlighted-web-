@@ -47,6 +47,10 @@ SVC = {
                 "ph": ["familia-01", "familia-03", "familia-05", "familia-02", "familia-06", "familia-04"]},
     "deporte": {"cat": "deporte", "url": {"eu": "/kirola/", "es": "/es/deporte/"},
                 "ph": ["deporte-11", "deporte-12", "deporte-14", "deporte-17", "deporte-15", "deporte-07"]},
+    # Páginas cortas añadidas el 12-nov (Natura, Ekitaldiak, Markak)
+    "naturaleza": {"cat": "naturaleza", "url": {"eu": "/natura/", "es": "/es/naturaleza/"}, "ph": ["naturaleza-10", "naturaleza-15", "naturaleza-11", "naturaleza-16", "naturaleza-12", "naturaleza-17"]},
+    "eventos": {"cat": "eventos", "url": {"eu": "/ekitaldiak/", "es": "/es/eventos/"}, "ph": ["eventos-27", "eventos-34", "eventos-24", "eventos-30", "eventos-29", "eventos-28"]},
+    "marcas": {"cat": "marcas", "url": {"eu": "/markak/", "es": "/es/marcas/"}, "ph": ["marcas-01", "marcas-02", "marcas-03", "marcas-04", "marcas-05"]},
     # Página local (palabra clave «sesión de fotos en Gipuzkoa»): sin categoría propia, cada foto enlaza a su tipo
     "gipuzkoa": {"cat": "", "url": {"eu": "/argazki-saioa-gipuzkoa/", "es": "/es/sesion-de-fotos-gipuzkoa/"},
                  "ph": ["naturaleza-07", "retrato-moda-exteriores-22", "naturaleza-12",
@@ -86,6 +90,18 @@ META = {
         "es": ("Sesión de fotos en familia en Euskal Herria · Undrlighted",
                "Fotos de familia con luz natural y juego, dinámicas y sin poses. Con niños que ya corren y juegan. Desde Eibar a toda Euskal Herria."),
     },
+    "naturaleza": {
+        "eu": ("Argazki saioa naturan Euskal Herrian · Undrlighted", "Saioak basoan, mendian edo itsaslabarrean, argi naturalarekin: bakarrik, bikotean edo haurdun. Eibartik Euskal Herri osora, dosierrarekin."),
+        "es": ("Sesión de fotos en la naturaleza · Undrlighted", "Sesiones en el bosque, el monte o el acantilado con luz natural: a solas, en pareja o de embarazo. Desde Eibar a toda Euskal Herria, con dossier previo."),
+    },
+    "eventos": {
+        "eu": ("Ekitaldien argazkilaritza Euskal Herrian · Undrlighted", "Lasterketak, dantza emanaldiak eta lehiaketak, argi gutxirekin ere. Klub, elkarte eta antolatzaileentzat, neurrira. Eibartik Euskal Herri osora."),
+        "es": ("Fotografía de eventos en Euskal Herria · Undrlighted", "Carreras, actuaciones de danza y competiciones, también con poca luz. Para clubes, asociaciones y organizadores, a medida. Desde Eibar a toda Euskal Herria."),
+    },
+    "marcas": {
+        "eu": ("Argazkilaritza marketarako · Undrlighted", "Produktua modeloarekin, lookbooka eta sareetarako edukia, flasharekin eta estilo propioarekin. Euskal Herriko marketarako, neurrira, webgunearekin ere."),
+        "es": ("Fotografía para marcas en Euskal Herria · Undrlighted", "Producto con modelo, lookbook y contenido para redes, con flash y estilo propio. Para marcas de Euskal Herria, a medida, y también con la web."),
+    },
     "gipuzkoa": {
         "eu": ("Argazki saioa Gipuzkoan: familia, bikotea eta erretratua",
                "Zure argazki saioa Gipuzkoan prestatzeko gida: lekuak, ordurik onenak, zer jantzi eta nolakoa den familia, bikote edo erretratu saio bat Eibartik."),
@@ -101,9 +117,10 @@ META = {
 }
 
 # Nombres de servicio para el JSON-LD (castellano en todas las versiones: es el dato, no el texto visible)
-SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Sesión de familia", "Fotografía deportiva", "Moda y editorial", "Eventos"]
+SERVICES_LD = ["Book y retrato", "Sesión de pareja", "Sesión de embarazo", "Sesión de familia", "Fotografía deportiva", "Moda y editorial", "Sesión en la naturaleza", "Fotografía de eventos", "Fotografía para marcas"]
 SVC_LD_NAME = {"retrato": "Book y retrato", "parejas": "Sesión de pareja", "embarazo": "Sesión de embarazo", "familia": "Sesión de familia", "deporte": "Fotografía deportiva",
-               "gipuzkoa": "Sesión de fotos en Gipuzkoa"}
+               "gipuzkoa": "Sesión de fotos en Gipuzkoa",
+               "naturaleza": "Sesión en la naturaleza", "eventos": "Fotografía de eventos", "marcas": "Fotografía para marcas"}
 
 BUSINESS = {
     "@type": "ProfessionalService",

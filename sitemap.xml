@@ -82,6 +82,42 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/deporte/"/>
   </url>
   <url>
+    <loc>https://undrlighted.es/natura/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/natura/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/naturaleza/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/naturaleza/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/natura/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/naturaleza/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/ekitaldiak/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/ekitaldiak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/eventos/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/eventos/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/ekitaldiak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/eventos/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/markak/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/markak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/marcas/"/>
+  </url>
+  <url>
+    <loc>https://undrlighted.es/es/marcas/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/markak/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://undrlighted.es/es/marcas/"/>
+  </url>
+  <url>
     <loc>https://undrlighted.es/argazki-saioa-gipuzkoa/</loc>
     <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="eu" href="https://undrlighted.es/argazki-saioa-gipuzkoa/"/>

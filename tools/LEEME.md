@@ -11,7 +11,7 @@ python3 tools/build.py
 node tools/prerender.js     # necesita Playwright (en los hilos en la nube ya está instalado)
 ```
 
-Páginas generadas (11):
+Páginas generadas (21):
 
 | URL | Idioma | Contenido |
 | --- | --- | --- |
@@ -21,6 +21,13 @@ Páginas generadas (11):
 | `/bikoteak/`, `/es/parejas/` | eu, es | Parejas |
 | `/haurdunaldia/`, `/es/embarazo/` | eu, es | Embarazo |
 | `/kirola/`, `/es/deporte/` | eu, es | Deporte |
+| `/familia/`, `/es/familia/` | eu, es | Familia |
+| `/natura/`, `/es/naturaleza/` | eu, es | Naturaleza (página corta) |
+| `/ekitaldiak/`, `/es/eventos/` | eu, es | Eventos (página corta) |
+| `/markak/`, `/es/marcas/` | eu, es | Marcas (página corta) |
+| `/argazki-saioa-gipuzkoa/`, `/es/sesion-de-fotos-gipuzkoa/` | eu, es | Guía local de Gipuzkoa |
+
+Desde el 12-nov, Exteriores y Estudio son un solo tipo, «Retrato y moda» (clave `estudio`), que lleva a `/erretratua/` y `/es/book-retrato/`.
 
 ## Notas
 
