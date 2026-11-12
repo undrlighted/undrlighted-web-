@@ -13,7 +13,7 @@ import html, json, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://undrlighted.es"
-LASTMOD = "2026-11-03"
+LASTMOD = "2026-11-12"
 # Código de verificación de Google Search Console (método «Etiqueta HTML»): solo el valor de content="…"
 # No hace falta si verificas el dominio por DNS (propiedad de dominio).
 GSC_TOKEN = ""

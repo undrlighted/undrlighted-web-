@@ -1013,7 +1013,7 @@ function route(){
   const [p,sub]=(location.hash.slice(1)||H0.dataset.route||"inicio").split("/");
   let next=PAGES.includes(p)?p:(p==="packs"?"contacto":"inicio");
   if(next==="svc"){if(SVC[sub]&&t("svc")&&t("svc")[sub]){if(sub!==svcK){svcK=sub;renderSvc()}}else next="inicio"}
-  if(next==="galeria"){const f=ORDER.includes(sub)&&HAS(sub)?sub:"all";if(f!==filter){filter=f;topic="";renderFilters();renderGrid()}}
+  if(next==="galeria"){const f=ORDER.includes(sub)&&HAS(sub)?sub:"all";if(f!==filter||!$("#grid").children.length){filter=f;topic="";renderFilters();renderGrid()}}
   if(next!==page){
     document.querySelectorAll(".page").forEach(el=>el.classList.toggle("active",el.dataset.page===next));
     page=next;window.scrollTo(0,0);
@@ -1027,7 +1027,8 @@ function route(){
 addEventListener("hashchange",route);
 $("#clForm").addEventListener("submit",e=>{e.preventDefault();const c=$("#clCode").value.trim().toLowerCase().replace(/\s+/g,"").replace(/[^a-z0-9-]/g,"");if(c)window.open("https://undrlighted.pixieset.com/"+c+"/","_blank","noopener")});
 
-applyText(); renderGrid(); route(); if(!reduce)fxScroll();
+/* La galería (más de 150 fotos) se monta solo al abrirla: así cada página de servicio lleva solo su texto y sus fotos. */
+applyText(); route(); if(!reduce)fxScroll();
 const H=document.documentElement;if(!reduce&&page==="inicio"){H.classList.add("pre");setTimeout(()=>H.classList.remove("pre"),2500)}
 addEventListener("DOMContentLoaded",()=>{const pre=H.classList.contains("pre");H.classList.remove("pre");if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
   if(pre){gsap.from(".hero .hero-t .l",{yPercent:45,opacity:0,duration:1.1,stagger:.14,ease:"power3.out"});gsap.from(".hero-meta",{y:20,opacity:0,duration:.9,delay:.35,ease:"power3.out"})}
