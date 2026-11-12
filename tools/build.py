@@ -27,7 +27,7 @@ GBP_URL = ""
 # Titular de portada. En las páginas de servicio el <h1> real es el del servicio, así que
 # aquí el titular deja de ser encabezado: si no, cada página tendría dos <h1> (el de portada
 # sigue en el HTML aunque el CSS lo oculte). Los estilos van por la clase, no por la etiqueta.
-HERO_H1 = '<h1 class="hero-t"><span class="l" data-i18n="hero_l1"></span><span class="l" data-i18n="hero_l2"></span></h1>'
+HERO_H1 = '<h1 class="hero-t"><span class="k" data-i18n="hero_k"></span><span class="l" data-i18n="hero_l1"></span><span class="l" data-i18n="hero_l2"></span></h1>'
 HERO_P = HERO_H1.replace("<h1 ", "<p ").replace("</h1>", "</p>")
 
 LOCALE = {"eu": "eu_ES", "es": "es_ES", "en": "en_GB"}

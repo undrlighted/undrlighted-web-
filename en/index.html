@@ -98,7 +98,7 @@ nav a:hover,nav a[aria-current="page"]{color:var(--cream)}
   .logo span:last-child{display:none}
   .lang a{padding:5px 8px;min-width:40px}
   .hero .hero-t{font-size:clamp(40px,12.5vw,64px)}
-  .hero .hero-t .l:nth-child(2){padding-left:.1em}
+  .hero .hero-t .l+.l{padding-left:.1em}
   .eyebrow{letter-spacing:.08em;line-height:1.5}
 }
 /* Hero con foco */
@@ -113,7 +113,8 @@ nav a:hover,nav a[aria-current="page"]{color:var(--cream)}
 .hero-copy{padding-block:120px 64px;width:100%}
 .hero .hero-t{font-size:clamp(54px,10.5vw,168px);line-height:.9;letter-spacing:-.02em}
 .hero .hero-t .l{display:block}
-.hero .hero-t .l:nth-child(2){font-style:italic;padding-left:clamp(30px,9vw,180px);color:var(--cream-dim)}
+.hero .hero-t .k{display:block;font-size:clamp(13px,1.1vw,16px);line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:.9em}
+.hero .hero-t .l+.l{font-style:italic;padding-left:clamp(30px,9vw,180px);color:var(--cream-dim)}
 .hero-meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:36px}
 .hero-meta p{max-width:34ch;color:var(--cream-dim)}
 .hero-tag{display:block;margin-top:14px;font-size:13px;color:var(--cream)}
@@ -222,7 +223,7 @@ section{padding-block:clamp(80px,12vw,160px)}
 .ph:hover img{transform:scale(1.035);filter:brightness(1.04)}
 .ph .tag{position:absolute;left:12px;bottom:10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .ph:hover .tag,.ph:focus-visible .tag{opacity:1;transform:none}
-html.pre .hero .hero-t .l,html.pre .hero-meta{opacity:0}
+html.pre .hero .hero-t .l,html.pre .hero .hero-t .k,html.pre .hero-meta{opacity:0}
 .ph.enter{animation:enter .7s cubic-bezier(.2,.7,.2,1) both}
 @keyframes enter{from{transform:translateY(22px) scale(.985)}to{transform:none}}
 .permiso{margin-top:18px;font-size:13px;color:var(--cream-faint)}
@@ -364,7 +365,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-ite
 .strip a:hover img,.strip a:focus-visible img{filter:none;transform:scale(1.03)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
-@media (max-width:560px){.hero .hero-t{font-size:clamp(38px,11vw,60px)}.hero .hero-t .l:nth-child(2){padding-left:.1em}}
+@media (max-width:560px){.hero .hero-t{font-size:clamp(38px,11vw,60px)}.hero .hero-t .l+.l{padding-left:.1em}}
 @media not all and (hover:hover) and (pointer:fine){
   .navlinks a:hover{transform:none}
   .navlinks a:hover .rl b:first-child{transform:none;opacity:1}
@@ -520,9 +521,9 @@ html:not(.prices) .price-only{display:none!important}
     <div class="hero-slides" id="slides"><img src="/img/retrato-moda-exteriores-06.jpg" alt="" class="on"><img src="/img/deporte-17.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-exteriores-10.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-estudio-06.jpg" alt="" loading="lazy"><img src="/img/deporte-14.jpg" alt="" loading="lazy"><img src="/img/retrato-moda-exteriores-22.jpg" alt="" loading="lazy"><img src="/img/eventos-34.jpg" alt="" loading="lazy"></div>
     <div class="spot" id="spot"></div>
     <div class="wrap hero-copy">
-      <h1 class="hero-t"><span class="l" data-i18n="hero_l1">The light born</span><span class="l" data-i18n="hero_l2">from the dark</span></h1>
+      <h1 class="hero-t"><span class="k" data-i18n="hero_k">Photographer in Eibar, Gipuzkoa and Bizkaia</span><span class="l" data-i18n="hero_l1">The light born</span><span class="l" data-i18n="hero_l2">from the dark</span></h1>
       <div class="hero-meta">
-        <p><span data-i18n="hero_p">Portraits with flash or natural light, on the street, in the studio or out in nature. I plan every session in detail: all you have to do is show up.</span><span class="hero-tag" data-i18n="hero_eyebrow">Photographer in Eibar · portrait, fashion, couples and sport</span></p>
+        <p><span data-i18n="hero_p">Portraits with flash or natural light, on the street, in the studio or out in nature. I plan every session in detail: all you have to do is show up.</span><span class="hero-tag" data-i18n="hero_eyebrow">Portrait, fashion, couples, family and sport</span></p>
         <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
           <div class="hero-ctas"><a class="cta" href="#contacto"><span data-i18n="cta">Get in touch</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a><a class="cta ghost" href="#trabajos" data-i18n="cta2">See my work</a></div>
         </div>
@@ -686,7 +687,8 @@ const PHOTOS = [["/img/familia-01.jpg", "familia", 1080, 1440], ["/img/familia-0
 const T = {
  en:{
   nav_about:"About",nav_work:"Work",nav_gallery:"Gallery",nav_packs:"Packages",nav_contact:"Contact",nav_client:"Client area",cl_h:"Client <em>area</em>",cl_p:"After your session I'll send you a gallery name and a password. Type the name here to see and download your photos.",cl_l:"Gallery name",cl_go:"Open gallery",cl_hint:"The gallery will ask for your password. If you have lost it, message me.",menu:"Menu",
-  hero_eyebrow:"Photographer in Eibar · portrait, fashion, couples and sport",
+  hero_k:"Photographer in Eibar, Gipuzkoa and Bizkaia",
+  hero_eyebrow:"Portrait, fashion, couples, family and sport",
   hero_l1:"The light born",hero_l2:"from the dark",
   hero_p:"Portraits with flash or natural light, on the street, in the studio or out in nature. I plan every session in detail: all you have to do is show up.",
   cta:"Get in touch",cta2:"See my work",next:"Next",
@@ -732,7 +734,8 @@ const T = {
  },
  es:{
   nav_about:"Sobre mí",nav_work:"Trabajos",nav_gallery:"Galería",nav_packs:"Packs",nav_contact:"Contacto",nav_client:"Área de clientes",cl_h:"Área de <em>clientes</em>",cl_p:"Después de la sesión te envío el nombre de tu galería y una contraseña. Escribe aquí el nombre para ver y descargar tus fotos.",cl_l:"Nombre de la galería",cl_go:"Abrir galería",cl_hint:"La galería te pedirá la contraseña. Si la has perdido, escríbeme.",menu:"Menú",
-  hero_eyebrow:"Fotógrafo en Eibar · retrato, moda, parejas y deporte",
+  hero_k:"Fotógrafo en Eibar, Gipuzkoa y Bizkaia",
+  hero_eyebrow:"Sesiones de fotos de retrato, moda, pareja, familia y deporte",
   hero_l1:"La luz que nace",hero_l2:"de la oscuridad",
   hero_p:"Retratos con flash o con luz natural, en la calle, en estudio o en plena naturaleza. Preparo cada sesión al detalle: tú solo tienes que venir.",
   cta:"Contacta conmigo",cta2:"Ver trabajos",next:"Siguiente",
@@ -778,7 +781,8 @@ const T = {
  },
  eu:{
   nav_about:"Aurkezpena",nav_work:"Lanak",nav_gallery:"Galeria",nav_packs:"Pack-ak",nav_contact:"Kontaktua",nav_client:"Bezeroen gunea",cl_h:"Bezeroen <em>gunea</em>",cl_p:"Saioaren ondoren zure galeriaren izena eta pasahitz bat bidaliko dizkizut. Idatzi hemen izena zure argazkiak ikusi eta deskarga ditzazun.",cl_l:"Galeriaren izena",cl_go:"Ireki galeria",cl_hint:"Galeriak pasahitza eskatuko dizu. Galdu baduzu, idatzi iezadazu.",menu:"Menua",
-  hero_eyebrow:"Argazkilaria Eibarren · erretratua, moda, bikoteak eta kirola",
+  hero_k:"Argazkilaria Eibarren, Gipuzkoan eta Bizkaian",
+  hero_eyebrow:"Erretratu, moda, bikote, familia eta kirol argazki saioak",
   hero_l1:"Iluntasunetik",hero_l2:"jaiotzen den argia",
   hero_p:"Erretratuak flasharekin edo argi naturalarekin, kalean, estudioan edo naturan. Saio bakoitza xehetasunez prestatzen dut: zuk etorri besterik egin behar ez dezazun.",
   cta:"Jarri nirekin harremanetan",cta2:"Lanak ikusi",next:"Hurrengoa",
@@ -1054,7 +1058,7 @@ $("#clForm").addEventListener("submit",e=>{e.preventDefault();const c=$("#clCode
 applyText(); route(); if(!reduce)fxScroll();
 const H=document.documentElement;if(!reduce&&page==="inicio"){H.classList.add("pre");setTimeout(()=>H.classList.remove("pre"),2500)}
 addEventListener("DOMContentLoaded",()=>{const pre=H.classList.contains("pre");H.classList.remove("pre");if(!window.gsap||reduce)return;if(window.Flip)gsap.registerPlugin(Flip);
-  if(pre){gsap.from(".hero .hero-t .l",{yPercent:45,opacity:0,duration:1.1,stagger:.14,ease:"power3.out"});gsap.from(".hero-meta",{y:20,opacity:0,duration:.9,delay:.35,ease:"power3.out"})}
+  if(pre){gsap.from(".hero .hero-t .k, .hero .hero-t .l",{yPercent:45,opacity:0,duration:1.1,stagger:.14,ease:"power3.out"});gsap.from(".hero-meta",{y:20,opacity:0,duration:.9,delay:.35,ease:"power3.out"})}
   if(!("IntersectionObserver" in window))return;
   const sio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;sio.unobserve(e.target);gsap.to(e.target.querySelectorAll(e.target.dataset.stg),{opacity:1,y:0,duration:.8,stagger:.08,ease:"power3.out",clearProps:"opacity,transform"})}),{rootMargin:"0px 0px -12% 0px"});
   [["#works",".work"],[".about .text",":scope > *"],["#steps",".step"]].forEach(([s,c])=>document.querySelectorAll(s).forEach(el=>{const k=el.querySelectorAll(c);if(!k.length)return;el.dataset.stg=c;gsap.set(k,{opacity:0,y:24});sio.observe(el)}));
