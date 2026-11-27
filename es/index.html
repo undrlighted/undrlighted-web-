@@ -488,6 +488,14 @@ html:not(.prices) .price-only{display:none!important}
 .testi blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:22px;line-height:1.35}
 #testiWrap{margin-top:clamp(56px,7vw,96px)}
 .svc-testi{margin:clamp(40px,5vw,64px) 0 0}
+.tq{all:unset;display:block;cursor:pointer;text-align:left}
+.tq:focus-visible{outline:1px solid var(--amber);outline-offset:3px}
+.tq-f,.tq[aria-expanded="true"] .tq-s{display:none}
+.tq[aria-expanded="true"] .tq-f{display:inline}
+@media (hover:hover){.tq:hover .tq-s{display:none}.tq:hover .tq-f{display:inline}}
+.tq-pm{display:inline-block;margin-left:10px;font-family:var(--body);font-style:normal;font-size:20px;color:var(--amber);transition:transform .25s ease}
+.tq[aria-expanded="true"] .tq-pm{transform:rotate(45deg)}
+@media (hover:hover){.tq:hover .tq-pm{transform:rotate(45deg)}}
 .testi cite{display:block;margin-top:12px;font-family:var(--body);font-style:normal;font-size:14px;color:var(--cream-dim)}
 .gal-more{display:inline-block;margin-top:14px;color:var(--cream-dim);text-underline-offset:4px}
 .foot-svc{display:flex;flex-wrap:wrap;gap:6px 18px}
@@ -554,7 +562,7 @@ html:not(.prices) .price-only{display:none!important}
       </div>
     </div>
     <div class="wrap"><div class="band"><p class="band-h" data-i18n="band_h">¿Hablamos de tu sesión?</p><a class="cta solid" data-wa="" target="_blank" rel="noopener" href="https://wa.me/34623828791?text=%C2%A1Hola%20Adur!%20Me%20gustar%C3%ADa%20hablar%20de%20una%20sesi%C3%B3n."><span data-i18n="wa_main">Escríbeme por WhatsApp</span><svg viewBox="0 0 14 14" fill="none" stroke="currentColor"><path d="M1 13L13 1M5 1h8v8"></path></svg></a></div></div>
-    <div class="wrap" id="testiWrap"><div class="sec-head"><h2 data-i18n-html="testi_h">Lo que <em>dicen</em></h2></div><div class="testi" id="testi"><blockquote>«Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.»<cite>Ibai</cite></blockquote><blockquote>«Desde el primer contacto fue una persona muy cercana y profesional.»<cite>Adriana</cite></blockquote><blockquote>«Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.»<cite>Olatz</cite></blockquote></div></div>
+    <div class="wrap" id="testiWrap"><div class="sec-head"><h2 data-i18n-html="testi_h">Lo que <em>dicen</em></h2></div><div class="testi" id="testi"><blockquote><button type="button" class="tq" aria-expanded="false"><span class="tq-s">«Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.»</span><span class="tq-f">«Hice con Adur una sesion en Bilbao y la verdad que fue todo increible. Fue una de mis primeras y la verdad que lo hizo todo super facil y super divertido. Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio. Fue un placer!»</span><span class="tq-pm" aria-hidden="true">+</span></button><cite>Ibai</cite></blockquote><blockquote><button type="button" class="tq" aria-expanded="false"><span class="tq-s">«Desde el primer contacto fue una persona muy cercana y profesional.»</span><span class="tq-f">«Desde el primer contacto fue una persona muy cercana y profesional. Durante toda la sesión consigue crear un ambiente de confianza y seguridad en el que te sientes cómoda y puedes disfrutar de la experiencia. Además, destaco su rapidez a la hora de compartir el contenido editado y la calidad del resultado. Sin duda, una experiencia de 10 y un fotógrafo totalmente recomendable.»</span><span class="tq-pm" aria-hidden="true">+</span></button><cite>Adriana</cite></blockquote><blockquote><button type="button" class="tq" aria-expanded="false"><span class="tq-s">«Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.»</span><span class="tq-f">«Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir. Y el resultado un 10 😍»</span><span class="tq-pm" aria-hidden="true">+</span></button><cite>Olatz</cite></blockquote></div></div>
   </section>
   </div>
 
@@ -840,11 +848,16 @@ const ALL=["naturaleza-12", "familia-01", "retrato-moda-exteriores-25", "deporte
    si coincide con una página de servicio, la opinión sale también allí. Vacío = solo en la portada.
    Sin marcado schema de reseñas (decisión de Adur, 27-nov). */
 const TESTI=[
-  {q:"Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.",n:"Ibai",cat:""},
-  {q:"Desde el primer contacto fue una persona muy cercana y profesional.",n:"Adriana",cat:""},
-  {q:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.",n:"Olatz",cat:""}
+  {q:"Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.",n:"Ibai",cat:"",
+   full:"Hice con Adur una sesion en Bilbao y la verdad que fue todo increible. Fue una de mis primeras y la verdad que lo hizo todo super facil y super divertido. Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio. Fue un placer!"},
+  {q:"Desde el primer contacto fue una persona muy cercana y profesional.",n:"Adriana",cat:"",
+   full:"Desde el primer contacto fue una persona muy cercana y profesional. Durante toda la sesión consigue crear un ambiente de confianza y seguridad en el que te sientes cómoda y puedes disfrutar de la experiencia. Además, destaco su rapidez a la hora de compartir el contenido editado y la calidad del resultado. Sin duda, una experiencia de 10 y un fotógrafo totalmente recomendable."},
+  {q:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.",n:"Olatz",cat:"",
+   full:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir. Y el resultado un 10 😍"}
 ];
-const testiHtml=l=>l.map(x=>`<blockquote${lang==="es"?"":' lang="es"'}>«${x.q}»<cite>${x.n}</cite></blockquote>`).join("");
+/* Se ve la frase corta (q); al tocarla, o al pasar el ratón en ordenador, se lee el texto completo (full). */
+const testiHtml=l=>l.map(x=>`<blockquote${lang==="es"?"":' lang="es"'}>`+(x.full?`<button type="button" class="tq" aria-expanded="false"><span class="tq-s">«${x.q}»</span><span class="tq-f">«${x.full}»</span><span class="tq-pm" aria-hidden="true">+</span></button>`:`«${x.q}»`)+`<cite>${x.n}</cite></blockquote>`).join("");
+document.addEventListener("click",e=>{const b=e.target.closest(".tq");if(b)b.setAttribute("aria-expanded",b.getAttribute("aria-expanded")!=="true")});
 /* Exteriores y estudio van juntos como «Retrato y moda» (clave estudio) desde el 12-nov. */
 const ORDER=["estudio","parejas","familia","deporte","naturaleza","embarazo","eventos","marcas"];
 /* Textos alternativos por foto: [eu, es, en] */
