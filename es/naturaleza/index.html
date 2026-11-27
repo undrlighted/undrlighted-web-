@@ -491,6 +491,7 @@ html:not(.prices) .price-only{display:none!important}
 .tq-f,.tq[aria-expanded="true"] .tq-s{display:none}
 .tq[aria-expanded="true"] .tq-f{display:inline}
 @media (hover:hover){.tq:hover .tq-s{display:none}.tq:hover .tq-f{display:inline}}
+.tq-nw{white-space:nowrap}
 .tq-pm{display:inline-block;margin-left:10px;font-family:var(--body);font-style:normal;font-size:20px;color:var(--amber);transition:transform .25s ease}
 .tq[aria-expanded="true"] .tq-pm{transform:rotate(45deg)}
 @media (hover:hover){.tq:hover .tq-pm{transform:rotate(45deg)}}
@@ -854,7 +855,7 @@ const TESTI=[
    full:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir. Y el resultado un 10 😍"}
 ];
 /* Se ve la frase corta (q); al tocarla, o al pasar el ratón en ordenador, se lee el texto completo (full). */
-const testiHtml=l=>l.map(x=>`<blockquote${lang==="es"?"":' lang="es"'}>`+(x.full?`<button type="button" class="tq" aria-expanded="false"><span class="tq-s">«${x.q}»</span><span class="tq-f">«${x.full}»</span><span class="tq-pm" aria-hidden="true">+</span></button>`:`«${x.q}»`)+`<cite>${x.n}</cite></blockquote>`).join("");
+const testiHtml=l=>l.map(x=>`<blockquote${lang==="es"?"":' lang="es"'}>`+(x.full?`<button type="button" class="tq" aria-expanded="false"><span class="tq-s">«${x.q}<span class="tq-nw">»<span class="tq-pm" aria-hidden="true">+</span></span></span><span class="tq-f">«${x.full}<span class="tq-nw">»<span class="tq-pm" aria-hidden="true">+</span></span></span></button>`:`«${x.q}»`)+`<cite>${x.n}</cite></blockquote>`).join("");
 document.addEventListener("click",e=>{const b=e.target.closest(".tq");if(b)b.setAttribute("aria-expanded",b.getAttribute("aria-expanded")!=="true")});
 /* Exteriores y estudio van juntos como «Retrato y moda» (clave estudio) desde el 12-nov. */
 const ORDER=["estudio","parejas","familia","deporte","naturaleza","embarazo","eventos","marcas"];
