@@ -33,5 +33,5 @@ Desde el 12-nov, Exteriores y Estudio son un solo tipo, «Retrato y moda» (clav
 
 - Las secciones siguen funcionando con `#` (`#trabajos`, `#galeria/parejas`…) dentro de cada URL.
 - **Search Console:** pega el código de la etiqueta HTML en `GSC_TOKEN` (en `tools/build.py`) y vuelve a generar.
-- **Testimonios:** añádelos en `testi` de cada idioma, en `src/template.html`, como `["texto", "Nombre, sesión"]`. Con la lista vacía, la sección no aparece.
+- **Opiniones de clientes:** están en `TESTI`, en `src/template.html`, como `{q:"texto literal", n:"Nombre", cat:"tipo"}`. No se traducen: en euskera e inglés salen en castellano. Con `cat` (por ejemplo `deporte`), la opinión sale también en la página de ese tipo. Sin marcado schema de reseñas. Con la lista vacía, la sección no aparece.
 - **Foto nueva:** añádela a `PHOTOS`. Su texto alternativo es el nombre del tipo de trabajo (Adur quitó las descripciones por foto el 27-oct; `ALT` queda vacío).
