@@ -485,7 +485,7 @@ html:not(.prices) .price-only{display:none!important}
 .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:32px}
 .testi blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:22px;line-height:1.35}
 #testiWrap{margin-top:clamp(56px,7vw,96px)}
-.svc-testi{margin:clamp(40px,5vw,64px) 0 0}
+.svc-testi{margin:clamp(40px,5vw,64px) 0 clamp(32px,4vw,48px)}
 .tq{all:unset;display:block;cursor:pointer;text-align:left}
 .tq:focus-visible{outline:1px solid var(--amber);outline-offset:3px}
 .tq-f,.tq[aria-expanded="true"] .tq-s{display:none}
@@ -846,11 +846,11 @@ const ALL=["naturaleza-12", "familia-01", "retrato-moda-exteriores-25", "deporte
    si coincide con una página de servicio, la opinión sale también allí. Vacío = solo en la portada.
    Sin marcado schema de reseñas (decisión de Adur, 27-nov). */
 const TESTI=[
-  {q:"Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.",n:"Ibai",cat:"",
+  {q:"Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio.",n:"Ibai",cat:"deporte",
    full:"Hice con Adur una sesion en Bilbao y la verdad que fue todo increible. Fue una de mis primeras y la verdad que lo hizo todo super facil y super divertido. Me sentí super agusto que creo que es de lo más importante y el resultado de las fotos fue espectacular, parecian de anuncio. Fue un placer!"},
-  {q:"Desde el primer contacto fue una persona muy cercana y profesional.",n:"Adriana",cat:"",
+  {q:"Desde el primer contacto fue una persona muy cercana y profesional.",n:"Adriana",cat:"parejas",
    full:"Desde el primer contacto fue una persona muy cercana y profesional. Durante toda la sesión consigue crear un ambiente de confianza y seguridad en el que te sientes cómoda y puedes disfrutar de la experiencia. Además, destaco su rapidez a la hora de compartir el contenido editado y la calidad del resultado. Sin duda, una experiencia de 10 y un fotógrafo totalmente recomendable."},
-  {q:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.",n:"Olatz",cat:"",
+  {q:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir.",n:"Olatz",cat:"estudio",
    full:"Estoy encantada con esta sesión, Adur es un profesional increíble, te transmite tranquilidad y mucha confianza, estuve súper cómoda y volvería a repetir. Y el resultado un 10 😍"}
 ];
 /* Se ve la frase corta (q); al tocarla, o al pasar el ratón en ordenador, se lee el texto completo (full). */
